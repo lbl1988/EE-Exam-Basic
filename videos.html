@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>视频课程 · 张工教育专业基础5学科精讲（站内直放+逐讲掌握）</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.video-layout{display:grid;grid-template-columns:1.7fr 1fr;gap:14px}
+@media(max-width:900px){.video-layout{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="videos">
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">EE-Exam · 电气基础考试 2026</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="basic.html">基础知识</a>
+      <a href="hot-points.html">高频考点</a>
+      <a href="videos.html">视频课程</a>
+      <a href="guide.html">报考指南</a>
+      <a href="plan.html">备考规划</a>
+      <a href="my-notes.html">学习笔记</a>
+      <a href="share.html">学友分享</a>
+    </div>
+    <div class="user-area" id="user-area"></div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="dir-switch">
+      <span>报考方向：</span>
+      <button data-dir="powerDistribution" class="active">💡 供配电方向</button>
+      <button data-dir="powerTransmission">⚡ 发输变电方向</button>
+    </div>
+    <span class="eyebrow">VIDEO CENTER · Bilibili 站内 iframe 直放 · 不跳转 B 站</span>
+    <h1 id="active-series-name" style="font-size:24px">视频课程中心</h1>
+    <p class="lead">点击左侧分P立即切换播放；每讲看完点击"标记本讲掌握"后，自动累计到首页仪表盘。移动端使用 html5mobileplayer 保证兼容性。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div id="video-series-tabs" class="tabs"></div>
+
+    <div id="video-subject-tabs" class="sub-tabs" style="margin-bottom:6px"></div>
+    <div id="video-collection-tabs" class="sub-tabs"></div>
+
+    <div class="card" id="active-series-intro" style="margin-bottom:14px">
+      <p style="color:#8ea0c6">正在加载系列介绍…</p>
+    </div>
+
+    <div class="video-layout">
+      <div>
+        <div class="video-frame">
+          <iframe id="bili-player" src="" allowfullscreen allow="autoplay; fullscreen; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation"></iframe>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <button id="mark-done-btn" class="btn btn-primary mini-btn" data-series="" data-bvid="" data-page="1" data-ee-progress>标记本讲掌握</button>
+          <span id="total-ep-count" style="color:#8ea0c6;font-size:13px"></span>
+          <div class="bar" id="series-progress-bar" style="flex:1;min-width:120px;height:12px;margin-top:4px"><div class="bar-fill" style="width:0"></div></div>
+          <a class="mini-btn" href="my-notes.html#new" target="_blank">📝 记笔记</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="margin-bottom:8px;color:#fff">📋 分 P 列表（playlist）点击任意一集立即切换</h4>
+        <div class="playlist" id="playlist"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>
+      <div style="font-weight:800;color:#fff;margin-bottom:8px">视频播放说明</div>
+      <p style="color:#8ea0c6">视频通过 Bilibili 官方 html5mobileplayer iframe 嵌入，不会跳转到 B 站，直接在本站观看。若遇加载失败，请刷新页面或检查网络环境；若视频被 B 站下架，请留言提醒更新 BV 号。</p>
+    </div>
+    <div>
+      <p><b>快速导航</b></p>
+      <p><a href="index.html">首页</a> · <a href="basic.html">基础知识</a> · <a href="hot-points.html">高频考点</a> · <a href="plan.html">备考规划</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="data/basic-knowledge.js"></script>
+<script src="data/videos.js"></script>
+<script src="data/hot-points.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

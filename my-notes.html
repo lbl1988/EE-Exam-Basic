@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>学习笔记 · 按学科分类 + 一键发布到学友分享 + 跨设备导入导出</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.flex{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+textarea,input[type=text],select{background:#0e1729;color:#fff;border:1px solid #2a3c66;border-radius:8px;padding:10px;font-family:inherit;font-size:14px;width:100%}
+textarea{min-height:180px;resize:vertical;font-family:Consolas,"Microsoft YaHei",monospace;line-height:1.7}
+.note-card{background:var(--bg-card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:10px 0}
+.note-card h3{margin-bottom:6px}
+.note-meta{font-size:12px;color:#8ea0c6;margin:6px 0 10px}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;background:#243560;color:#cbd5f0;font-size:12px;margin:2px 4px 2px 0}
+.tag.circuit{background:rgba(96,165,250,.2);color:#93c5fd}
+.tag.analog{background:rgba(244,114,182,.2);color:#f9a8d4}
+.tag.digital{background:rgba(167,139,250,.2);color:#c4b5fd}
+.tag.machines{background:rgba(251,191,36,.2);color:#fde68a}
+.tag.power{background:rgba(52,211,153,.2);color:#6ee7b7}
+.tag.common{background:rgba(148,163,184,.2);color:#cbd5e1}
+.tag.misc{background:rgba(79,140,255,.15);color:#93c5fd}
+.panel{background:var(--bg-card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:10px 0}
+.editor-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+@media(max-width:860px){.editor-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="my-notes">
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">EE-Exam · 电气基础考试 2026</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="basic.html">基础知识</a>
+      <a href="hot-points.html">高频考点</a>
+      <a href="videos.html">视频课程</a>
+      <a href="guide.html">报考指南</a>
+      <a href="plan.html">备考规划</a>
+      <a href="my-notes.html">学习笔记</a>
+      <a href="share.html">学友分享</a>
+    </div>
+    <div class="user-area" id="user-area"></div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">MY NOTES · 个人学习笔记：CRUD + 标签 + 发布分享</span>
+    <h1>📝 我的学习笔记</h1>
+    <p class="lead">建议每看完张工精讲 1 讲，写 2~3 条笔记：1条核心公式 + 1条典型题步骤 + 1条易混淆点。每条笔记可以一键发布到"学友分享"，或者导出为分享文本发到别的设备导入。登录账号后笔记会绑定你的账号，不会和别的账号混在一起。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="panel">
+      <h3 id="editor-title">✏️ 新建 / 编辑笔记</h3>
+      <p style="color:#8ea0c6;font-size:13px;margin:6px 0">选择笔记关联学科，方便后续筛选。学完对应章节视频后立即记 → 学习效果最好。</p>
+      <div class="editor-grid">
+        <div>
+          <p style="margin:6px 0 4px;font-size:13px;color:#8ea0c6">笔记标题</p>
+          <input type="text" id="note-title" placeholder="例如：潮流计算ΔS=(P²+Q²)(R+jX)/U² 记忆口诀">
+
+          <div style="margin-top:10px"><p style="margin:6px 0 4px;font-size:13px;color:#8ea0c6">关联学科</p>
+            <select id="note-subject" style="padding:10px">
+              <option value="circuit">电路与电磁场</option>
+              <option value="analog">模拟电子技术</option>
+              <option value="digital">数字电子技术</option>
+              <option value="machines">电机学</option>
+              <option value="power">电气工程基础</option>
+              <option value="common">公共基础（数学/物理/化学/力学/法规/经济等）</option>
+              <option value="misc">其他/综合</option>
+            </select>
+          </div>
+
+          <div style="margin-top:10px">
+            <p style="margin:6px 0 4px;font-size:13px;color:#8ea0c6">标签（用逗号分隔，支持自定义）</p>
+            <input type="text" id="note-tags" placeholder="例如：公式, 必考, 2023真题, 易错点">
+          </div>
+
+          <div style="margin-top:10px">
+            <p style="margin:6px 0 4px;font-size:13px;color:#8ea0c6">笔记正文（支持多行 + 公式）</p>
+            <textarea id="note-content" placeholder="例如：
+变压器分接头选择三步：
+1. 计算最大最小负载下低压母线要求 U2max / U2min
+2. 高压侧实际分接头 U_t = U1 - (PR+QX)/U1
+3. 取接近的标准分接，再回算U2满足要求
+
+💡 计算器 EQN 模式解二元一次方程 30秒出答案。
+⚠️ 易错：Uk% 记得除以100。"></textarea>
+          </div>
+
+          <div class="flex" style="margin-top:12px">
+            <button class="btn btn-primary" id="btn-save">💾 保存笔记</button>
+            <button class="btn btn-ghost" id="btn-reset">🔄 新建重置</button>
+            <input type="hidden" id="note-id" value="">
+            <span id="save-msg" style="color:#22c55e;font-size:13px"></span>
+          </div>
+        </div>
+
+        <div>
+          <div class="card" style="background:linear-gradient(135deg,rgba(79,140,255,.08),rgba(52,211,153,.08))">
+            <h3 style="margin-bottom:8px">💡 写笔记的 3 个黄金结构</h3>
+            <ol style="padding-left:22px;color:#cbd5f0;font-size:14px">
+              <li><b>公式 + 一句话说明</b>：Pmax=Uoc²/(4Req) 戴维南匹配最大功率</li>
+              <li><b>一道真题 + 三步步骤</b>：2023下午102题 - 标幺值→XΣ*→I*=1/X→实际I*SB/(√3UB)</li>
+              <li><b>易错点 + 避坑操作</b>：Uk% 一定要除以100！考试时代入前先看百分号。</li>
+            </ol>
+          </div>
+          <div class="card" style="margin-top:12px">
+            <h3 style="margin-bottom:8px">📦 单条笔记导出/导入（跨设备同步补充）</h3>
+            <p style="color:#cbd5f0;font-size:13px;margin-bottom:8px">把某条笔记导成一行文本，通过微信/邮件发到另一设备，在本站内"笔记导入"粘贴即可还原。也可用右上角"数据同步"导出全站数据（账号+进度+所有笔记）。</p>
+            <div class="flex"><button class="mini-btn" id="btn-export-note">导出当前笔记为文本</button><button class="mini-btn" id="btn-import-note">粘贴导入分享文本为新笔记</button></div>
+            <div id="io-msg" style="font-size:12px;color:#8ea0c6;margin-top:6px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="flex" style="justify-content:space-between;margin-bottom:10px">
+        <h3 style="margin:0">📂 笔记列表 <span id="note-count" style="font-weight:400;color:#8ea0c6;font-size:13px"></span></h3>
+        <div class="flex">
+          <span style="color:#8ea0c6;font-size:13px">筛选：</span>
+          <select id="filter-subject" class="mini-btn" style="background:#1a2845;color:#fff">
+            <option value="all">全部学科</option>
+            <option value="circuit">电路与电磁场</option>
+            <option value="analog">模拟电子技术</option>
+            <option value="digital">数字电子技术</option>
+            <option value="machines">电机学</option>
+            <option value="power">电气工程基础</option>
+            <option value="common">公共基础</option>
+            <option value="misc">其他综合</option>
+          </select>
+          <input type="text" id="filter-key" placeholder="搜索标题/正文/标签关键词..." style="max-width:240px;padding:6px 10px">
+        </div>
+      </div>
+      <div id="notes-list"></div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div><div style="font-weight:800;color:#fff;margin-bottom:8px">笔记存储位置</div><p style="color:#8ea0c6">localStorage ee-notes-{你的账号名} 下；右上角"数据同步"→"导出JSON"即可把所有笔记+进度+账号打包下载，新设备导入恢复。</p></div>
+    <div><p><b>快速导航</b></p><p><a href="share.html">发布到学友分享 →</a><br><a href="hot-points.html">高频考点速查 →</a><br><a href="videos.html#zhanggong">看张工精讲视频 →</a></p></div>
+  </div>
+</footer>
+
+<script src="data/basic-knowledge.js"></script>
+<script src="data/videos.js"></script>
+<script src="data/hot-points.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function(){
+  function $(s){return document.querySelector(s)}
+  function render(){
+    var fs=$('#filter-subject').value, fk=$('#filter-key').value.trim().toLowerCase();
+    var list=EEProgress.listNotes();
+    if(fs!=='all')list=list.filter(function(n){return (n.subject||'misc')===fs});
+    if(fk)list=list.filter(function(n){
+      return (n.title||'').toLowerCase().indexOf(fk)>=0
+        || (n.content||'').toLowerCase().indexOf(fk)>=0
+        || ((n.tags||[]).join(',')).toLowerCase().indexOf(fk)>=0});
+    $('#note-count').textContent='共 '+list.length+' 条 · 账号: '+(AuthEE.sessionUser()||'_guest_');
+    var box=$('#notes-list'); box.innerHTML='';
+    if(list.length===0){box.innerHTML='<p style="color:#8ea0c6">还没有笔记。学完一讲视频写3条吧 ✍️ （至少200条通关笔记是保底）</p>';return}
+    list.forEach(function(n){
+      var d=new Date(n.updatedAt||Date.now());
+      var ts=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+      var tags=(n.tags||[]).map(function(t){return '<span class="tag">'+t+'</span>'}).join('');
+      var sj=n.subject||'misc';var subjectNameMap={circuit:'电路',analog:'模电',digital:'数电',machines:'电机学',power:'电气工程基础',common:'公共基础',misc:'综合'};
+      var sjHtml='<span class="tag '+sj+'">'+subjectNameMap[sj]+'</span>';
+      var card=document.createElement('div');card.className='note-card';
+      card.innerHTML='<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap">'
+        +'<div style="flex:1"><h3>'+(n.title||'（无标题）')+'</h3>'
+        +'<div class="note-meta">🕒 '+ts+' · '+sjHtml+' '+tags+'</div>'
+        +'<div style="white-space:pre-wrap;color:#cbd5f0;font-size:14px;line-height:1.8">'+(n.content||'')+'</div>'
+        +'</div><div style="display:flex;flex-direction:column;gap:4px">'
+        +'<button class="mini-btn" data-edit="'+n.id+'">✏️ 编辑</button>'
+        +'<button class="mini-btn" data-share="'+n.id+'">📤 发布到学友分享</button>'
+        +'<button class="mini-btn" data-export-one="'+n.id+'">⬇️ 导出分享文本</button>'
+        +'<button class="mini-btn" style="color:#fca5a5" data-del="'+n.id+'">🗑 删除</button>'
+        +'</div></div>';
+      box.appendChild(card);
+    });
+    box.querySelectorAll('[data-del]').forEach(function(b){b.onclick=function(){
+      if(confirm('确认删除这条笔记？删除后无法恢复。')){EEProgress.deleteNote(b.dataset.del);render()}
+    }});
+    box.querySelectorAll('[data-edit]').forEach(function(b){b.onclick=function(){
+      var n=EEProgress.getNote(b.dataset.edit);if(!n)return;
+      $('#note-id').value=n.id;$('#note-title').value=n.title||'';$('#note-tags').value=(n.tags||[]).join(', ');
+      $('#note-content').value=n.content||'';$('#note-subject').value=n.subject||'misc';
+      $('#editor-title').textContent='✏️ 编辑笔记：'+(n.title||'无标题');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }});
+    box.querySelectorAll('[data-share]').forEach(function(b){b.onclick=function(){
+      var sid=EEProgress.publishShare(b.dataset.share);
+      if(sid){alert('✅ 已发布到学友分享，shareId='+sid+'\n可在"学友分享"页面查看或继续点赞。')}
+      else alert('❌ 发布失败，请先登录或再试。');
+    }});
+    box.querySelectorAll('[data-export-one]').forEach(function(b){b.onclick=function(){
+      var n=EEProgress.getNote(b.dataset.exportOne);if(!n)return;
+      var txt=EEProgress.exportShare(n);
+      prompt('✅ 本笔记分享文本（Ctrl+C 复制后发到其它设备导入用）：',txt);
+    }});
+  }
+  $('#btn-save').onclick=function(){
+    var n={id:$('#note-id').value.trim()||null,title:$('#note-title').value.trim(),content:$('#note-content').value,
+      subject:$('#note-subject').value,
+      tags:$('#note-tags').value.split(/[,，]/).map(function(s){return s.trim()}).filter(function(s){return s})
+    };
+    if(!n.title||!n.content){alert('⚠️ 标题和内容不能为空');return}
+    var saved=EEProgress.saveNote(n);
+    $('#save-msg').textContent='✅ '+ (n.id?'已更新':'已保存')+'，笔记ID: '+saved.id;
+    setTimeout(function(){$('#save-msg').textContent=''},2500);
+    $('#note-id').value=saved.id;
+    render();
+  };
+  $('#btn-reset').onclick=function(){
+    $('#note-id').value='';$('#note-title').value='';$('#note-tags').value='';$('#note-content').value='';
+    $('#editor-title').textContent='✏️ 新建 / 编辑笔记';$('#save-msg').textContent='';
+  };
+  $('#btn-export-note').onclick=function(){
+    var id=$('#note-id').value.trim();var n;
+    if(id)n=EEProgress.getNote(id);
+    else n={title:$('#note-title').value||'未保存草稿',content:$('#note-content').value||'',tags:$('#note-tags').value.split(/[,，]/).map(function(s){return s.trim()}).filter(Boolean),subject:$('#note-subject').value};
+    prompt('📦 当前笔记分享文本（复制后到新设备或学友导入用）：',EEProgress.exportShare(n));
+  };
+  $('#btn-import-note').onclick=function(){
+    var txt=prompt('📥 粘贴笔记分享文本：');
+    if(!txt)return;var r=EEProgress.importShare(txt);
+    $('#io-msg').style.color=r.ok?'#22c55e':'#ef4444';
+    $('#io-msg').textContent=r.ok?'✅ 导入成功！列表底部可见':'❌ 导入失败：'+r.msg;
+    setTimeout(function(){$('#io-msg').textContent=''},4000);
+    if(r.ok)render();
+  };
+  $('#filter-subject').onchange=render;
+  $('#filter-key').oninput=render;
+  document.addEventListener('DOMContentLoaded',function(){
+    render();
+    if(location.hash==='#new'){$('#btn-reset').click();$('#note-title').focus()}
+  });
+  /* 如果 hash 是 #new?title=xxx 也可以 */
+  function parseHash(){
+    var h=location.hash.replace(/^#/,'');if(!h)return;
+    var m=h.match(/^\?title=(.+)$/);if(m){$('#note-title').value=decodeURIComponent(m[1])}
+  }
+  parseHash();
+})();
+</script>
+</body>
+</html>

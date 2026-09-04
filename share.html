@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>学友分享 · 笔记社区池 + 点赞 + 跨设备导入导出</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.share-card{background:var(--bg-card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:10px 0;transition:border .2s}
+.share-card:hover{border-color:var(--primary)}
+.share-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.share-title{font-weight:700;color:#fff;font-size:16px;margin-bottom:4px}
+.share-meta{font-size:12px;color:#8ea0c6}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;background:#243560;color:#cbd5f0;font-size:12px;margin:2px 4px 2px 0}
+.tag.circuit{background:rgba(96,165,250,.2);color:#93c5fd}
+.tag.analog{background:rgba(244,114,182,.2);color:#f9a8d4}
+.tag.digital{background:rgba(167,139,250,.2);color:#c4b5fd}
+.tag.machines{background:rgba(251,191,36,.2);color:#fde68a}
+.tag.power{background:rgba(52,211,153,.2);color:#6ee7b7}
+.tag.common{background:rgba(148,163,184,.2);color:#cbd5e1}
+.tag.misc{background:rgba(79,140,255,.15);color:#93c5fd}
+.panel{background:var(--bg-card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:10px 0}
+.flex{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+textarea{background:#0e1729;color:#fff;border:1px solid #2a3c66;border-radius:8px;padding:10px;font-family:Consolas,monospace;font-size:13px;width:100%;min-height:100px;resize:vertical}
+</style>
+</head>
+<body data-page="share">
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">EE-Exam · 电气基础考试 2026</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="basic.html">基础知识</a>
+      <a href="hot-points.html">高频考点</a>
+      <a href="videos.html">视频课程</a>
+      <a href="guide.html">报考指南</a>
+      <a href="plan.html">备考规划</a>
+      <a href="my-notes.html">学习笔记</a>
+      <a href="share.html">学友分享</a>
+    </div>
+    <div class="user-area" id="user-area"></div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">COMMUNITY · 学友笔记共享池（Local模式：同一浏览器全局池 + 跨设备文本交换）</span>
+    <h1>🤝 学友分享 · 笔记社区</h1>
+    <p class="lead">每个人在"学习笔记"页面写的笔记，可以一键"发布到学友分享"后出现在本页。由于本站是纯静态 local 模式（无后端服务器），社区池保存在浏览器 localStorage ee-shares 中。想要和其他考生 / 其他设备交换笔记，请使用 <b>导出分享文本 → 通过微信/邮件发送 → 在新设备导入</b> 的方式。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="panel">
+      <div class="flex" style="justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:300px">
+          <h3 style="margin-bottom:6px">📥 导入分享文本（其它设备或考生发来的 JSON）</h3>
+          <p style="color:#8ea0c6;font-size:13px;margin:4px 0 8px">粘贴其他考生/自己另一台设备导出的 ee-share 文本，点击导入后该笔记会出现在你的"学习笔记"中。</p>
+          <textarea id="import-txt" placeholder='{"type":"ee-share","v":1,"data":{"title":"...","content":"...","tags":["..."]},...}'></textarea>
+          <div class="flex" style="margin-top:10px">
+            <button class="btn btn-primary" id="btn-import">📥 导入到我的笔记</button>
+            <button class="btn btn-ghost" id="btn-clear-import">清空文本框</button>
+            <span id="io-msg" style="color:#8ea0c6;font-size:13px"></span>
+          </div>
+        </div>
+
+        <div style="flex:1;min-width:300px">
+          <h3 style="margin-bottom:6px">📤 发布你自己的笔记到学友分享</h3>
+          <p style="color:#8ea0c6;font-size:13px;margin:4px 0 8px">到"学习笔记"页面，每条笔记下方有"📤 发布到学友分享"按钮。每次发布后会生成一条 shareId，显示在下面的列表中。</p>
+          <p style="color:#cbd5f0;font-size:13px">📘 <b>推荐分享：</b>每科章节的"易混淆点"、计算器快捷键、潮流/短路的标准步骤卡、计数器模M四种方法、运放7类公式卡片。优质笔记会持续获得同浏览器的"点赞"累计，你自己的笔记可在右下角一键删除。</p>
+          <div class="flex" style="margin-top:10px"><a class="mini-btn" href="my-notes.html">👉 去我的笔记写一条 →</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="flex" style="justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+        <h3 style="margin:0">🔥 分享笔记列表 <span id="share-count" style="font-weight:400;color:#8ea0c6;font-size:13px"></span></h3>
+        <div class="flex">
+          <span style="color:#8ea0c6;font-size:13px">排序：</span>
+          <select id="sort-by" class="mini-btn" style="background:#1a2845;color:#fff">
+            <option value="new">最新发布</option>
+            <option value="hot">点赞最多</option>
+          </select>
+          <select id="sort-subject" class="mini-btn" style="background:#1a2845;color:#fff">
+            <option value="all">全部学科</option>
+            <option value="circuit">电路与电磁场</option>
+            <option value="analog">模拟电子技术</option>
+            <option value="digital">数字电子技术</option>
+            <option value="machines">电机学</option>
+            <option value="power">电气工程基础</option>
+            <option value="common">公共基础</option>
+            <option value="misc">其他综合</option>
+          </select>
+          <input type="text" id="share-search" placeholder="搜索..." style="max-width:220px;padding:6px 10px">
+        </div>
+      </div>
+      <div id="share-list"></div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>
+      <div style="font-weight:800;color:#fff;margin-bottom:8px">说明</div>
+      <p style="color:#8ea0c6">本页社区池为"本地浏览器全局存储 ee-shares"，不存在云端服务器。
+      <br>① 同一考生电脑A/手机B跨设备同步：用右上角"数据同步"导出全站JSON发送到另一设备导入。
+      <br>② 与其他考生交换单条笔记：各自笔记导出为分享文本，通过微信/邮件发送，另一人在本页"导入分享文本"即可。</p>
+    </div>
+    <div>
+      <p><b>快速导航</b></p>
+      <p><a href="my-notes.html">去写笔记 →</a><br><a href="hot-points.html">高频考点速查 →</a><br><a href="videos.html#zhanggong">张工精讲合集 →</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="data/basic-knowledge.js"></script>
+<script src="data/videos.js"></script>
+<script src="data/hot-points.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function(){
+  var u=AuthEE.sessionUser();
+  var sjMap={circuit:'电路',analog:'模电',digital:'数电',machines:'电机学',power:'电气工程基础',common:'公共基础',misc:'综合'};
+  function time(ts){var d=new Date(ts);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')}
+  function render(){
+    var sort=$('#sort-by').value, sub=$('#sort-subject').value, kw=$('#share-search').value.trim().toLowerCase();
+    var list=EEProgress.listShares();
+    if(sub!=='all')list=list.filter(function(s){return (s.subject||'misc')===sub});
+    if(kw)list=list.filter(function(s){
+      return (s.title||'').toLowerCase().indexOf(kw)>=0
+        || (s.content||'').toLowerCase().indexOf(kw)>=0
+        || (s.fromUser||'').toLowerCase().indexOf(kw)>=0
+        || ((s.tags||[]).join(',')).toLowerCase().indexOf(kw)>=0});
+    if(sort==='new')list.sort(function(a,b){return b.createdAt-a.createdAt});
+    else list.sort(function(a,b){return (b.likes||0)-(a.likes||0)});
+    $('#share-count').textContent='共 '+list.length+' 条 · 当前用户: '+(u||'_guest_');
+    var box=$('#share-list');box.innerHTML='';
+    if(list.length===0){box.innerHTML='<p style="color:#8ea0c6">现在还没有分享笔记。<a href="my-notes.html">去我的笔记 → 发布第一条吧 →</a></p>';return}
+    list.forEach(function(s){
+      var isMine=s.fromUser===u;
+      var tags=(s.tags||[]).map(function(t){return '<span class="tag">'+t+'</span>'}).join('');
+      var sj=s.subject||'misc';var sjHtml='<span class="tag '+sj+'">'+sjMap[sj]+'</span>';
+      var likes=s.likes||0;
+      var card=document.createElement('div');card.className='share-card';
+      card.innerHTML='<div class="share-head"><div style="flex:1"><div class="share-title">'+(s.title||'（无标题）')+'</div>'
+        +'<div class="share-meta">🕒 '+time(s.createdAt)+' · 👤 '+(s.fromUser||'匿名学友')+' · '+sjHtml+' '+tags+'</div>'
+        +'<div style="white-space:pre-wrap;color:#cbd5f0;font-size:14px;line-height:1.8;margin-top:8px">'+(s.content||'')+'</div></div>'
+        +'<div style="display:flex;flex-direction:column;gap:4px;align-items:stretch;min-width:140px">'
+        +'<button class="mini-btn" data-like="'+s.shareId+'">❤️ 点赞 ('+likes+')</button>'
+        +'<button class="mini-btn" data-saveme="'+s.shareId+'">📥 保存到我的笔记</button>'
+        +'<button class="mini-btn" data-export="'+s.shareId+'">⬇️ 导出分享文本</button>'
+        +(isMine?'<button class="mini-btn" style="color:#fca5a5" data-del="'+s.shareId+'">🗑 删除</button>':'')
+        +'</div></div>';
+      box.appendChild(card);
+    });
+    box.querySelectorAll('[data-like]').forEach(function(b){b.onclick=function(){EEProgress.likeShare(b.dataset.like);render()}});
+    box.querySelectorAll('[data-saveme]').forEach(function(b){b.onclick=function(){
+      var s=EEProgress.listShares().find(function(x){return x.shareId===b.dataset.saveme});if(!s)return;
+      var copy=JSON.parse(JSON.stringify(s));delete copy.shareId;delete copy.fromUser;delete copy.fromDevice;delete copy.likes;delete copy.createdAt;
+      var saved=EEProgress.saveNote(copy);alert('✅ 已保存到你的笔记：ID '+saved.id+'\n可在"我的笔记"页面继续编辑。')
+    }});
+    box.querySelectorAll('[data-export]').forEach(function(b){b.onclick=function(){
+      var s=EEProgress.listShares().find(function(x){return x.shareId===b.dataset.export});if(!s)return;
+      var copy=JSON.parse(JSON.stringify(s));delete copy.shareId;delete copy.fromUser;delete copy.fromDevice;delete copy.likes;delete copy.createdAt;
+      prompt('📦 分享文本（复制后发给其他考生）：',EEProgress.exportShare(copy));
+    }});
+    box.querySelectorAll('[data-del]').forEach(function(b){b.onclick=function(){
+      if(confirm('确认删除你发布的这条分享？')){EEProgress.deleteShare(b.dataset.del);render()}
+    }});
+  }
+  function $(s){return document.querySelector(s)}
+  $('#btn-import').onclick=function(){
+    var t=$('#import-txt').value.trim();if(!t){$('#io-msg').style.color='#ef4444';$('#io-msg').textContent='⚠️ 请先粘贴分享文本';return}
+    var r=EEProgress.importShare(t);
+    $('#io-msg').style.color=r.ok?'#22c55e':'#ef4444';
+    $('#io-msg').textContent=r.ok?'✅ 导入成功！已保存在"我的笔记"。':'❌ 导入失败：'+r.msg;
+    setTimeout(function(){$('#io-msg').textContent=''},4500);
+    render();
+  };
+  $('#btn-clear-import').onclick=function(){$('#import-txt').value='';$('#io-msg').textContent=''};
+  $('#sort-by').onchange=render;
+  $('#sort-subject').onchange=render;
+  $('#share-search').oninput=render;
+  document.addEventListener('DOMContentLoaded',render);
+})();
+</script>
+</body>
+</html>

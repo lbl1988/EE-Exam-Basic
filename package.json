@@ -1,0 +1,12 @@
+{
+  "name": "ee-pro-exam-site-2026-v2",
+  "version": "2.0.0",
+  "description": "注册电气工程师基础考试2026 - 张工教育专业基础精讲细粒度增强版。张工教育五大学科完整章节、节次知识点、考频星级、逐讲视频锚点，双方向供配电/发输变电，纯静态Render部署，local模式账号与学习进度。",
+  "scripts": {
+    "start": "python -m http.server 8765",
+    "preview": "python -m http.server 8765"
+  },
+  "keywords": ["注册电气工程师", "基础考试", "张工教育", "专业基础", "精讲班", "供配电", "发输变电"],
+  "author": "ee-exam-community",
+  "license": "MIT"
+}

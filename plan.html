@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>备考规划 · 三阶段方案 + 5学科周分配计算器 · 注册电气工程师基础考试2026</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.phase{background:var(--bg-card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0}
+.phase h3{margin-bottom:10px}
+.week-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.week-table th,.week-table td{border:1px solid var(--line);padding:8px;text-align:left}
+.week-table th{background:#243560;color:#fff}
+.tag-circuit{background:rgba(96,165,250,.15);color:#93c5fd;padding:2px 6px;border-radius:4px}
+.tag-analog{background:rgba(244,114,182,.15);color:#f9a8d4;padding:2px 6px;border-radius:4px}
+.tag-digital{background:rgba(167,139,250,.15);color:#c4b5fd;padding:2px 6px;border-radius:4px}
+.tag-machines{background:rgba(251,191,36,.15);color:#fde68a;padding:2px 6px;border-radius:4px}
+.tag-power{background:rgba(52,211,153,.15);color:#6ee7b7;padding:2px 6px;border-radius:4px}
+.tag-common{background:rgba(148,163,184,.15);color:#cbd5e1;padding:2px 6px;border-radius:4px}
+.check-list{list-style:none;padding:0}
+.check-list li{padding:4px 0 4px 26px;position:relative;color:#cbd5f0;font-size:14px}
+.check-list li::before{content:"☐";position:absolute;left:2px;color:var(--primary);font-size:14px;top:5px}
+</style>
+</head>
+<body data-page="plan">
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">EE-Exam · 电气基础考试 2026</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="basic.html">基础知识</a>
+      <a href="hot-points.html">高频考点</a>
+      <a href="videos.html">视频课程</a>
+      <a href="guide.html">报考指南</a>
+      <a href="plan.html">备考规划</a>
+      <a href="my-notes.html">学习笔记</a>
+      <a href="share.html">学友分享</a>
+    </div>
+    <div class="user-area" id="user-area"></div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="dir-switch">
+      <span>备考方向：</span>
+      <button data-dir="powerDistribution" class="active">💡 供配电方向</button>
+      <button data-dir="powerTransmission">⚡ 发输变电方向</button>
+    </div>
+    <span class="eyebrow">STUDY PLAN · 典型在职备考 8~10 个月 三阶段通关方案</span>
+    <h1>备考规划 · 三阶段 + 五学科周分配 + 每日日程模板</h1>
+    <p class="lead">假设你是在职备考、每天 2~3 小时有效学习时间、周末 6~8 小时，共 8 个月合计约 <b>650~800 小时</b>，基础考试总分 132+ 的概率非常稳。下方每个阶段末尾附"完成后建议自测分数"。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="phase">
+      <h3>📘 第一阶段：基础夯实（约 16 周 / 4 个月）<span style="color:#8ea0c6;font-weight:400;font-size:14px"> · 目标：建立完整知识框架，看完张工专业基础 + 姜小白公共基础 90% 视频</span></h3>
+      <p style="color:#cbd5f0">本阶段以"视频+笔记+每章5~10题教材课后题"为主，<b>不要急着刷整套真题</b>。先逐学科走，按看完一讲→章节做5题→标记掌握→记1~2条笔记的节奏。每周安排如下（供配电版，发输变电把电机学+电气工程基础周数各+1，数学流体热工适当减）：</p>
+      <table class="week-table">
+        <tr><th>周次</th><th>上午公共基础</th><th>下午专业基础（张工教育5学科精讲）</th><th>每周建议小时数</th></tr>
+        <tr><td>第 1~2 周</td><td class="tag-common">数学 P1~P3 · 行列式矩阵特征值</td><td class="tag-circuit">电路 第1~3章 (P1~P11) 基尔霍夫+节点+戴维南<br>📺 <a href="videos.html#zhanggong|circuit">电路BV1yL411R7rr</a></td><td>18 h</td></tr>
+        <tr><td>第 3~4 周</td><td class="tag-common">数学 P4~P6 · 微积分+偏导+积分</td><td class="tag-circuit">电路 第4~5章 (P12~P30) 正弦三相+一阶暂态<br>📺 <a href="videos.html#zhanggong|calculator">🎞 穿插学习计算器CMPLX/EQN模式</a></td><td>18 h</td></tr>
+        <tr><td>第 5~6 周</td><td class="tag-common">数学P7~P8 + 物理P9~P11 热学波动</td><td class="tag-circuit">电路 第6~9章 + 电磁场辅助BV → 电路学科收尾</td><td>20 h</td></tr>
+        <tr><td>第 7 周</td><td class="tag-common">物理光学/近代 P12~P15</td><td class="tag-analog">模电 第1~4章 管子+放大基础 BV1nT411B7j5 P1~P17</td><td>18 h</td></tr>
+        <tr><td>第 8 周</td><td class="tag-common">化学 P16~P20 溶液/电化学</td><td class="tag-analog">模电 第5~8章 负反馈+运放8种运算 P18~P27</td><td>18 h</td></tr>
+        <tr><td>第 9 周</td><td class="tag-common">生物P21 + 理论力学P22~P24 三力学</td><td class="tag-analog">模电第9~11章 振荡/功放/电源 → 模电收尾 + 自测</td><td>18 h</td></tr>
+        <tr><td>第 10 周</td><td class="tag-common">材料力学 P29~P34 弯曲/扭转/压杆</td><td class="tag-digital">数电第1~4章 卡诺图/门/组合/触发器 BV1Tk4y1q7L8 P1~P3</td><td>18 h</td></tr>
+        <tr><td>第 11 周</td><td class="tag-common">流体力学 P35~P40 伯努利/达西/渗流</td><td class="tag-digital">数电第5~8章 计数器/555/DAC → 数电收尾</td><td>18 h</td></tr>
+        <tr><td>第 12 周</td><td class="tag-common">热工学P41~P46 循环/传热</td><td class="tag-machines">电机学第1~4章 变压器+同步机原理 BV1gN411w7ZW P1~P18</td><td>20 h</td></tr>
+        <tr><td>第 13 周</td><td class="tag-common">电工电子P47~P52 电路+电机+接触器</td><td class="tag-machines">电机学第5~8章 异步调速+直流→电机学收尾</td><td>20 h</td></tr>
+        <tr><td>第 14~15 周</td><td class="tag-common">信息+法规+经济 P53~P58 经济占比高重点</td><td class="tag-power">电气工程基础 第1~5章 主接线/参数/潮流/调压/短路<br>📺 <a href="videos.html#zhanggong|power">重点中的重点 P1~P26</a></td><td>22 h</td></tr>
+        <tr><td>第 16 周</td><td class="tag-common">公共基础十科错题本速览回顾</td><td class="tag-power">电气工程基础 第6~9章 设备/保护/过压→5学科全部收尾</td><td>20 h</td></tr>
+      </table>
+      <p style="color:#8ea0c6;font-size:13px;margin-top:8px">* 发输变电考生：把14~15周电气工程基础再扩1周，电机学部分再扩1周；把数学/流体/热工适当压缩到各2周即可。第一阶段结束时建议自测分数：上午公共基础 ≥ 130 分，下午专业基础 ≥ 70 分。</p>
+    </div>
+
+    <div class="phase">
+      <h3>📙 第二阶段：专项突破 + 真题训练（约 10 周 / 2.5 个月）</h3>
+      <p style="color:#cbd5f0">开始按专题做近 5 年真题（可以在"真题114讲"系列看讲解）。本阶段重点是<b>每科专题题量累计 100+ 题</b>，形成错题本并在本站"学习笔记"中记录。</p>
+      <ul class="check-list">
+        <li>每周做 2~3 套"上午公共基础120题"限时4小时模拟，严格涂卡计时，培养2分钟1题的节奏。</li>
+        <li>专业基础5学科按 <a href="hot-points.html">高频考点</a> 五星条目逐条默写公式 + 典型真题1例。</li>
+        <li>重点攻克：潮流ΔS公式 / 短路I\"/ich / 变压器RT/XT / 戴维南 / 三相功率 / 负反馈Au / 74161模M / 异步启动转矩 / 对称分量单相接地 → 每专题独立做题30道以上。</li>
+        <li>计算器熟练度：每周必刷1次 <a href="videos.html#zhanggong|calculator">计算器技巧全5讲</a>，做到复数、方程、积分"闭着眼按键"。</li>
+      </ul>
+      <p style="color:#8ea0c6;font-size:13px;margin-top:10px">第二阶段结束自测建议：上午 ≥ 140 分，下午 ≥ 85 分。如果下午电气工程基础每次都 <30 分，立刻回刷 <a href="videos.html#zhanggong|power">张工电气工程基础BV1GL411y7Sb</a> 的 P5参数/P9潮流/P20短路 三遍。</p>
+    </div>
+
+    <div class="phase">
+      <h3>📕 第三阶段：冲刺 + 模拟 + 稳心态（约 4~6 周 / 1~1.5 个月）</h3>
+      <ul class="check-list">
+        <li>每周 1 套完整的 4 小时上午 + 4 小时下午全真模拟（用近年完整真题卷或大熊冲刺课 BV）。</li>
+        <li>本站首页仪表盘检查张工5学科掌握率：<span class="hi">章节掌握率 ≥ 80% 才稳</span>。</li>
+        <li>把错题本最后过一遍，标注"3次以上做错"的题目做专题复盘。</li>
+        <li>最后一周不要再学新东西。核心公式 + 计算器操作 + 准考证 + 考场路线 + 2B铅笔/签字笔。</li>
+        <li>考前三天每天睡满 7 小时。考试日中午补觉+轻食，下午 18:00 结束前不要过度兴奋或沮丧。</li>
+      </ul>
+      <p style="color:#8ea0c6;font-size:13px;margin-top:10px">第三阶段模拟题稳定总分 ≥ 150 分，几乎必过。总分稳定 ≥ 140 分也大概率过线（过线132）。</p>
+    </div>
+
+    <div class="phase">
+      <h3>🗓 每日学习日程模板（在职工作日版）</h3>
+      <table class="week-table">
+        <tr><th>时段</th><th>内容</th><th>时长</th><th>小贴士</th></tr>
+        <tr><td>06:30 - 07:15</td><td>早读：昨日公式卡 / 高频考点卡默背</td><td>45 分</td><td>记忆类内容放早上，效率最高</td></tr>
+        <tr><td>12:30 - 13:15</td><td>午间：看半节精讲课视频（25分钟）或刷20道上午公共基础单选</td><td>45 分</td><td>零碎时间主攻上午段的记忆类学科（化学生物法规）</td></tr>
+        <tr><td>20:00 - 22:30</td><td>晚间核心：1讲视频+做题10~15道 + 记2条笔记</td><td>2.5 h</td><td>把下午5科的难点（潮流/短路/负反馈/同步机）都放在这个时段</td></tr>
+        <tr><td>周末上午9-12 / 下午14-18</td><td>周六日整块时间做完整模拟或大块章节</td><td>7~8 h / 天</td><td>周末用来集中完成一周学科大专题+真题卷</td></tr>
+      </table>
+    </div>
+
+    <div class="phase">
+      <h3>🧰 备考工具推荐</h3>
+      <ul class="check-list">
+        <li>科学计算器 <b>卡西欧 fx-991ES PLUS（或同款无编程）</b>：<a href="videos.html#zhanggong|calculator">必看计算器5种应试模式</a>。</li>
+        <li>官方教材：<b>注册电气工程师执业资格考试基础考试复习教程（天津大学/曹纬浚 或 电力出版社版）</b>任选一套即可，不用买两套。</li>
+        <li>历年真题解析：优先张工教育真题解析、或大熊/老妖精 任选一套。</li>
+        <li>本站 <a href="my-notes.html">学习笔记</a> 功能：每章结束记2~3条公式+1条易错题；考前导出PDF打印出来背。</li>
+        <li>公式小卡片或APP Anki：把本页高频考点 28 条 + 自记错题反复刷到睡前 10 分钟。</li>
+      </ul>
+    </div>
+
+    <div class="phase" style="border-left:4px solid var(--danger)">
+      <h3 style="color:var(--danger)">⚠️ 常见十大备考误区（踩中任意两条都可能不过）</h3>
+      <ol style="padding-left:20px;color:#cbd5f0;font-size:14px">
+        <li>只看视频不做题 → 一看就会一做就废。比例至少 <b>3 : 7</b>（3 视频 / 7 做题）。</li>
+        <li>死磕上午数学物理难题 → 下午专业基础占 120 分，下午决定能不能过。</li>
+        <li>跳过电气工程基础不刷大题 → 下午 60 题里 18~24 题来自这一科，必须是第一优先级。</li>
+        <li>只做选择题看对错不写过程 → 考场上公式要手算，过程要写步骤。</li>
+        <li>考试时把 4 小时压最后 1 小时涂卡 → 容易涂串，建议做满 30 题就涂一次卡。</li>
+        <li>没把计算器当回事 → 潮流/短路/电路复数计算 95% 的人会算错手算；必须练 CMPLX / EQN 模式。<a href="videos.html#zhanggong|calculator">点这里直接学</a>。</li>
+        <li>供配电觉得电机学没几题直接放弃 → 简单 4~6 题是送分的，放弃=离过线差 8~12分。</li>
+        <li>刷真题只刷近2年 → 至少刷 2018~2024 共 7 年真题，题型非常稳定重复。</li>
+        <li>熬夜突击考前一月 → 基础考试 15 科体量巨大，至少 <b>6 个月</b>才稳，不要裸考。</li>
+        <li>没有注册账号/记录进度 → 用本页右上角的登录功能，把每章每讲掌握度记录下来，首页仪表盘一眼就能看出差在哪科。</li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div><div style="font-weight:800;color:#fff;margin-bottom:8px">祝所有考生一次通过基础考试！</div><p style="color:#8ea0c6">如果你严格按照三阶段执行，完成首页仪表盘张工5学科 ≥80% 的章节掌握率，并且真题总分稳定 ≥145 分，通过概率 ≥ 90%。加油⚡⚡⚡</p></div>
+    <div><p><b>快速导航</b></p><p><a href="videos.html#zhanggong">张工五学科精讲合集</a><br><a href="hot-points.html">高频考点速查</a><br><a href="guide.html">报考指南</a></p></div>
+  </div>
+</footer>
+
+<script src="data/basic-knowledge.js"></script>
+<script src="data/videos.js"></script>
+<script src="data/hot-points.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+services:
+  - type: static_site
+    name: ee-pro-exam-site-2026
+    rootDirectory: ./
+    buildCommand: echo "Static site, no build required"
+    staticPublishPath: ./
+    cleanUrls: true
+    headers:
+      - path: /
+        name: Cache-Control
+        value: no-cache, no-store, must-revalidate, max-age=0
+      - path: /*.html
+        name: Cache-Control
+        value: no-cache, no-store, must-revalidate, max-age=0

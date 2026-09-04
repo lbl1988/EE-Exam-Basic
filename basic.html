@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>基础知识 · 10公共基础 + 5专业基础 章→节→知识点四层细粒度</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="basic">
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">EE-Exam · 电气基础考试 2026</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="basic.html">基础知识</a>
+      <a href="hot-points.html">高频考点</a>
+      <a href="videos.html">视频课程</a>
+      <a href="guide.html">报考指南</a>
+      <a href="plan.html">备考规划</a>
+      <a href="my-notes.html">学习笔记</a>
+      <a href="share.html">学友分享</a>
+    </div>
+    <div class="user-area" id="user-area"></div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="dir-switch">
+      <span>报考方向：</span>
+      <button data-dir="powerDistribution" class="active">💡 供配电方向</button>
+      <button data-dir="powerTransmission">⚡ 发输变电方向</button>
+    </div>
+    <span class="eyebrow">KNOWLEDGE GRAPH · 10公共基础 + 5专业基础 全覆盖</span>
+    <h1>知识体系：<span style="color:#93c5fd">学科</span> → 章 → <span style="color:#fbbf24">节</span> → <span style="color:#a78bfa">知识点</span> → 典型真题 → <span style="color:#34d399">视频锚点</span></h1>
+    <p class="lead">本页按方向分别列出上午10科与下午5科的全部核心章节点。专业基础5科下方都提供"进入学科详情页"按钮，进入独立沉浸式学习页，含章节掌握标记与学科进度条。方向切换后题量权重自动按供配电/发输变电真实分布调整。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">上午段 · 公共基础 120题 240分</span>
+    <h2 style="margin-bottom:4px">公共基础 · 10 科</h2>
+    <p class="lead">数学/物理/化学/生物+理论力学/材料力学/流体力学/热工+工程流体/电工电子/信息+法规+经济。对应姜小白公共基础精讲BV1BaJFzFERX 58讲。</p>
+    <div class="grid g2" id="common-cards"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">下午段 · 专业基础 60题 120分（张工教育精讲班）</span>
+    <h2 style="margin-bottom:4px">专业基础 · 5 大学科 <span class="badge zg" style="vertical-align:middle">张工官方</span></h2>
+    <p class="lead">电路与电磁场 / 模拟电子 / 数字电子 / 电机学 / 电气工程基础。每个学科都有独立详情页 + 站内直放的张工精讲对应视频锚点。</p>
+    <div class="grid g2" id="professional-cards"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>
+      <div style="font-weight:800;color:#fff;margin-bottom:8px">EE-Exam 2026 · 张工教育专业基础细粒度版</div>
+      <p>本站纯静态部署，所有视频来自 Bilibili 公开分享链接，仅提供 iframe 直放与进度管理。</p>
+    </div>
+    <div>
+      <p><b>快速导航</b></p>
+      <p><a href="index.html">首页</a> · <a href="videos.html#zhanggong">张工精讲视频</a> · <a href="hot-points.html">高频考点</a> · <a href="plan.html">备考规划</a></p>
+    </div>
+  </div>
+</footer>
+
+<div id="basic-cards" style="display:none"></div><!-- 保留占位 防止报错 -->
+
+<script src="data/basic-knowledge.js"></script>
+<script src="data/videos.js"></script>
+<script src="data/hot-points.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
