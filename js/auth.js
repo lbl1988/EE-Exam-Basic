@@ -78,8 +78,9 @@
         var ok=EE.importAll(txt);if(ok){msg.style.color='#22c55e';msg.textContent='导入成功，页面将在1.5秒后刷新以加载新数据';setTimeout(function(){location.reload()},1500)}else{msg.style.color='#ef4444';msg.textContent='导入失败：JSON格式不正确'}
       }
     };
-    EE.openAuth=function(tab){EE.buildAuthUI();mask.style.display='flex';EE.renderAuthTab(tab||'login')};
   };
+  /* 弹窗入口（必须在 buildAuthUI 外部定义，否则首次点击时函数不存在） */
+  EE.openAuth=function(tab){EE.buildAuthUI();var m=document.getElementById('auth-mask');if(m){m.style.display='flex';EE.renderAuthTab(tab||'login')}};
   EE.renderUserBar=function(){
     var bar=document.getElementById('user-area');if(!bar)return;
     var u=EE.sessionUser();
@@ -103,6 +104,7 @@
   /* 初始化模式探测 */
   if(EE.isSharedDomain())EE.mode='local';
   else{try{fetch('/api/auth/me',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){if(j&&j.success)EE.mode='cloud'}).catch(function(){EE.mode='local'})}catch(e){EE.mode='local'}}
+  window.EE=EE;
   window.AuthEE=EE;
   document.addEventListener('DOMContentLoaded',function(){EE.renderUserBar()});
 })();
