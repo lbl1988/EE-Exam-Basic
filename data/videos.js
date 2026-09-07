@@ -368,170 +368,121 @@
   };
 
   /* 姜小白公共基础10科精讲班 - 分章节结构 */
+  /* 姜小白公共基础精讲班 - 14学科58讲 (对齐 ee-pro-exam-site-2026) */
   function jiangxiaobaiSeries(){
-    /* 58讲 playlist 全量生成，每讲带标题 */
-    var pl=[];
-    var titles=[
-      '高等数学P1-空间解析几何与向量代数','高等数学P2-多元函数微分学','高等数学P3-重积分','高等数学P4-曲线曲面积分',
-      '高等数学P5-常数项级数','高等数学P6-幂级数与傅里叶级数','高等数学P7-常微分方程','高等数学P8-线性代数',
-      '物理学P9-热学气体动理论','物理学P10-热力学基础','物理学P11-机械波','物理学P12-波动光学',
-      '物理学P13-波动光学(续)','物理学P14-狭义相对论','物理学P15-量子物理基础',
-      '化学P16-物质结构与周期律','化学P17-溶液与电化学','化学P18-化学动力学与热力学','化学P19-有机化学','化学P20-有机化学(续)',
-      '理论力学P21-静力学基础','理论力学P22-力系平衡与桁架','理论力学P23-摩擦','理论力学P24-运动学',
-      '理论力学P25-动力学普遍定理','理论力学P26-达朗贝尔原理','理论力学P27-虚位移原理','理论力学P28-材料力学绪论',
-      '材料力学P29-轴向拉压','材料力学P30-扭转','材料力学P31-弯曲内力','材料力学P32-弯曲应力',
-      '材料力学P33-应力状态与强度理论','材料力学P34-压杆稳定',
-      '流体力学P35-流体静力学','流体力学P36-流体动力学基础','流体力学P37-伯努利方程应用','流体力学P38-量纲分析与相似',
-      '流体力学P39-流动阻力与水头损失','流体力学P40-渗流与孔口管嘴',
-      '热工学P41-工程热力学基础','热工学P42-热力学循环','热工学P43-传热学导热','热工学P44-对流与辐射换热',
-      '热工学P45-换热器计算','热工学P46-工程流体综合',
-      '电工电子P47-电路基本定律','电工电子P48-正弦交流电路','电工电子P49-三相电路与变压器','电工电子P50-电动机基础',
-      '电工电子P51-模拟电子技术','电工电子P52-数字电子技术',
-      '信息技术P53-计算机基础与网络','信息技术P54-信息安全与数据库','信息技术P55-数值计算',
-      '工程经济P56-资金时间价值与等值计算','工程经济P57-经济评价与不确定性分析','法律法规P58-招投标与合同法'
+    var fullPlaylist = [
+      {page:1,title:'数学1-空间解析几何(一)',duration:''},
+      {page:2,title:'数学2-空间解析几何(二)',duration:''},
+      {page:3,title:'数学3-函数极限连续(一)',duration:''},
+      {page:4,title:'数学4-函数极限连续(二)',duration:''},
+      {page:5,title:'数学5-导数与微分(一)',duration:''},
+      {page:6,title:'数学6-导数与微分(二)',duration:''},
+      {page:7,title:'数学7-积分学(一)',duration:''},
+      {page:8,title:'数学8-积分学(二)',duration:''},
+      {page:9,title:'数学9-积分学(三)',duration:''},
+      {page:10,title:'数学10-微分方程',duration:''},
+      {page:11,title:'数学11-无穷级数(一)',duration:''},
+      {page:12,title:'数学12-无穷级数(二)',duration:''},
+      {page:13,title:'数学13-线性代数(一)',duration:''},
+      {page:14,title:'数学14-线性代数(二)',duration:''},
+      {page:15,title:'数学15-线性代数(三)',duration:''},
+      {page:16,title:'数学16-概率统计(一)',duration:''},
+      {page:17,title:'数学17-概率统计(二)',duration:''},
+      {page:18,title:'数学18-概率统计(三)',duration:''},
+      {page:19,title:'物理1-热力学(一)',duration:''},
+      {page:20,title:'物理2-热力学(二)',duration:''},
+      {page:21,title:'物理3-波动学',duration:''},
+      {page:22,title:'物理4-光学(一)',duration:''},
+      {page:23,title:'物理5-光学(二)',duration:''},
+      {page:24,title:'化学1-原子分子结构(一)',duration:''},
+      {page:25,title:'化学2-原子分子结构(二)',duration:''},
+      {page:26,title:'化学2-原子分子结构(二)续',duration:''},
+      {page:27,title:'化学3-化学反应速率',duration:''},
+      {page:28,title:'化学4-溶液',duration:''},
+      {page:29,title:'化学5-氧化还原反应',duration:''},
+      {page:30,title:'化学6-有机化学',duration:''},
+      {page:31,title:'工程经济1-资金等值财务评价',duration:''},
+      {page:32,title:'工程经济2-方案比选',duration:''},
+      {page:33,title:'工程经济3-不确定性分析',duration:''},
+      {page:34,title:'信号1-信号概念分类',duration:''},
+      {page:35,title:'信号2-模拟信号与信息',duration:''},
+      {page:36,title:'信号3-数字信号与信息',duration:''},
+      {page:37,title:'电工1-电磁场',duration:''},
+      {page:38,title:'电工2-电路基础(一)',duration:''},
+      {page:39,title:'电工3-电路基础(二)',duration:''},
+      {page:40,title:'电工4-电路基础(三)',duration:''},
+      {page:41,title:'电工5-电路基础(四)',duration:''},
+      {page:42,title:'电工6-电动机与变压器',duration:''},
+      {page:43,title:'电工7-模拟电子技术(一)',duration:''},
+      {page:44,title:'电工8-模拟电子技术(二)',duration:''},
+      {page:45,title:'电工9-模拟电子技术(三)',duration:''},
+      {page:46,title:'电工10-数字电子技术(一)',duration:''},
+      {page:47,title:'电工11-数字电子技术(二)',duration:''},
+      {page:48,title:'理论力学1-静力学(上)',duration:''},
+      {page:49,title:'理论力学2-静力学(下)',duration:''},
+      {page:50,title:'理论力学3-运动学',duration:''},
+      {page:51,title:'理论力学4-动力学(上)',duration:''},
+      {page:52,title:'理论力学5-动力学(中)',duration:''},
+      {page:53,title:'信息1-计算机基础与网络',duration:''},
+      {page:54,title:'信息2-信息安全与数据库',duration:''},
+      {page:55,title:'信息3-数值计算',duration:''},
+      {page:56,title:'工程经济4-资金时间价值与等值计算',duration:''},
+      {page:57,title:'工程经济5-经济评价与不确定性分析',duration:''},
+      {page:58,title:'法规1-招投标与合同法',duration:''}
     ];
-    for(var i=0;i<58;i++){
-      pl.push({page:i+1,title:titles[i]||('公共基础 P'+(i+1)),duration:''});
-    }
+
+    var defs = [
+      {key:'math',title:'高等数学',short:'高等数学',pages:[1,2,3,4,5,6,7,8,9,10,11,12]},
+      {key:'linear',title:'线性代数',short:'线性代数',pages:[13,14,15]},
+      {key:'probability',title:'概率统计',short:'概率统计',pages:[16,17,18]},
+      {key:'physics',title:'普通物理',short:'普通物理',pages:[19,20,21,22,23]},
+      {key:'chemistry',title:'普通化学',short:'普通化学',pages:[24,25,26,27,28,29,30]},
+      {key:'mech',title:'理论力学',short:'理论力学',pages:[48,49,50,51,52]},
+      {key:'econ',title:'工程经济',short:'工程经济',pages:[31,32,33,56,57]},
+      {key:'signal',title:'信号与信息基础',short:'信号与信息基础',pages:[34,35,36,53,54,55]},
+      {key:'emf',title:'电磁场',short:'电磁场',pages:[37]},
+      {key:'circuit',title:'电路基础',short:'电路基础',pages:[38,39,40,41]},
+      {key:'motor',title:'电机与变压器',short:'电机与变压器',pages:[42]},
+      {key:'analog',title:'模拟电子技术',short:'模拟电子技术',pages:[43,44,45]},
+      {key:'digital',title:'数字电子技术',short:'数字电子技术',pages:[46,47]},
+      {key:'law',title:'法律法规',short:'法律法规',pages:[58]}
+    ];
+
+    var subjects = {};
+    defs.forEach(function(def){
+      var pl = fullPlaylist.filter(function(x){ return def.pages.indexOf(x.page) >= 0; });
+      var chapters = def.pages.map(function(p, i){
+        var t = pl[i] ? pl[i].title : ('P' + p);
+        var shortName = t.replace(/[（(].*?[）)]/g, '').replace(/^[^-]+-/, '');
+        return {
+          idx: i + 1,
+          name: shortName || ('第' + (i+1) + '讲'),
+          pages: [p, p],
+          lectures: 'P' + p,
+          weight: '★★★'
+        };
+      });
+      subjects[def.key] = {
+        title: def.title,
+        short: def.short,
+        color: 'common',
+        totalPages: def.pages.length,
+        collections: [{
+          bvid: 'BV1BaJFzFERX',
+          label: def.title + ' ' + def.pages.length + '讲',
+          duration: '',
+          totalPages: def.pages.length,
+          chapters: chapters,
+          episodes: pl.slice(0, Math.min(4, pl.length)),
+          playlist: pl
+        }]
+      };
+    });
+
     return {
-      title: '姜小白 公共基础10科精讲班 (58讲)',
-      intro: '张工教育姜小白老师主讲，覆盖公共基础全部10科：高等数学、物理学、化学、理论力学、材料力学、流体力学、热工学、电工电子技术、信息技术、工程经济与法律法规。上午120题240分全覆盖。',
-      subjects: {
-        math: {
-          title:'高等数学', short:'高等数学', color:'common',
-          totalHours:'约9h', qCountPD:'约24题48分', qCountPT:'约24题48分',
-          collections:[{ bvid:'BV1BaJFzFERX', label:'高数 P1~P8', duration:'约9h', totalPages:8,
-            chapters:[
-              {idx:1,name:'空间解析几何与向量代数',pages:[1,1],lectures:'P1',weight:'★★★★'},
-              {idx:2,name:'多元函数微分学',pages:[2,2],lectures:'P2',weight:'★★★★★'},
-              {idx:3,name:'重积分',pages:[3,3],lectures:'P3',weight:'★★★★★'},
-              {idx:4,name:'曲线曲面积分',pages:[4,4],lectures:'P4',weight:'★★★★'},
-              {idx:5,name:'常数项级数',pages:[5,5],lectures:'P5',weight:'★★★'},
-              {idx:6,name:'幂级数与傅里叶级数',pages:[6,6],lectures:'P6',weight:'★★★★'},
-              {idx:7,name:'常微分方程',pages:[7,7],lectures:'P7',weight:'★★★'},
-              {idx:8,name:'线性代数',pages:[8,8],lectures:'P8',weight:'★★★★★'}
-            ],
-            episodes: pl.slice(0,4),
-            playlist: pl.slice(0,8)
-          }]
-        },
-        physics: {
-          title:'物理学', short:'物理学', color:'common',
-          totalHours:'约7h', qCountPD:'约12题24分', qCountPT:'约12题24分',
-          collections:[{ bvid:'BV1BaJFzFERX', label:'物理 P9~P15', duration:'约7h', totalPages:7,
-            chapters:[
-              {idx:1,name:'热学气体动理论',pages:[9,9],lectures:'P9',weight:'★★★★'},
-              {idx:2,name:'热力学基础',pages:[10,10],lectures:'P10',weight:'★★★★'},
-              {idx:3,name:'机械波',pages:[11,11],lectures:'P11',weight:'★★★'},
-              {idx:4,name:'波动光学',pages:[12,13],lectures:'P12~P13',weight:'★★★★'},
-              {idx:5,name:'狭义相对论',pages:[14,14],lectures:'P14',weight:'★★'},
-              {idx:6,name:'量子物理基础',pages:[15,15],lectures:'P15',weight:'★★'}
-            ],
-            episodes: pl.slice(8,12),
-            playlist: pl.slice(8,15)
-          }]
-        },
-        chemistry: {
-          title:'化学', short:'化学', color:'common',
-          totalHours:'约5h', qCountPD:'约12题24分', qCountPT:'约12题24分',
-          collections:[{ bvid:'BV1BaJFzFERX', label:'化学 P16~P20', duration:'约5h', totalPages:5,
-            chapters:[
-              {idx:1,name:'物质结构与周期律',pages:[16,16],lectures:'P16',weight:'★★★'},
-              {idx:2,name:'溶液与电化学',pages:[17,17],lectures:'P17',weight:'★★★★'},
-              {idx:3,name:'化学动力学与热力学',pages:[18,18],lectures:'P18',weight:'★★★'},
-              {idx:4,name:'有机化学',pages:[19,20],lectures:'P19~P20',weight:'★★'}
-            ],
-            episodes: pl.slice(15,19),
-            playlist: pl.slice(15,20)
-          }]
-        },
-        mechanics: {
-          title:'理论力学 + 材料力学', short:'力学', color:'common',
-          totalHours:'约10h', qCountPD:'约24题48分', qCountPT:'约24题48分',
-          collections:[{ bvid:'BV1BaJFzFERX', label:'力学 P21~P34', duration:'约10h', totalPages:14,
-            chapters:[
-              {idx:1,name:'静力学基础',pages:[21,21],lectures:'P21',weight:'★★★★'},
-              {idx:2,name:'力系平衡与桁架',pages:[22,22],lectures:'P22',weight:'★★★★★'},
-              {idx:3,name:'摩擦',pages:[23,23],lectures:'P23',weight:'★★★'},
-              {idx:4,name:'运动学',pages:[24,24],lectures:'P24',weight:'★★★★'},
-              {idx:5,name:'动力学普遍定理',pages:[25,25],lectures:'P25',weight:'★★★★★'},
-              {idx:6,name:'达朗贝尔原理',pages:[26,26],lectures:'P26',weight:'★★★'},
-              {idx:7,name:'虚位移原理',pages:[27,27],lectures:'P27',weight:'★★'},
-              {idx:8,name:'材料力学绪论+轴向拉压',pages:[28,29],lectures:'P28~P29',weight:'★★★★'},
-              {idx:9,name:'扭转',pages:[30,30],lectures:'P30',weight:'★★★★'},
-              {idx:10,name:'弯曲内力与应力',pages:[31,32],lectures:'P31~P32',weight:'★★★★★'},
-              {idx:11,name:'应力状态与强度理论',pages:[33,33],lectures:'P33',weight:'★★★★'},
-              {idx:12,name:'压杆稳定',pages:[34,34],lectures:'P34',weight:'★★★★★'}
-            ],
-            episodes: pl.slice(20,27),
-            playlist: pl.slice(20,34)
-          }]
-        },
-        fluid: {
-          title:'流体力学', short:'流体力学', color:'common',
-          totalHours:'约6h', qCountPD:'约12题24分', qCountPT:'约12题24分',
-          collections:[{ bvid:'BV1BaJFzFERX', label:'流体 P35~P40', duration:'约6h', totalPages:6,
-            chapters:[
-              {idx:1,name:'流体静力学',pages:[35,35],lectures:'P35',weight:'★★★★'},
-              {idx:2,name:'流体动力学基础',pages:[36,36],lectures:'P36',weight:'★★★★'},
-              {idx:3,name:'伯努利方程应用',pages:[37,37],lectures:'P37',weight:'★★★★★'},
-              {idx:4,name:'量纲分析与相似',pages:[38,38],lectures:'P38',weight:'★★★'},
-              {idx:5,name:'流动阻力与水头损失',pages:[39,39],lectures:'P39',weight:'★★★★'},
-              {idx:6,name:'渗流与孔口管嘴',pages:[40,40],lectures:'P40',weight:'★★★'}
-            ],
-            episodes: pl.slice(34,38),
-            playlist: pl.slice(34,40)
-          }]
-        },
-        thermal: {
-          title:'热工学 + 工程流体', short:'热工学', color:'common',
-          totalHours:'约6h', qCountPD:'约10题20分', qCountPT:'约10题20分',
-          collections:[{ bvid:'BV1BaJFzFERX', label:'热工 P41~P46', duration:'约6h', totalPages:6,
-            chapters:[
-              {idx:1,name:'工程热力学基础',pages:[41,41],lectures:'P41',weight:'★★★'},
-              {idx:2,name:'热力学循环',pages:[42,42],lectures:'P42',weight:'★★★★'},
-              {idx:3,name:'传热学导热',pages:[43,43],lectures:'P43',weight:'★★★★'},
-              {idx:4,name:'对流与辐射换热',pages:[44,44],lectures:'P44',weight:'★★★★'},
-              {idx:5,name:'换热器计算',pages:[45,45],lectures:'P45',weight:'★★★'},
-              {idx:6,name:'工程流体综合',pages:[46,46],lectures:'P46',weight:'★★'}
-            ],
-            episodes: pl.slice(40,44),
-            playlist: pl.slice(40,46)
-          }]
-        },
-        elecPub: {
-          title:'电工电子技术 (公共基础)', short:'电工电子', color:'common',
-          totalHours:'约6h', qCountPD:'约12题24分', qCountPT:'约12题24分',
-          collections:[{ bvid:'BV1BaJFzFERX', label:'电工 P47~P52', duration:'约6h', totalPages:6,
-            chapters:[
-              {idx:1,name:'电路基本定律',pages:[47,47],lectures:'P47',weight:'★★★★'},
-              {idx:2,name:'正弦交流电路',pages:[48,48],lectures:'P48',weight:'★★★★★'},
-              {idx:3,name:'三相电路与变压器',pages:[49,49],lectures:'P49',weight:'★★★★'},
-              {idx:4,name:'电动机基础',pages:[50,50],lectures:'P50',weight:'★★★'},
-              {idx:5,name:'模拟电子技术',pages:[51,51],lectures:'P51',weight:'★★★'},
-              {idx:6,name:'数字电子技术',pages:[52,52],lectures:'P52',weight:'★★★'}
-            ],
-            episodes: pl.slice(46,52),
-            playlist: pl.slice(46,52)
-          }]
-        },
-        infoLaw: {
-          title:'信息技术 + 工程经济 + 法律法规', short:'信息经济法规', color:'common',
-          totalHours:'约4h', qCountPD:'约14题28分', qCountPT:'约14题28分',
-          collections:[{ bvid:'BV1BaJFzFERX', label:'信息经济法规 P53~P58', duration:'约4h', totalPages:6,
-            chapters:[
-              {idx:1,name:'计算机基础与网络',pages:[53,53],lectures:'P53',weight:'★★'},
-              {idx:2,name:'信息安全与数据库',pages:[54,54],lectures:'P54',weight:'★★'},
-              {idx:3,name:'数值计算',pages:[55,55],lectures:'P55',weight:'★★'},
-              {idx:4,name:'资金时间价值与等值计算',pages:[56,56],lectures:'P56',weight:'★★★★★'},
-              {idx:5,name:'经济评价与不确定性分析',pages:[57,57],lectures:'P57',weight:'★★★★'},
-              {idx:6,name:'招投标与合同法',pages:[58,58],lectures:'P58',weight:'★★★'}
-            ],
-            episodes: pl.slice(52,58),
-            playlist: pl.slice(52,58)
-          }]
-        }
-      }
+      title: '姜小白 公共基础精讲班 (58讲)',
+      intro: '姜小白老师系统讲解注册电气工程师公共基础科目共58讲，涵盖高等数学/线性代数/概率统计/普通物理/普通化学/理论力学/工程经济/信号与信息基础/电磁场/电路基础/电机与变压器/模拟电子技术/数字电子技术/法律法规。上午120题240分全覆盖。',
+      subjects: subjects
     };
   }
 

@@ -197,7 +197,7 @@
           Object.keys(s.subjects).forEach(function(sk){
             var subj=s.subjects[sk];
             var b=document.createElement('button');b.className='sub-tab';b.dataset.subject=sk;
-            b.textContent=(subj.short||subj.title)+' · '+(subj.totalHours||'');
+            var cnt = (subj.collections && subj.collections[0]) ? subj.collections[0].totalPages : ''; b.textContent=(subj.short||subj.title)+' · '+(cnt || subj.totalHours || '');
             subjectTabsEl.appendChild(b);
             b.onclick=function(){activateSubject(k,sk)};
           });
