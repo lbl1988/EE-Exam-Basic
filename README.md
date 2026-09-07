@@ -1,11 +1,19 @@
 # 注册电气工程师基础考试2026 - 备考增强版
 
-> **EE-Exam-Basic（本站）**: <https://ee-exam-basic.onrender.com>
-> **EE-Pro-Exam-Site-2026（姊妹站）**: <https://ee-pro-exam-site-2026.onrender.com>
-> **代码仓库**: <https://github.com/lbl1988/EE-Exam-Basic>
-> **姊妹仓库**: <https://github.com/lbl1988/ee-pro-exam-site-2026>
+> **EE-Exam-Basic（本站）**:
+>
+> - Render: <https://ee-exam-basic.onrender.com>
+>
+> - Vercel: <https://ee-exam-basic.vercel.app>
+>   **EE-Pro-Exam-Site-2026（姊妹站）**:
+>
+> - Render: <https://ee-pro-exam-site-2026.onrender.com>
+>
+> - Vercel: <https://ee-pro-exam-site-2026.vercel.app>
+>   **代码仓库**: <https://github.com/lbl1988/EE-Exam-Basic>
+>   **姊妹仓库**: <https://github.com/lbl1988/ee-pro-exam-site-2026>
 
-两个站点均部署在 **Render**（`*.onrender.com`），纯静态无需 build。姊妹站同时也配置了 **Vercel** Edge Functions + KV 方案（见 `ee-pro-exam-site-2026` 仓库）。
+本站纯静态，**Render / Vercel 双平台同步部署**，无需 build。姊妹站同时也配置了 **Vercel** Edge Functions + KV 方案（见 `ee-pro-exam-site-2026` 仓库）。
 
 一个纯静态单页应用，面向注册电气工程师（供配电 / 发输变电）基础考试备考，整合张工教育专业基础精讲、姜小白公共基础精讲班等核心视频资源，并提供章→节→知识点四层细粒度学习路径。
 
