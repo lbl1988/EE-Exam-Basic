@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>公式与记忆知识点速查 · 注册电气工程师基础考试</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* 页面专属样式 */
+.fp-hero{background:linear-gradient(180deg,#101a33 0%,#0e1729 100%);padding:36px 0 24px}
+.fp-hero h1{font-size:26px;line-height:1.3;margin-bottom:8px}
+.fp-hero .lead{color:var(--muted);max-width:680px;margin-bottom:16px;font-size:14px}
+.fp-stats{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.fp-stats span{background:var(--bg-card);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+.fp-stats b{color:var(--primary)}
+
+/* 过滤栏 */
+.filter-bar{position:sticky;top:56px;z-index:40;background:rgba(14,23,41,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 0}
+.filter-inner{display:flex;align-items:center;gap:8px;max-width:1160px;margin:0 auto;padding:0 20px;flex-wrap:wrap}
+.filter-btn{background:var(--bg-card);border:1px solid var(--line);color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer;font-size:13px;font-weight:600;white-space:nowrap}
+.filter-btn.active{background:linear-gradient(135deg,var(--primary),#a78bfa);color:#fff;border-color:transparent}
+.filter-btn .cnt{font-size:11px;opacity:.7;margin-left:4px}
+.search-box{flex:1;min-width:140px;background:var(--bg-card);border:1px solid var(--line);color:var(--text);padding:7px 12px;border-radius:8px;font-size:14px}
+.search-box::placeholder{color:var(--muted)}
+
+/* 学科区块 */
+.subject-section{margin-bottom:28px}
+.subject-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;cursor:pointer;user-select:none}
+.subject-header h2{font-size:18px;font-weight:700}
+.subject-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+.subject-meta{font-size:12px;color:var(--muted);margin-left:auto}
+.chapters{overflow:hidden;transition:max-height .3s ease}
+.chapters.collapsed{max-height:0 !important}
+
+/* 章节卡 */
+.chapter-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;margin-bottom:14px;overflow:hidden}
+.chapter-title{padding:10px 16px;font-weight:700;font-size:15px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.chapter-title .ch-num{background:var(--bg-tag);color:var(--primary);padding:2px 8px;border-radius:4px;font-size:12px}
+
+/* 公式条目 */
+.f-item{padding:10px 16px;border-bottom:1px solid rgba(42,60,102,.4)}
+.f-item:last-child{border-bottom:none}
+.f-row{display:flex;align-items:flex-start;gap:8px}
+.f-num{color:var(--muted);font-size:12px;flex-shrink:0;margin-top:2px}
+.f-name{font-weight:600;font-size:14px}
+.f-formula{font-family:"Cascadia Code",Consolas,"Courier New",monospace;color:#f0a868;font-size:14px;margin:4px 0;line-height:1.5;word-break:break-all}
+.f-note{font-size:12px;color:var(--muted)}
+.f-tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:4px;margin-left:6px}
+.f-tag.high{background:rgba(239,68,68,.15);color:#f87171}
+.f-tag.mid{background:rgba(250,204,21,.15);color:#facc15}
+
+/* 记忆点 */
+.m-item{padding:8px 16px;border-bottom:1px solid rgba(42,60,102,.4);display:flex;gap:8px;align-items:flex-start}
+.m-item:last-child{border-bottom:none}
+.m-bullet{color:var(--primary);flex-shrink:0;margin-top:2px}
+.m-text{font-size:13px;color:var(--text);line-height:1.6}
+.m-section{background:rgba(79,140,255,.06);border-left:3px solid var(--primary)}
+.m-section-title{padding:8px 16px;font-weight:600;font-size:14px;color:var(--primary)}
+
+@media(max-width:640px){
+  .fp-hero h1{font-size:22px}
+  .filter-btn{padding:5px 10px;font-size:12px}
+  .f-formula{font-size:13px}
+  .chapter-title{font-size:14px}
+  .subject-header h2{font-size:16px}
+}
+</style>
+</head>
+<body data-page="formulas">
+
+<!-- 导航 -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">注册电气工程师基础考试</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="basic.html">公共基础</a>
+      <a href="subjects/circuit.html">专业基础</a>
+      <a href="hot-points.html">高频考点</a>
+      <a href="videos.html">视频中心</a>
+      <a href="formulas.html" class="active">公式速查</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="fp-hero">
+  <div class="wrap">
+    <h1>⚡ 公式与纯记忆知识点速查</h1>
+    <p class="lead">公共基础10科 + 专业基础5科 全覆盖。每条公式标注考频等级，附易错提示与典型真题。数据取自 basic-knowledge.js 与学科详情页。</p>
+    <div class="fp-stats">
+      <span>公式 <b>120+</b></span>
+      <span>记忆点 <b>80+</b></span>
+      <span>学科 <b>15</b></span>
+      <span>章节 <b>60+</b></span>
+    </div>
+  </div>
+</div>
+
+<!-- 过滤栏 -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active" data-filter="all">全部</button>
+    <button class="filter-btn" data-filter="math">数学</button>
+    <button class="filter-btn" data-filter="physics">物理</button>
+    <button class="filter-btn" data-filter="chem">化学</button>
+    <button class="filter-btn" data-filter="mech">力学</button>
+    <button class="filter-btn" data-filter="matl">材料</button>
+    <button class="filter-btn" data-filter="fluid">流体</button>
+    <button class="filter-btn" data-filter="thermal">热工</button>
+    <button class="filter-btn" data-filter="elecPub">电工</button>
+    <button class="filter-btn" data-filter="info">信息</button>
+    <button class="filter-btn" data-filter="circuit">电路</button>
+    <button class="filter-btn" data-filter="analog">模电</button>
+    <button class="filter-btn" data-filter="digital">数电</button>
+    <button class="filter-btn" data-filter="machine">电机</button>
+    <button class="filter-btn" data-filter="power">电气</button>
+    <input type="text" class="search-box" id="searchBox" placeholder="搜索公式或知识点…">
+  </div>
+</div>
+
+<!-- 内容区 -->
+<div class="wrap" style="padding:20px 20px 40px">
+  <div id="content"></div>
+  <div id="noResult" style="display:none;text-align:center;padding:40px;color:var(--muted)">未找到匹配内容</div>
+</div>
+
+<script>
+/* ====== 数据：公共基础 ====== */
+var DATA=[
+// ---- 高等数学 ----
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第1章',chName:'空间解析几何+线性代数',type:'formula',num:'M1-1',name:'向量数量积',formula:'a·b = ax·bx + ay·by + az·bz（垂直时a·b=0）',freq:'high',note:'2023·题11'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第1章',chName:'空间解析几何+线性代数',type:'formula',num:'M1-2',name:'向量积',formula:'a×b 为向量(右手系)；|a×b|=|a||b|sinθ',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第1章',chName:'空间解析几何+线性代数',type:'formula',num:'M1-3',name:'平面点法式',formula:'A(x−x0)+B(y−y0)+C(z−z0)=0',freq:'mid'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第1章',chName:'空间解析几何+线性代数',type:'formula',num:'M1-5',name:'n阶行列式',formula:'|A|=Σ(−1)^(i+j)·aij·Mij 按行/列展开',freq:'high',note:'2022·题14'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第1章',chName:'空间解析几何+线性代数',type:'formula',num:'M1-7',name:'逆矩阵',formula:'(AB)⁻¹=B⁻¹A⁻¹（顺序不能反）',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第1章',chName:'空间解析几何+线性代数',type:'formula',num:'M1-9',name:'特征方程',formula:'|λE−A|=0 求特征值',freq:'high',note:'2021·题17'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第1章',chName:'空间解析几何+线性代数',type:'formula',num:'M1-10',name:'特征值性质',formula:'Σλ=trA（迹）；Πλ=|A|（行列式）',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第1章',chName:'空间解析几何+线性代数',type:'memory',text:'易错：向量积结果是向量不是标量；右手系方向搞错。'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第1章',chName:'空间解析几何+线性代数',type:'memory',text:'易错：(AB)⁻¹=B⁻¹A⁻¹ 顺序不能反。'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第1章',chName:'空间解析几何+线性代数',type:'memory',text:'计算器：MAT模式求3×3逆矩阵、EQN模式解特征方程。'},
+
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-1',name:'洛必达法则',formula:'lim f/g = lim f\'/g\'（0/0或∞/∞型）',freq:'high',note:'2023·题21'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-2',name:'等价无穷小(x→0)',formula:'sinx~x；1−cosx~x²/2；ln(1+x)~x；e^x−1~x',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-4',name:'链式法则',formula:'dy/dx=(dy/du)·(du/dx)',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-7',name:'二元极值判别',formula:'A=fxx,B=fxy,C=fyy；AC−B²>0且A>0极小、A<0极大',freq:'high',note:'2022·题23'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-10',name:'分部积分',formula:'∫u dv = uv − ∫v du',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-11',name:'极坐标二重积分',formula:'∫∫f(r·cosθ,r·sinθ)·r·dr·dθ',freq:'high',note:'2021·题28'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'memory',text:'易错：等价无穷小只能用于乘因子，不能用在加减项。'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'memory',text:'计算器：∫积分模式直接求定积分数值。'},
+
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-1',name:'比值审敛',formula:'ρ=lim|aₙ₊₁/aₙ|；ρ<1收敛',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-3',name:'幂级数收敛半径',formula:'R=lim|aₙ/aₙ₊₁|',freq:'high',note:'2022·题31'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-6',name:'一阶线性ODE',formula:"y'+P(x)y=Q → y=e^(−∫Pdx)·[∫Q·e^(∫Pdx)dx+C]",freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-7',name:'二阶常系数齐次',formula:"y''+py'+qy=0；r²+pr+q=0",freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-8',name:'加法公式',formula:'P(A∪B)=P(A)+P(B)−P(AB)',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-11',name:'期望/方差',formula:'E(X)=Σx·p；D(X)=E(X²)−[E(X)]²',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'memory',text:'计算器：SD模式求样本均值、标准差、方差、线性回归。'},
+
+// ---- 普通物理 ----
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第1章',chName:'热学/热力学',type:'formula',num:'P1-1',name:'理想气体状态方程',formula:'PV=nRT=(m/M)·RT',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第1章',chName:'热学/热力学',type:'formula',num:'P1-2',name:'三种速率',formula:'vp=√(2RT/M)；v̄=√(8RT/πM)；√(3RT/M)',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第1章',chName:'热学/热力学',type:'formula',num:'P1-3',name:'内能',formula:'E=(i/2)·nRT',freq:'high',note:'2023·题37'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第1章',chName:'热学/热力学',type:'formula',num:'P1-5',name:'绝热过程',formula:'PV^γ=常数（γ=Cp/Cv）',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第1章',chName:'热学/热力学',type:'formula',num:'P1-6',name:'卡诺效率',formula:'η=1−T2/T1',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第2章',chName:'波动/光学',type:'formula',num:'P2-1',name:'波速',formula:'u=λf=λ/T',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第2章',chName:'波动/光学',type:'formula',num:'P2-3',name:'双缝干涉',formula:'Δx=D·λ/d',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第2章',chName:'波动/光学',type:'formula',num:'P2-5',name:'光栅方程',formula:'d·sinθ=k·λ',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第3章',chName:'近代物理',type:'formula',num:'P3-1',name:'光电方程',formula:'hν=A+½mv²',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第3章',chName:'近代物理',type:'formula',num:'P3-2',name:'德布罗意波长',formula:'λ=h/p',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第3章',chName:'近代物理',type:'formula',num:'P3-3',name:'玻尔能级',formula:'En=−13.6/n² eV',freq:'mid'},
+
+// ---- 普通化学 ----
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第1章',chName:'物质结构',type:'formula',num:'C1-1',name:'四个量子数',formula:'n(主)、l(角)、m(磁)、ms(自旋)取值规则',freq:'high'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第1章',chName:'物质结构',type:'formula',num:'C1-3',name:'杂化轨道',formula:'sp(直线)、sp²(平面三角)、sp³(四面体)、sp³d²(八面体)',freq:'high'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'formula',num:'C2-1',name:'蒸汽压下降',formula:'ΔP=P°·x',freq:'high'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'formula',num:'C2-2',name:'沸点升高',formula:'ΔTb=Kb·m',freq:'high'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'formula',num:'C2-3',name:'凝固点降低',formula:'ΔTf=Kf·m',freq:'high'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'formula',num:'C2-4',name:'渗透压',formula:'Π=c·R·T',freq:'high'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'formula',num:'C2-5',name:'能斯特方程',formula:'E=E°+(RT/nF)·ln(氧化态/还原态)',freq:'high'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'memory',text:'电极电势越高越易还原；电解池阳极氧化、阴极还原。'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第3章',chName:'有机化学',type:'memory',text:'醇醛酸酯性质；苯环取代定位规律；加聚vs缩聚。'},
+
+// ---- 理论力学(含生物) ----
+{sub:'mech',subName:'理论力学',color:'#fbbf24',ch:'第2章',chName:'静力学',type:'formula',num:'T1-1',name:'平面力系平衡',formula:'ΣFx=0；ΣFy=0；ΣM=0',freq:'high'},
+{sub:'mech',subName:'理论力学',color:'#fbbf24',ch:'第2章',chName:'静力学',type:'formula',num:'T1-2',name:'最大静摩擦',formula:'Fmax=f·N',freq:'high'},
+{sub:'mech',subName:'理论力学',color:'#fbbf24',ch:'第2章',chName:'静力学',type:'memory',text:'二力构件：两力等大反向共线。截面法/节点法求桁架内力。'},
+{sub:'mech',subName:'理论力学',color:'#fbbf24',ch:'第3章',chName:'运动学+动力学',type:'formula',num:'T2-1',name:'速度合成',formula:'绝对=牵连+相对',freq:'high'},
+{sub:'mech',subName:'理论力学',color:'#fbbf24',ch:'第3章',chName:'运动学+动力学',type:'formula',num:'T2-2',name:'科氏加速度',formula:'aC=2·ω×vr；大小=2ω·vr·sinθ',freq:'high'},
+{sub:'mech',subName:'理论力学',color:'#fbbf24',ch:'第3章',chName:'运动学+动力学',type:'formula',num:'T2-3',name:'平行轴定理',formula:'I=Ic+m·d²',freq:'high'},
+{sub:'mech',subName:'理论力学',color:'#fbbf24',ch:'第3章',chName:'运动学+动力学',type:'memory',text:'动能定理：W=ΔEk；机械能守恒：Ek+Ep=恒量（仅有保守力做功）。'},
+
+// ---- 材料力学 ----
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第1章',chName:'拉压/剪切',type:'formula',num:'S1-1',name:'正应力',formula:'σ=N/A',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第1章',chName:'拉压/剪切',type:'formula',num:'S1-2',name:'变形',formula:'ΔL=N·L/(E·A)',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第1章',chName:'拉压/剪切',type:'formula',num:'S1-3',name:'剪切面',formula:'τ=Q/A（单剪/双剪）',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第2章',chName:'扭转',type:'formula',num:'S2-1',name:'扭转切应力',formula:'τ=T·ρ/Ip；τmax=T/Wt',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第2章',chName:'扭转',type:'formula',num:'S2-2',name:'抗扭截面系数',formula:'Wt=π·d³/16（实心圆）',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第3章',chName:'弯曲',type:'formula',num:'S3-1',name:'三微分关系',formula:'dM/dx=Q；dQ/dx=−q',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第3章',chName:'弯曲',type:'formula',num:'S3-2',name:'弯曲正应力',formula:'σ=M·y/Iz；σmax=M/Wz',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第3章',chName:'弯曲',type:'formula',num:'S3-3',name:'抗弯截面系数',formula:'Wz=b·h²/6（矩形）',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第4章',chName:'压杆稳定',type:'formula',num:'S4-1',name:'欧拉临界力',formula:'Pcr=π²·E·I/(μ·L)²',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第4章',chName:'压杆稳定',type:'formula',num:'S4-2',name:'柔度',formula:'λ=μ·L/i',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第3章',chName:'弯曲',type:'memory',text:'集中力处Q图突变M图折角；集中力偶处M图突变。'},
+
+// ---- 流体力学 ----
+{sub:'fluid',subName:'流体力学',color:'#60a5fa',ch:'第1章',chName:'静力学/伯努利',type:'formula',num:'F1-1',name:'静压强',formula:'P=P0+ρ·g·h',freq:'high'},
+{sub:'fluid',subName:'流体力学',color:'#60a5fa',ch:'第1章',chName:'静力学/伯努利',type:'formula',num:'F1-3',name:'平面壁总压力',formula:'P=ρ·g·hc·A',freq:'high'},
+{sub:'fluid',subName:'流体力学',color:'#60a5fa',ch:'第1章',chName:'静力学/伯努利',type:'formula',num:'F1-4',name:'伯努利方程',formula:'z+P/(ρg)+v²/(2g)=常数',freq:'high'},
+{sub:'fluid',subName:'流体力学',color:'#60a5fa',ch:'第1章',chName:'静力学/伯努利',type:'formula',num:'F1-5',name:'连续性方程',formula:'A1·v1=A2·v2',freq:'high'},
+{sub:'fluid',subName:'流体力学',color:'#60a5fa',ch:'第2章',chName:'阻力/渗流',type:'formula',num:'F2-1',name:'沿程达西公式',formula:'hf=λ·(L/d)·v²/(2g)',freq:'high'},
+{sub:'fluid',subName:'流体力学',color:'#60a5fa',ch:'第2章',chName:'阻力/渗流',type:'formula',num:'F2-2',name:'雷诺数',formula:'Re=v·d/ν；层流Re≤2300',freq:'high'},
+{sub:'fluid',subName:'流体力学',color:'#60a5fa',ch:'第2章',chName:'阻力/渗流',type:'formula',num:'F2-4',name:'达西渗流定律',formula:'v=k·J',freq:'high'},
+{sub:'fluid',subName:'流体力学',color:'#60a5fa',ch:'第1章',chName:'静力学/伯努利',type:'memory',text:'文丘里测流量；毕托管测速。'},
+
+// ---- 热工 ----
+{sub:'thermal',subName:'热工学',color:'#fb923c',ch:'第1章',chName:'工程热力学',type:'formula',num:'H1-1',name:'理想气体',formula:'PV=nRT；基本过程(等容/等压/等温/绝热)',freq:'high'},
+{sub:'thermal',subName:'热工学',color:'#fb923c',ch:'第1章',chName:'工程热力学',type:'formula',num:'H1-2',name:'朗肯循环',formula:'蒸汽动力基本循环；再热/回热提高效率',freq:'high'},
+{sub:'thermal',subName:'热工学',color:'#fb923c',ch:'第2章',chName:'传热学',type:'formula',num:'H2-1',name:'平壁导热',formula:'Q=λ·A·Δt/δ',freq:'high'},
+{sub:'thermal',subName:'热工学',color:'#fb923c',ch:'第2章',chName:'传热学',type:'formula',num:'H2-3',name:'牛顿冷却',formula:'Q=h·A·Δt',freq:'high'},
+{sub:'thermal',subName:'热工学',color:'#fb923c',ch:'第2章',chName:'传热学',type:'formula',num:'H2-4',name:'黑体辐射',formula:'E=σ·T⁴（σ=5.67×10⁻⁸）',freq:'high'},
+
+// ---- 电工电子(公共) ----
+{sub:'elecPub',subName:'电工电子',color:'#94a3b8',ch:'第1章',chName:'电路/电机/控制',type:'memory',text:'与专业基础电路重合(KCL/KVL/欧姆定律/相量法)。'},
+{sub:'elecPub',subName:'电工电子',color:'#94a3b8',ch:'第1章',chName:'电路/电机/控制',type:'memory',text:'异步电机转差率 S=(n1−n)/n1；变压器变比 K=N1/N2。'},
+{sub:'elecPub',subName:'电工电子',color:'#94a3b8',ch:'第1章',chName:'电路/电机/控制',type:'memory',text:'星三角启动电路(Y-Δ降压)；自锁/互锁原理。'},
+
+// ---- 信号信息+法规经济 ----
+{sub:'info',subName:'信息+法规+经济',color:'#c084fc',ch:'第1章',chName:'计算机/网络',type:'memory',text:'OSI七层；常见端口HTTP:80；A/B/C类IP地址。'},
+{sub:'info',subName:'信息+法规+经济',color:'#c084fc',ch:'第1章',chName:'计算机/网络',type:'memory',text:'对称加密DES/AES vs 非对称RSA。'},
+{sub:'info',subName:'信息+法规+经济',color:'#c084fc',ch:'第2章',chName:'法规',type:'formula',num:'I2-1',name:'投标保证金',formula:'≤估算价2%',freq:'high'},
+{sub:'info',subName:'信息+法规+经济',color:'#c084fc',ch:'第3章',chName:'工程经济',type:'formula',num:'I3-1',name:'一次支付终值',formula:'F=P(1+i)^n',freq:'high'},
+{sub:'info',subName:'信息+法规+经济',color:'#c084fc',ch:'第3章',chName:'工程经济',type:'formula',num:'I3-2',name:'净现值',formula:'NPV≥0 则方案可行',freq:'high'},
+{sub:'info',subName:'信息+法规+经济',color:'#c084fc',ch:'第3章',chName:'工程经济',type:'formula',num:'I3-3',name:'内部收益率',formula:'IRR：使NPV(IRR)=0的折现率',freq:'high'},
+
+// ====== 专业基础 ======
+// ---- 电路与电磁场 ----
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第1章',chName:'基本概念',type:'formula',num:'C1-1',name:'功率',formula:'P=U·I(关联)；P=−U·I(非关联)；ΣP吸=0',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第1章',chName:'基本概念',type:'formula',num:'C1-2',name:'KCL/KVL',formula:'ΣI入=ΣI出；ΣU=0',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第2章',chName:'电路分析方法',type:'formula',num:'C2-1',name:'节点电压法',formula:'自导Gii·Ui−Σ(Gij·Uj)=ΣI流入+Σ(Usk/Rk)',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第2章',chName:'电路分析方法',type:'formula',num:'C2-4',name:'戴维南/诺顿',formula:'Uoc=开路电压；Req=除源等效电阻；Isc=Uoc/Req',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第2章',chName:'电路分析方法',type:'formula',num:'C2-5',name:'最大功率传输',formula:'RL=Req时 Pmax=Uoc²/(4·Req)',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第3章',chName:'正弦交流',type:'formula',num:'C3-2',name:'RLC阻抗',formula:'Z_R=R；Z_L=jωL；Z_C=1/(jωC)；Z=R+j(X_L−X_C)',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第3章',chName:'正弦交流',type:'formula',num:'C3-3',name:'功率',formula:'P=UIcosφ；Q=UIsinφ；S=UI；P²+Q²=S²',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第3章',chName:'正弦交流',type:'formula',num:'C3-5',name:'三相',formula:'Y:UL=√3·UP；Δ:IL=√3·IP；P=√3·UL·IL·cosφ',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第5章',chName:'暂态分析',type:'formula',num:'C5-2',name:'三要素法',formula:'f(t)=f(∞)+[f(0+)−f(∞)]·e^(−t/τ)',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第5章',chName:'暂态分析',type:'formula',num:'C5-3',name:'时间常数',formula:'τ_RC=R·C；τ_RL=L/R',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第10章',chName:'麦克斯韦',type:'formula',num:'C10-2',name:'麦克斯韦四式',formula:'∮H·dl=I+Id；∮E·dl=−dΦ/dt；∮B·dS=0；∮D·dS=q',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第11章',chName:'平面电磁波',type:'formula',num:'C11-1',name:'波阻抗',formula:'η0=√(μ0/ε0)=377Ω',freq:'mid'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第2章',chName:'电路分析方法',type:'memory',text:'叠加定理中受控源不能置零；求Req时独立源要置零(电压源短路、电流源开路)。'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第2章',chName:'电路分析方法',type:'memory',text:'√3归属：Y接UL=√3·UP；Δ接IL=√3·IP，切勿搞反。'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第5章',chName:'暂态分析',type:'memory',text:'0+等效：电容→电压源、电感→电流源。'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第10章',chName:'麦克斯韦',type:'memory',text:'位移电流不产生焦耳热，只产生磁场。'},
+
+// ---- 模拟电子 ----
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第2章',chName:'三极管',type:'formula',num:'A2-1',name:'电流关系',formula:'Ic=β·Ib；Ie=(1+β)·Ib',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第2章',chName:'三极管',type:'formula',num:'A2-2',name:'rbe',formula:'rbe=300+(1+β)·26/Ie(mA) Ω',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第4章',chName:'放大电路',type:'formula',num:'A4-1',name:'共射',formula:'Au=−β·Rc/rbe（反相）',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第8章',chName:'运放',type:'formula',num:'A8-1',name:'反相比例',formula:'Au=−Rf/Rin',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第8章',chName:'运放',type:'formula',num:'A8-2',name:'同相比例',formula:'Au=1+Rf/Rin',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第8章',chName:'运放',type:'formula',num:'A8-5',name:'积分',formula:'Vo=−1/(RC)·∫Vi dt',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第9章',chName:'信号发生',type:'formula',num:'A9-2',name:'RC文氏桥',formula:'f0=1/(2πRC)',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第10章',chName:'功放',type:'formula',num:'A10-2',name:'乙类效率',formula:'η=π/4≈78.5%',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第6章',chName:'负反馈',type:'memory',text:'负反馈用瞬时极性法判别（净输入减小为负反馈）。'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第8章',chName:'运放',type:'memory',text:'积分vs微分别搞反：Vi经C到R=微分；Vi经R到C=积分。'},
+
+// ---- 数字电子 ----
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第1章',chName:'逻辑代数',type:'formula',num:'D1-2',name:'摩根定律',formula:"(A+B)'=A'·B'；(AB)'=A'+B'",freq:'high'},
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第4章',chName:'触发器',type:'formula',num:'D4-2',name:'JK触发器',formula:"Q*=J·Q'+K'·Q（无约束最通用）",freq:'high'},
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第6章',chName:'555定时器',type:'formula',num:'D6-1',name:'多谐振荡器',formula:'T=0.7·(R1+2R2)·C',freq:'high'},
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第8章',chName:'DAC/ADC',type:'formula',num:'D8-1',name:'DAC输出',formula:'Vout=−Vref·D/2^n',freq:'high'},
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第1章',chName:'逻辑代数',type:'memory',text:'TTL悬空=高电平；CMOS悬空危险不允许。'},
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第4章',chName:'触发器',type:'memory',text:'74LS138=3-8译码器；74LS151=8选1 MUX。'},
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第8章',chName:'DAC/ADC',type:'memory',text:'逐次逼近型ADC应用最广；双积分型用于数字电压表。'},
+
+// ---- 电机学 ----
+{sub:'machine',subName:'电机学',color:'#fbbf24',ch:'第1章',chName:'磁路与变压器',type:'formula',num:'M1-2',name:'感应电势',formula:'E1=4.44·f·N1·Φm',freq:'high'},
+{sub:'machine',subName:'电机学',color:'#fbbf24',ch:'第1章',chName:'磁路与变压器',type:'formula',num:'M1-5',name:'最大效率',formula:'β=√(pFe/PkN)',freq:'high'},
+{sub:'machine',subName:'电机学',color:'#fbbf24',ch:'第3章',chName:'同步机',type:'formula',num:'M3-4',name:'功角特性',formula:'P=m·E0·U/Xd·sinδ',freq:'high'},
+{sub:'machine',subName:'电机学',color:'#fbbf24',ch:'第5章',chName:'异步电机',type:'formula',num:'M5-1',name:'同步转速',formula:'n1=60f/p；s=(n1−n)/n1',freq:'high'},
+{sub:'machine',subName:'电机学',color:'#fbbf24',ch:'第7章',chName:'直流电机',type:'formula',num:'M7-1',name:'电势/转矩',formula:'Ea=Ce·Φ·n；T=Ct·Φ·Ia',freq:'high'},
+{sub:'machine',subName:'电机学',color:'#fbbf24',ch:'第1章',chName:'磁路与变压器',type:'memory',text:'变压器并联三条件：变比±0.5%、组别相同、阻抗电压±10%。'},
+{sub:'machine',subName:'电机学',color:'#fbbf24',ch:'第3章',chName:'同步机',type:'memory',text:'电枢反应：I滞后→去磁；I超前→助磁；I同相→交磁。'},
+{sub:'machine',subName:'电机学',color:'#fbbf24',ch:'第3章',chName:'同步机',type:'memory',text:'V型曲线：过励磁发感性无功；欠励磁发容性无功。'},
+
+// ---- 电气工程基础 ----
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第2章',chName:'元件参数',type:'formula',num:'P2-2',name:'变压器参数',formula:'RT=ΔPk·U²/SN²；XT=Uk%·U²/(100·SN)',freq:'high'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第3章',chName:'潮流计算',type:'formula',num:'P3-1',name:'功率损耗',formula:'ΔS=(P²+Q²)/U²·(R+jX)',freq:'high'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第5章',chName:'短路电流',type:'formula',num:'P5-2',name:'冲击电流',formula:'ich=√2·Kch·I"；Kch:1.8~1.9',freq:'high'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第5章',chName:'短路电流',type:'formula',num:'P5-5',name:'单相接地',formula:'If=3E/(X1Σ+X2Σ+X0Σ)',freq:'high'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第7章',chName:'继电保护',type:'formula',num:'P7-1',name:'三段式保护',formula:'I段=Krel·Ik3max；II段配下级+0.5s；III段>ILmax',freq:'high'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第2章',chName:'元件参数',type:'memory',text:'Uk%必须除以100！高频易错点。'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第3章',chName:'潮流计算',type:'memory',text:'潮流U²分母用已知端电压，不能都用UN。'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第7章',chName:'继电保护',type:'memory',text:'继电保护四性：选择性/速动性/灵敏性/可靠性。'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第7章',chName:'继电保护',type:'memory',text:'变压器主保护：差动+瓦斯。'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第8章',chName:'过电压',type:'memory',text:'MOA氧化锌避雷器：无间隙、无续流。'},
+];
+
+/* ====== 渲染 ====== */
+var container=document.getElementById('content');
+var noResult=document.getElementById('noResult');
+var currentFilter='all';
+var searchTerm='';
+
+function render(){
+  var filtered=DATA.filter(function(d){
+    if(currentFilter!=='all' && d.sub!==currentFilter) return false;
+    if(searchTerm){
+      var s=searchTerm.toLowerCase();
+      if(d.formula && d.formula.toLowerCase().indexOf(s)<0 && d.name && d.name.toLowerCase().indexOf(s)<0 && d.text && d.text.toLowerCase().indexOf(s)<0) return false;
+    }
+    return true;
+  });
+  
+  if(filtered.length===0){container.innerHTML='';noResult.style.display='block';return;}
+  noResult.style.display='none';
+  
+  // 按学科分组
+  var subjects={};
+  filtered.forEach(function(d){
+    if(!subjects[d.sub]) subjects[d.sub]={name:d.subName,color:d.color,chapters:{}};
+    if(!subjects[d.sub].chapters[d.ch]) subjects[d.sub].chapters[d.ch]={name:d.chName,items:[]};
+    subjects[d.sub].chapters[d.ch].items.push(d);
+  });
+  
+  var html='';
+  Object.keys(subjects).forEach(function(sk){
+    var s=subjects[sk];
+    html+='<div class="subject-section">';
+    html+='<div class="subject-header" onclick="this.nextElementSibling.classList.toggle(\'collapsed\')">';
+    html+='<div class="subject-dot" style="background:'+s.color+'"></div>';
+    html+='<h2>'+s.name+'</h2>';
+    html+='<span class="subject-meta">'+Object.keys(s.chapters).length+'章</span>';
+    html+='</div>';
+    html+='<div class="chapters">';
+    
+    Object.keys(s.chapters).forEach(function(ck){
+      var c=s.chapters[ck];
+      var hasFormula=c.items.some(function(i){return i.type==='formula'});
+      var hasMemory=c.items.some(function(i){return i.type==='memory'});
+      
+      html+='<div class="chapter-card">';
+      html+='<div class="chapter-title"><span class="ch-num">'+ck+'</span>'+c.name+'</div>';
+      
+      c.items.forEach(function(item){
+        if(item.type==='formula'){
+          html+='<div class="f-item"><div class="f-row">';
+          html+='<span class="f-num">'+item.num+'</span>';
+          html+='<div><div class="f-name">'+item.name;
+          if(item.freq==='high') html+='<span class="f-tag high">高频</span>';
+          else if(item.freq==='mid') html+='<span class="f-tag mid">中频</span>';
+          html+='</div>';
+          html+='<div class="f-formula">'+item.formula+'</div>';
+          if(item.note) html+='<div class="f-note">📌 '+item.note+'</div>';
+          html+='</div></div>';
+        } else {
+          html+='<div class="m-item"><span class="m-bullet">●</span><span class="m-text">'+item.text+'</span></div>';
+        }
+      });
+      
+      html+='</div>';
+    });
+    
+    html+='</div></div>';
+  });
+  
+  container.innerHTML=html;
+}
+
+/* 过滤按钮 */
+document.querySelectorAll('.filter-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+    this.classList.add('active');
+    currentFilter=this.dataset.filter;
+    render();
+  });
+});
+
+/* 搜索 */
+document.getElementById('searchBox').addEventListener('input',function(){
+  searchTerm=this.value.trim();
+  render();
+});
+
+/* 初始渲染 */
+render();
+</script>
+</body>
+</html>
