@@ -14,61 +14,48 @@
 .fp-stats span{background:var(--bg-card);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
 .fp-stats b{color:var(--primary)}
 
-/* 过滤栏 */
-.filter-bar{position:sticky;top:56px;z-index:40;background:rgba(14,23,41,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 0}
-.filter-inner{display:flex;align-items:center;gap:8px;max-width:1160px;margin:0 auto;padding:0 20px;flex-wrap:wrap}
-.filter-btn{background:var(--bg-card);border:1px solid var(--line);color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer;font-size:13px;font-weight:600;white-space:nowrap}
-.filter-btn.active{background:linear-gradient(135deg,var(--primary),#a78bfa);color:#fff;border-color:transparent}
-.filter-btn .cnt{font-size:11px;opacity:.7;margin-left:4px}
-.search-box{flex:1;min-width:140px;background:var(--bg-card);border:1px solid var(--line);color:var(--text);padding:7px 12px;border-radius:8px;font-size:14px}
+/* 学科导航 */
+.subject-nav{position:sticky;top:56px;z-index:40;background:rgba(14,23,41,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 0}
+.subject-nav-inner{display:flex;align-items:center;gap:6px;max-width:1160px;margin:0 auto;padding:0 20px;flex-wrap:wrap}
+.nav-link{background:var(--bg-card);border:1px solid var(--line);color:var(--muted);padding:5px 12px;border-radius:999px;cursor:pointer;font-size:12px;font-weight:600;white-space:nowrap;text-decoration:none;transition:color .2s,border-color .2s}
+.nav-link:hover{color:var(--primary);border-color:var(--primary)}
+.search-box{flex:1;min-width:120px;background:var(--bg-card);border:1px solid var(--line);color:var(--text);padding:7px 12px;border-radius:8px;font-size:14px}
 .search-box::placeholder{color:var(--muted)}
 
 /* 学科区块 */
-.subject-section{margin-bottom:28px}
-.subject-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;cursor:pointer;user-select:none}
+.subject-section{margin-bottom:32px;scroll-margin-top:120px}
+.subject-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .subject-header h2{font-size:18px;font-weight:700}
 .subject-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
 .subject-meta{font-size:12px;color:var(--muted);margin-left:auto}
-.chapters{overflow:hidden;transition:max-height .3s ease;display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:860px){.chapters{grid-template-columns:1fr 1fr}}
-.chapters.collapsed{max-height:0 !important}
 
-/* 章节卡 */
-.chapter-card{background:var(--bg-soft);border-radius:10px;overflow:hidden}
-.chapter-title{padding:12px 16px 6px;font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
-.chapter-title .ch-num{background:var(--bg-tag);color:var(--primary);padding:2px 8px;border-radius:4px;font-size:12px;flex-shrink:0}
-
-/* 公式条目 */
-.f-item{padding:8px 16px}
-.f-row{display:flex;align-items:flex-start;gap:10px}
-.f-num{color:var(--muted);font-size:12px;flex-shrink:0;margin-top:2px;min-width:42px;font-family:"Cascadia Code",Consolas,monospace}
-.f-name-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.f-name{font-weight:600;font-size:14px}
-.f-formula{font-family:"Cascadia Code",Consolas,"Courier New",monospace;color:#f0a868;font-size:14px;margin:4px 0 0;line-height:1.5;word-break:break-all;padding-left:52px}
-.f-note{font-size:12px;color:var(--muted);padding-left:52px;margin-top:2px}
-.f-tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:4px}
+/* 公式表格 */
+.f-table{width:100%;border-collapse:collapse;font-size:13px;background:var(--bg-card);border-radius:10px;overflow:hidden;margin-bottom:8px}
+.f-table th{background:var(--bg-tag);color:var(--primary);font-weight:700;font-size:12px;padding:8px 12px;text-align:left}
+.f-table td{padding:7px 12px;vertical-align:top}
+.f-table tr:hover td{background:rgba(79,140,255,.04)}
+.group-row td{background:var(--bg-soft);font-weight:700;font-size:13px;color:var(--text);padding:6px 12px}
+.f-name-cell{font-weight:600;white-space:nowrap}
+.f-formula-cell{font-family:"Cascadia Code",Consolas,monospace;color:#f0a868;word-break:break-all;line-height:1.5}
+.f-note-cell{font-size:12px;color:var(--muted);white-space:nowrap}
+.f-tag{display:inline-block;font-size:10px;padding:1px 5px;border-radius:4px;margin-left:4px;vertical-align:middle}
 .f-tag.high{background:rgba(239,68,68,.15);color:#f87171}
 .f-tag.mid{background:rgba(250,204,21,.15);color:#facc15}
-
-/* 记忆点 */
-.m-item{padding:8px 16px;display:flex;gap:8px;align-items:flex-start}
-.m-bullet{color:var(--primary);flex-shrink:0;margin-top:2px}
-.m-text{font-size:13px;color:var(--text);line-height:1.6}
-.m-section{background:rgba(79,140,255,.06);border-radius:8px;margin:6px 8px 8px}
-.m-section-title{padding:8px 16px 4px;font-weight:600;font-size:14px;color:var(--primary)}
+.m-row td{font-size:13px;color:var(--text);line-height:1.6}
+.m-row td:before{content:'● ';color:var(--primary)}
 
 @media(max-width:640px){
   .fp-hero h1{font-size:22px}
-  .filter-btn{padding:5px 10px;font-size:12px}
-  .f-formula{font-size:13px;padding-left:0}
-  .f-note{padding-left:0}
-  .f-num{min-width:36px;font-size:11px}
-  .chapter-title{font-size:14px}
+  .nav-link{padding:4px 9px;font-size:11px}
+  .f-table{font-size:12px}
+  .f-table th,.f-table td{padding:5px 8px}
+  .f-name-cell{white-space:normal}
+  .f-note-cell{white-space:normal}
   .subject-header h2{font-size:16px}
 }
 
 /* 物理常数附录表 */
-.const-section{background:var(--bg-soft);padding:32px 0 48px}
+.const-section{background:var(--bg-soft);padding:32px 0 48px;scroll-margin-top:120px}
 .const-section h2{font-size:20px;margin-bottom:6px}
 .const-section .lead{font-size:13px;margin-bottom:16px}
 .const-table{width:100%;border-collapse:collapse;font-size:13px;background:var(--bg-card);border-radius:10px;overflow:hidden}
@@ -110,25 +97,25 @@
   </div>
 </div>
 
-<!-- 过滤栏 -->
-<div class="filter-bar">
-  <div class="filter-inner">
-    <button class="filter-btn active" data-filter="all">全部</button>
-    <button class="filter-btn" data-filter="math">数学</button>
-    <button class="filter-btn" data-filter="physics">物理</button>
-    <button class="filter-btn" data-filter="chem">化学</button>
-    <button class="filter-btn" data-filter="mech">力学</button>
-    <button class="filter-btn" data-filter="matl">材料</button>
-    <button class="filter-btn" data-filter="fluid">流体</button>
-    <button class="filter-btn" data-filter="thermal">热工</button>
-    <button class="filter-btn" data-filter="elecPub">电工</button>
-    <button class="filter-btn" data-filter="info">信息</button>
-    <button class="filter-btn" data-filter="circuit">电路</button>
-    <button class="filter-btn" data-filter="analog">模电</button>
-    <button class="filter-btn" data-filter="digital">数电</button>
-    <button class="filter-btn" data-filter="machine">电机</button>
-    <button class="filter-btn" data-filter="power">电气</button>
-    <input type="text" class="search-box" id="searchBox" placeholder="搜索公式或知识点…">
+<!-- 学科导航 -->
+<div class="subject-nav">
+  <div class="subject-nav-inner">
+    <a class="nav-link" href="#sec-math">1.高等数学</a>
+    <a class="nav-link" href="#sec-physics">2.普通物理</a>
+    <a class="nav-link" href="#sec-chem">3.普通化学</a>
+    <a class="nav-link" href="#sec-mech">4.理论力学</a>
+    <a class="nav-link" href="#sec-matl">5.材料力学</a>
+    <a class="nav-link" href="#sec-fluid">6.流体力学</a>
+    <a class="nav-link" href="#sec-thermal">7.热工学</a>
+    <a class="nav-link" href="#sec-elecPub">8.电工电子</a>
+    <a class="nav-link" href="#sec-info">9.工程经济</a>
+    <a class="nav-link" href="#sec-circuit">10.电路与电磁场</a>
+    <a class="nav-link" href="#sec-analog">11.模拟电子</a>
+    <a class="nav-link" href="#sec-digital">12.数字电子</a>
+    <a class="nav-link" href="#sec-machine">13.电气工程</a>
+    <a class="nav-link" href="#sec-power">14.电气工程基础</a>
+    <a class="nav-link" href="#sec-const">附录·常数</a>
+    <input type="text" class="search-box" id="searchBox" placeholder="搜索公式…">
   </div>
 </div>
 
@@ -139,7 +126,7 @@
 </div>
 
 <!-- 附录 · 常用物理常数 -->
-<section class="const-section">
+<section class="const-section" id="sec-const">
   <div class="wrap">
     <h2>📐 附录 · 常用物理常数</h2>
     <p class="lead">来源：必背公式汇总 Artifact。考试常查常数,建议收藏备用。</p>
@@ -457,23 +444,21 @@ var DATA=[
 /* ====== 渲染 ====== */
 var container=document.getElementById('content');
 var noResult=document.getElementById('noResult');
-var currentFilter='all';
 var searchTerm='';
 
 function render(){
   var filtered=DATA.filter(function(d){
-    if(currentFilter!=='all' && d.sub!==currentFilter) return false;
     if(searchTerm){
       var s=searchTerm.toLowerCase();
       if(d.formula && d.formula.toLowerCase().indexOf(s)<0 && d.name && d.name.toLowerCase().indexOf(s)<0 && d.text && d.text.toLowerCase().indexOf(s)<0) return false;
     }
     return true;
   });
-  
+
   if(filtered.length===0){container.innerHTML='';noResult.style.display='block';return;}
   noResult.style.display='none';
-  
-  // 按学科分组，章号+章名作为复合键（同章不同主题分开成独立卡片）
+
+  // 按学科分组，章号+章名作为复合键
   var subjects={};
   filtered.forEach(function(d){
     if(!subjects[d.sub]) subjects[d.sub]={name:d.subName,color:d.color,chapters:{}};
@@ -485,68 +470,45 @@ function render(){
   var html='';
   Object.keys(subjects).forEach(function(sk){
     var s=subjects[sk];
-    // 章节按章号数字升序排序
     var sortedKeys=Object.keys(s.chapters).sort(function(a,b){
       var na=parseInt(a.replace(/[^0-9]/g,''))||0;
       var nb=parseInt(b.replace(/[^0-9]/g,''))||0;
       if(na!==nb) return na-nb;
       return s.chapters[a].name.localeCompare(s.chapters[b].name,'zh');
     });
-    html+='<div class="subject-section">';
-    html+='<div class="subject-header" onclick="this.nextElementSibling.classList.toggle(\'collapsed\')">';
+    html+='<div class="subject-section" id="sec-'+sk+'">';
+    html+='<div class="subject-header">';
     html+='<div class="subject-dot" style="background:'+s.color+'"></div>';
     html+='<h2>'+s.name+'</h2>';
     html+='<span class="subject-meta">'+sortedKeys.length+'节</span>';
     html+='</div>';
-    html+='<div class="chapters">';
+
+    html+='<table class="f-table"><thead><tr><th style="width:18%">公式名称</th><th>公式</th><th style="width:20%">备注</th></tr></thead><tbody>';
 
     sortedKeys.forEach(function(ck){
       var c=s.chapters[ck];
-      html+='<div class="chapter-card">';
-      html+='<div class="chapter-title"><span class="ch-num">'+c.ch+'</span>'+c.name+'</div>';
+      // 分组行（跨3列）
+      html+='<tr class="group-row"><td colspan="3">'+c.ch+' · '+c.name+'</td></tr>';
 
-      // 公式条目在前，记忆点在后
-      var formulas=c.items.filter(function(i){return i.type==='formula'});
-      var memories=c.items.filter(function(i){return i.type==='memory'});
-
-      formulas.forEach(function(item){
-        html+='<div class="f-item"><div class="f-row">';
-        html+='<span class="f-num">'+item.num+'</span>';
-        html+='<div class="f-name-row"><span class="f-name">'+item.name+'</span>';
-        if(item.freq==='high') html+='<span class="f-tag high">高频</span>';
-        else if(item.freq==='mid') html+='<span class="f-tag mid">中频</span>';
-        html+='</div>';
-        html+='<div class="f-formula">'+item.formula+'</div>';
-        if(item.note) html+='<div class="f-note">📌 '+item.note+'</div>';
-        html+='</div>';
+      c.items.forEach(function(item){
+        if(item.type==='formula'){
+          var freqTag='';
+          if(item.freq==='high') freqTag=' <span class="f-tag high">高频</span>';
+          else if(item.freq==='mid') freqTag=' <span class="f-tag mid">中频</span>';
+          var note=item.note||'';
+          html+='<tr><td class="f-name-cell">'+item.name+freqTag+'</td><td class="f-formula-cell">'+item.formula+'</td><td class="f-note-cell">'+note+'</td></tr>';
+        } else {
+          html+='<tr class="m-row"><td colspan="3">'+item.text+'</td></tr>';
+        }
       });
-
-      if(memories.length){
-        html+='<div class="m-section"><div class="m-section-title">记忆点 & 易错提示</div>';
-        memories.forEach(function(item){
-          html+='<div class="m-item"><span class="m-bullet">●</span><span class="m-text">'+item.text+'</span></div>';
-        });
-        html+='</div>';
-      }
-
-      html+='</div>';
     });
 
-    html+='</div></div>';
+    html+='</tbody></table>';
+    html+='</div>';
   });
 
   container.innerHTML=html;
 }
-
-/* 过滤按钮 */
-document.querySelectorAll('.filter-btn').forEach(function(btn){
-  btn.addEventListener('click',function(){
-    document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
-    this.classList.add('active');
-    currentFilter=this.dataset.filter;
-    render();
-  });
-});
 
 /* 搜索 */
 document.getElementById('searchBox').addEventListener('input',function(){
