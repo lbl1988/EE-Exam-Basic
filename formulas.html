@@ -34,13 +34,12 @@
 .chapters.collapsed{max-height:0 !important}
 
 /* 章节卡 */
-.chapter-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.chapter-title{padding:10px 16px;font-weight:700;font-size:15px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.chapter-card{background:var(--bg-soft);border-radius:10px;overflow:hidden}
+.chapter-title{padding:12px 16px 6px;font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
 .chapter-title .ch-num{background:var(--bg-tag);color:var(--primary);padding:2px 8px;border-radius:4px;font-size:12px;flex-shrink:0}
 
 /* 公式条目 */
-.f-item{padding:10px 16px;border-bottom:1px solid rgba(42,60,102,.4)}
-.f-item:last-child{border-bottom:none}
+.f-item{padding:8px 16px}
 .f-row{display:flex;align-items:flex-start;gap:10px}
 .f-num{color:var(--muted);font-size:12px;flex-shrink:0;margin-top:2px;min-width:42px;font-family:"Cascadia Code",Consolas,monospace}
 .f-name-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
@@ -52,12 +51,11 @@
 .f-tag.mid{background:rgba(250,204,21,.15);color:#facc15}
 
 /* 记忆点 */
-.m-item{padding:8px 16px;border-bottom:1px solid rgba(42,60,102,.4);display:flex;gap:8px;align-items:flex-start}
-.m-item:last-child{border-bottom:none}
+.m-item{padding:8px 16px;display:flex;gap:8px;align-items:flex-start}
 .m-bullet{color:var(--primary);flex-shrink:0;margin-top:2px}
 .m-text{font-size:13px;color:var(--text);line-height:1.6}
-.m-section{background:rgba(79,140,255,.06);border-left:3px solid var(--primary)}
-.m-section-title{padding:8px 16px;font-weight:600;font-size:14px;color:var(--primary)}
+.m-section{background:rgba(79,140,255,.06);border-radius:8px;margin:6px 8px 8px}
+.m-section-title{padding:8px 16px 4px;font-weight:600;font-size:14px;color:var(--primary)}
 
 @media(max-width:640px){
   .fp-hero h1{font-size:22px}
@@ -70,13 +68,12 @@
 }
 
 /* 物理常数附录表 */
-.const-section{background:var(--bg-soft);border-top:1px solid var(--line);padding:32px 0 48px}
+.const-section{background:var(--bg-soft);padding:32px 0 48px}
 .const-section h2{font-size:20px;margin-bottom:6px}
 .const-section .lead{font-size:13px;margin-bottom:16px}
-.const-table{width:100%;border-collapse:collapse;font-size:13px;background:var(--bg-card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.const-table th,.const-table td{padding:8px 14px;border-bottom:1px solid rgba(42,60,102,.4);text-align:left}
+.const-table{width:100%;border-collapse:collapse;font-size:13px;background:var(--bg-card);border-radius:10px;overflow:hidden}
+.const-table th,.const-table td{padding:8px 14px;text-align:left}
 .const-table th{background:var(--bg-tag);color:var(--primary);font-weight:700;font-size:12px}
-.const-table tr:last-child td{border-bottom:none}
 .const-table td:nth-child(2),.const-table td:nth-child(3){font-family:"Cascadia Code",Consolas,monospace;color:#f0a868}
 .const-table tr:hover td{background:rgba(79,140,255,.06)}
 </style>
