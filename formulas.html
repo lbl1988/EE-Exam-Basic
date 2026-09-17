@@ -64,6 +64,17 @@
   .chapter-title{font-size:14px}
   .subject-header h2{font-size:16px}
 }
+
+/* 物理常数附录表 */
+.const-section{background:var(--bg-soft);border-top:1px solid var(--line);padding:32px 0 48px}
+.const-section h2{font-size:20px;margin-bottom:6px}
+.const-section .lead{font-size:13px;margin-bottom:16px}
+.const-table{width:100%;border-collapse:collapse;font-size:13px;background:var(--bg-card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.const-table th,.const-table td{padding:8px 14px;border-bottom:1px solid rgba(42,60,102,.4);text-align:left}
+.const-table th{background:var(--bg-tag);color:var(--primary);font-weight:700;font-size:12px}
+.const-table tr:last-child td{border-bottom:none}
+.const-table td:nth-child(2),.const-table td:nth-child(3){font-family:"Cascadia Code",Consolas,monospace;color:#f0a868}
+.const-table tr:hover td{background:rgba(79,140,255,.06)}
 </style>
 </head>
 <body data-page="formulas">
@@ -87,12 +98,13 @@
 <div class="fp-hero">
   <div class="wrap">
     <h1>⚡ 公式与纯记忆知识点速查</h1>
-    <p class="lead">公共基础10科 + 专业基础5科 全覆盖。每条公式标注考频等级，附易错提示与典型真题。数据取自 basic-knowledge.js 与学科详情页。</p>
+    <p class="lead">公共基础10科 + 专业基础5科 全覆盖。每条公式标注考频等级，附易错提示与典型真题。已整合《必背公式汇总》全科目核心公式 + 常用物理常数附录。</p>
     <div class="fp-stats">
-      <span>公式 <b>120+</b></span>
-      <span>记忆点 <b>80+</b></span>
+      <span>公式 <b>210+</b></span>
+      <span>记忆点 <b>100+</b></span>
       <span>学科 <b>15</b></span>
-      <span>章节 <b>60+</b></span>
+      <span>章节 <b>70+</b></span>
+      <span>物理常数 <b>14</b></span>
     </div>
   </div>
 </div>
@@ -124,6 +136,35 @@
   <div id="content"></div>
   <div id="noResult" style="display:none;text-align:center;padding:40px;color:var(--muted)">未找到匹配内容</div>
 </div>
+
+<!-- 附录 · 常用物理常数 -->
+<section class="const-section">
+  <div class="wrap">
+    <h2>📐 附录 · 常用物理常数</h2>
+    <p class="lead">来源：必背公式汇总 Artifact。考试常查常数,建议收藏备用。</p>
+    <table class="const-table">
+      <thead>
+        <tr><th>常数</th><th>符号</th><th>数值</th><th>单位</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>圆周率</td><td>π</td><td>3.14159…</td><td>—</td></tr>
+        <tr><td>自然对数底</td><td>e</td><td>2.71828…</td><td>—</td></tr>
+        <tr><td>重力加速度</td><td>g</td><td>9.8</td><td>m/s²</td></tr>
+        <tr><td>光速</td><td>c</td><td>3×10⁸</td><td>m/s</td></tr>
+        <tr><td>普朗克常数</td><td>h</td><td>6.626×10⁻³⁴</td><td>J·s</td></tr>
+        <tr><td>玻尔兹曼常数</td><td>k</td><td>1.38×10⁻²³</td><td>J/K</td></tr>
+        <tr><td>气体常数</td><td>R</td><td>8.314</td><td>J/(mol·K)</td></tr>
+        <tr><td>阿伏加德罗常数</td><td>NA</td><td>6.02×10²³</td><td>mol⁻¹</td></tr>
+        <tr><td>真空介电常数</td><td>ε₀</td><td>8.85×10⁻¹²</td><td>F/m</td></tr>
+        <tr><td>真空磁导率</td><td>μ₀</td><td>4π×10⁻⁷</td><td>H/m</td></tr>
+        <tr><td>基本电荷</td><td>e</td><td>1.6×10⁻¹⁹</td><td>C</td></tr>
+        <tr><td>电子质量</td><td>me</td><td>9.11×10⁻³¹</td><td>kg</td></tr>
+        <tr><td>斯特藩-玻尔兹曼常数</td><td>σ</td><td>5.67×10⁻⁸</td><td>W/(m²·K⁴)</td></tr>
+        <tr><td>维恩常数</td><td>b</td><td>2.898×10⁻³</td><td>m·K</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
 <script>
 /* ====== 数据：公共基础 ====== */
@@ -294,6 +335,122 @@ var DATA=[
 {sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第7章',chName:'继电保护',type:'memory',text:'继电保护四性：选择性/速动性/灵敏性/可靠性。'},
 {sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第7章',chName:'继电保护',type:'memory',text:'变压器主保护：差动+瓦斯。'},
 {sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第8章',chName:'过电压',type:'memory',text:'MOA氧化锌避雷器：无间隙、无续流。'},
+
+// ====== 公式汇总补充（来源：必背公式汇总 Artifact）======
+// ---- 高等数学补充 ----
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-12',name:'两个重要极限',formula:'lim(x→0)sinx/x=1；lim(x→0)(1+x)^(1/x)=e',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-13',name:'基本导数(x^α/ax/e^x/lnx)',formula:"(x^α)'=αx^(α−1)；(a^x)'=a^x·lna；(e^x)'=e^x；(lnx)'=1/x",freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-14',name:'三角导数',formula:"(sinx)'=cosx；(cosx)'=−sinx；(tanx)'=sec²x；(cotx)'=−csc²x",freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-15',name:'反三角导数',formula:"(arcsinx)'=1/√(1−x²)；(arctanx)'=1/(1+x²)",freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-16',name:'导数四则运算',formula:"(uv)'=u'v+uv'；(u/v)'=(u'v−uv')/v²",freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-17',name:'基本积分',formula:'∫x^n dx=x^(n+1)/(n+1)+C；∫(1/x)dx=ln|x|+C；∫e^x dx=e^x+C',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-18',name:'三角积分',formula:'∫sinx dx=−cosx+C；∫cosx dx=sinx+C；∫1/(1+x²)dx=arctanx+C',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-19',name:'定积分应用',formula:'面积A=∫[f−g]dx；旋转体体积V=π∫f²dx；弧长L=∫√(1+f′²)dx',freq:'mid'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第2章',chName:'微积分',type:'formula',num:'M2-20',name:'方向导数与梯度',formula:'∇f=(∂f/∂x,∂f/∂y,∂f/∂z)；∂f/∂l=∇f·l',freq:'mid'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-12',name:'幂级数展开',formula:'e^x=1+x+x²/2!+…；sinx=x−x³/3!+…；1/(1−x)=1+x+x²+…(|x|<1)',freq:'mid'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-13',name:'正态分布',formula:'X~N(μ,σ²)：E(X)=μ；D(X)=σ²',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-14',name:'指数/二项/泊松',formula:'指数E=1/λ,D=1/λ²；二项E=np,D=np(1−p)；泊松E=D=λ',freq:'mid'},
+
+// ---- 普通物理补充 ----
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第1章',chName:'热学/热力学',type:'formula',num:'P1-7',name:'运动学基本',formula:'v=v0+at；s=v0t+½at²；v²=v0²+2as',freq:'mid'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第1章',chName:'热学/热力学',type:'formula',num:'P1-8',name:'动量与冲量',formula:'p=mv；I=Δp=∫Fdt；动量守恒Σmv=常量',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第1章',chName:'热学/热力学',type:'formula',num:'P1-9',name:'功与能',formula:'W=F·s·cosθ；Ek=½mv²；Ep=mgh；弹性Ep=½kx²',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第1章',chName:'热学/热力学',type:'formula',num:'P1-10',name:'刚体转动',formula:'L=Iω；M=Iα；转动动能Ek=½Iω²',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第4章',chName:'电磁学',type:'formula',num:'P4-1',name:'库仑定律',formula:'F=k·q1·q2/r²；k=1/(4πε0)',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第4章',chName:'电磁学',type:'formula',num:'P4-2',name:'电场强度',formula:'E=F/q；点电荷E=k·Q/r²',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第4章',chName:'电磁学',type:'formula',num:'P4-3',name:'高斯定理',formula:'∮E·dA=Q内/ε0',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第4章',chName:'电磁学',type:'formula',num:'P4-4',name:'安培环路定律',formula:'∮H·dl=Ienc',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第4章',chName:'电磁学',type:'formula',num:'P4-5',name:'法拉第电磁感应',formula:'E=−dΦ/dt',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第4章',chName:'电磁学',type:'formula',num:'P4-6',name:'洛伦兹力/安培力',formula:'F=q(v×B)；F=BIL·sinθ',freq:'high'},
+{sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第4章',chName:'电磁学',type:'formula',num:'P4-7',name:'电容与电感储能',formula:'Wc=½CV²=Q²/2C；WL=½LI²',freq:'high'},
+
+// ---- 普通化学补充 ----
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'formula',num:'C2-6',name:'物质的量与浓度',formula:'n=m/M；cB=nB/V；NA=6.02×10²³/mol',freq:'high'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'formula',num:'C2-7',name:'道尔顿分压定律',formula:'pB=(nB/n)·p',freq:'mid'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'formula',num:'C2-8',name:'赫斯定律',formula:'ΔrH=ΣνB·ΔfH(产物)−ΣνB·ΔfH(反应物)',freq:'mid'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'formula',num:'C2-9',name:'吉布斯自由能',formula:'ΔG=ΔH−TΔS；ΔG°=−RTlnK°',freq:'high'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'formula',num:'C2-10',name:'水离子积与pH',formula:'Kw=[H+][OH−]=10⁻¹⁴；pH=−lg[H+]',freq:'high'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'formula',num:'C2-11',name:'缓冲溶液',formula:'pH=pKa+lg([A⁻]/[HA])',freq:'mid'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'formula',num:'C2-12',name:'一级反应/半衰期',formula:'ln[A]t=−kt+ln[A]0；t1/2=0.693/k',freq:'high'},
+{sub:'chem',subName:'普通化学',color:'#a78bfa',ch:'第2章',chName:'溶液与电化学',type:'formula',num:'C2-13',name:'阿伦尼乌斯公式',formula:'lnk=−Ea/(RT)+B',freq:'mid'},
+
+// ---- 材料力学补充 ----
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第1章',chName:'拉压/剪切',type:'formula',num:'S1-4',name:'胡克定律',formula:'σ=E·ε；ΔL=N·L/(E·A)',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第1章',chName:'拉压/剪切',type:'formula',num:'S1-5',name:'挤压应力',formula:'σbs=Fbs/Abs',freq:'mid'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第2章',chName:'扭转',type:'formula',num:'S2-3',name:'圆轴极惯性矩',formula:'Ip=π·d⁴/32；Wp=π·d³/16',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第2章',chName:'扭转',type:'formula',num:'S2-4',name:'单位长度扭转角',formula:'θ=T/(G·Ip)',freq:'mid'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第3章',chName:'弯曲',type:'formula',num:'S3-4',name:'圆形截面惯性矩',formula:'Iz=π·d⁴/64；Wz=π·d³/32',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第3章',chName:'弯曲',type:'formula',num:'S3-5',name:'矩形最大切应力',formula:'τmax=3Q/(2A)',freq:'mid'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第5章',chName:'应力状态与强度理论',type:'formula',num:'S5-1',name:'主应力',formula:'σ1,2=(σx+σy)/2±√[(σx−σy)/2]²+τxy²',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第5章',chName:'应力状态与强度理论',type:'formula',num:'S5-2',name:'最大切应力',formula:'τmax=(σ1−σ3)/2',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第5章',chName:'应力状态与强度理论',type:'formula',num:'S5-3',name:'四大强度理论',formula:'一:σ1≤[σ]；二:σ1−ν(σ2+σ3)≤[σ]；三:σ1−σ3≤[σ]；四:畸变能≤[σ]',freq:'high'},
+{sub:'matl',subName:'材料力学',color:'#34d399',ch:'第3章',chName:'弯曲',type:'memory',text:'强度理论记忆：一最大拉应力、二最大拉应变、三最大切应力、四畸变能(形状改变比能)。'},
+
+// ---- 流体力学补充 ----
+{sub:'fluid',subName:'流体力学',color:'#60a5fa',ch:'第1章',chName:'静力学/伯努利',type:'formula',num:'F1-6',name:'浮力(阿基米德)',formula:'Fb=ρ·g·V',freq:'mid'},
+{sub:'fluid',subName:'流体力学',color:'#60a5fa',ch:'第2章',chName:'阻力/渗流',type:'formula',num:'F2-3',name:'层流沿程阻力系数',formula:'f=64/Re（层流）',freq:'high'},
+{sub:'fluid',subName:'流体力学',color:'#60a5fa',ch:'第2章',chName:'阻力/渗流',type:'formula',num:'F2-5',name:'局部损失',formula:'hj=ξ·v²/(2g)',freq:'high'},
+
+// ---- 工程经济补充 ----
+{sub:'info',subName:'信息+法规+经济',color:'#c084fc',ch:'第3章',chName:'工程经济',type:'formula',num:'I3-4',name:'等额年金终值',formula:'F=A·[(1+i)^n−1]/i',freq:'high'},
+{sub:'info',subName:'信息+法规+经济',color:'#c084fc',ch:'第3章',chName:'工程经济',type:'formula',num:'I3-5',name:'等额年金现值',formula:'P=A·[(1+i)^n−1]/[i(1+i)^n]',freq:'high'},
+{sub:'info',subName:'信息+法规+经济',color:'#c084fc',ch:'第3章',chName:'工程经济',type:'formula',num:'I3-6',name:'资金回收',formula:'A=P·i(1+i)^n/[(1+i)^n−1]',freq:'high'},
+{sub:'info',subName:'信息+法规+经济',color:'#c084fc',ch:'第3章',chName:'工程经济',type:'formula',num:'I3-7',name:'偿债基金',formula:'A=F·i/[(1+i)^n−1]',freq:'mid'},
+{sub:'info',subName:'信息+法规+经济',color:'#c084fc',ch:'第3章',chName:'工程经济',type:'formula',num:'I3-8',name:'净年值',formula:'NAV=NPV·(A/P,i,n)',freq:'mid'},
+
+// ---- 电路与电磁场补充 ----
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第3章',chName:'正弦交流',type:'formula',num:'C3-6',name:'RLC谐振频率',formula:'f0=1/(2π√(LC))',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第3章',chName:'正弦交流',type:'formula',num:'C3-7',name:'串联谐振品质因数',formula:'Q=1/R·√(L/C)=ω0·L/R=1/(ω0·RC)',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第4章',chName:'二阶电路',type:'formula',num:'C4-1',name:'阻尼状态',formula:'过阻尼R>2√(L/C)；欠阻尼R<2√(L/C)；临界R=2√(L/C)',freq:'mid'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第12章',chName:'静电场与电磁场',type:'formula',num:'C12-1',name:'库仑定律',formula:'F=(1/4πε0)·q1·q2/r²',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第12章',chName:'静电场与电磁场',type:'formula',num:'C12-2',name:'高斯定理(D)',formula:'∮D·dA=Q内；D=εE',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第12章',chName:'静电场与电磁场',type:'formula',num:'C12-3',name:'电场能量密度',formula:'we=½εE²',freq:'mid'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第12章',chName:'静电场与电磁场',type:'formula',num:'C12-4',name:'电势',formula:'V=W/q',freq:'mid'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第12章',chName:'静电场与电磁场',type:'formula',num:'C12-5',name:'电流密度',formula:'J=σE；半球形接地体R=ρ/(2πr)',freq:'mid'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第12章',chName:'静电场与电磁场',type:'formula',num:'C12-6',name:'自感',formula:'L=N·Φ/I；E=−L·dI/dt',freq:'high'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第12章',chName:'静电场与电磁场',type:'formula',num:'C12-7',name:'磁场能量密度',formula:'wm=½μH²',freq:'mid'},
+{sub:'circuit',subName:'电路与电磁场',color:'#60a5fa',ch:'第12章',chName:'静电场与电磁场',type:'memory',text:'传输线行波：末端开路反射→末端电压2U0；末端短路反射→末端电压0。'},
+
+// ---- 模拟电子补充 ----
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第1章',chName:'PN结与二极管',type:'formula',num:'A1-1',name:'PN结电流方程',formula:'I=IS·(e^(V/VT)−1)；VT=kT/q≈26mV(室温)',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第2章',chName:'三极管',type:'formula',num:'A2-3',name:'跨导与rπ',formula:'gm=IC/VT；rπ=β/gm=VT/IB',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第2章',chName:'三极管',type:'formula',num:'A2-4',name:'发射结小信号电阻',formula:'re=VT/IE≈26mV/IE',freq:'mid'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第3章',chName:'MOSFET',type:'formula',num:'A3-1',name:'饱和区电流',formula:'ID=½·μnCox·(W/L)·(VGS−VTH)²',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第4章',chName:'放大电路',type:'formula',num:'A4-2',name:'三种组态对比',formula:'共射Av=−gmRc(反相)；共集Av≈1；共基Av=gmRc(同相)',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第4章',chName:'放大电路',type:'formula',num:'A4-3',name:'含RE共射',formula:'Av=−gm·Rc/(1+gm·RE)',freq:'mid'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第5章',chName:'差分放大',type:'formula',num:'A5-1',name:'差模增益/CMRR',formula:'Ad=−gm·Rc/2(BJT)；CMRR=|Ad/Acm|',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第8章',chName:'运放',type:'formula',num:'A8-3',name:'虚短与虚断',formula:'V+=V−(虚短)；I+=I−=0(虚断)',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第8章',chName:'运放',type:'formula',num:'A8-4',name:'增益带宽积',formula:'GBW=Av·f−3dB；f−3dB=1/(2πRC)',freq:'mid'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第8章',chName:'运放',type:'memory',text:'密勒效应：Cin=Cbc·(1+gm·RL)；"虚地"仅存在于反相比例放大电路。'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第6章',chName:'负反馈',type:'formula',num:'A6-1',name:'闭环增益',formula:'Af=A/(1+AF)；1+AF为反馈深度',freq:'high'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第6章',chName:'负反馈',type:'memory',text:'负反馈类型：电压串联(Ri↑Ro↓)、电压并联(Ri↓Ro↓)、电流串联(Ri↑Ro↑)、电流并联(Ri↓Ro↑)。负反馈只抑制环内噪声。'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第10章',chName:'功放',type:'formula',num:'A10-1',name:'甲类输出功率',formula:'Po=Vcc²/(8·RL)',freq:'mid'},
+{sub:'analog',subName:'模拟电子',color:'#f472b6',ch:'第9章',chName:'信号发生',type:'formula',num:'A9-1',name:'石英晶体谐振',formula:'串联fs=1/(2π√(LC))；并联fp=fs·√(1+C/CS)',freq:'mid'},
+
+// ---- 数字电子补充 ----
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第1章',chName:'逻辑代数',type:'formula',num:'D1-3',name:'互补/重叠/吸收律',formula:'A+A′=1；A·A′=0；A+A=A；A+AB=A',freq:'mid'},
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第4章',chName:'触发器',type:'formula',num:'D4-1',name:'RS触发器',formula:'Q*=S+R′·Q（约束RS=0）',freq:'mid'},
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第4章',chName:'触发器',type:'formula',num:'D4-3',name:'D/T触发器',formula:'D:Q*=D；T:Q*=T⊕Q',freq:'high'},
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第6章',chName:'555定时器',type:'formula',num:'D6-2',name:'暂稳态宽度',formula:'双极型tw=1.1RC；CMOS tw≈0.7RC',freq:'mid'},
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第7章',chName:'计数器与分频',type:'formula',num:'D7-1',name:'计数器分频比',formula:'环形n位→n分频；扭环形n位→2n分频；二进制n位→2^n分频',freq:'mid'},
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第7章',chName:'计数器与分频',type:'formula',num:'D7-2',name:'扇出系数',formula:'NOL=IOL(max)/IIL；NOH=IOH(max)/IIH',freq:'mid'},
+{sub:'digital',subName:'数字电子',color:'#a78bfa',ch:'第8章',chName:'DAC/ADC',type:'memory',text:'双积分ADC抗干扰强但慢；逐次逼近ADC速度较快中等精度。n位分辨率=VFS/(2^n−1)，LSB=Vref/2^n。'},
+
+// ---- 电气工程基础补充 ----
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第2章',chName:'元件参数',type:'formula',num:'P2-3',name:'标幺值',formula:'X*=X·SB/UB²；发电机XG*=XG%·SB/SGN；变压器XT*=Uk%·SB/STN',freq:'high'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第2章',chName:'元件参数',type:'formula',num:'P2-4',name:'电抗器参数',formula:'XR*=UR%·IB/IRN·URN/UB',freq:'mid'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第3章',chName:'潮流计算',type:'formula',num:'P3-2',name:'电压/功率损耗',formula:'ΔU=(PR+QX)/U；ΔP=(P²+Q²)/U²·R；ΔQ=(P²+Q²)/U²·X',freq:'high'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第5章',chName:'短路电流',type:'formula',num:'P5-3',name:'冲击系数/关合电流',formula:'ish=√2·Kch·I″(Kch≈1.8)；关合电流=开断电流×2.55',freq:'mid'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第5章',chName:'短路电流',type:'memory',text:'冲击电流出现在短路后0.01s；开断计算时间=主保护动作+固有分闸时间；热稳定时间=保护动作+全开断时间。'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第6章',chName:'PT/CT互感器',type:'memory',text:'PT二次侧不允许短路(装熔断器)；CT二次侧不允许开路(不装熔断器、需热稳定校验)。不接地系统PT二次额定100/√3V。'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第8章',chName:'同步电机',type:'memory',text:'并网条件：相序/电压/频率/相位相同。增大有功→增大原动机输入；增大感性无功→增大励磁。过励磁发感性无功。V曲线=定子电流vs励磁电流。'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第8章',chName:'异步电动机',type:'formula',num:'P8-1',name:'同步转速/转差率',formula:'n0=60f/p；s=(n0−n)/n0；电动机0<s<1',freq:'high'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第8章',chName:'直流电机',type:'formula',num:'P8-2',name:'电枢电动势/电磁转矩',formula:'Ea=Ce·Φ·n；T=CT·Φ·Ia；PM=Ea·Ia',freq:'high'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第8章',chName:'直流电机',type:'memory',text:'单叠绕组a=p(支路对数=极对数)；单波绕组a=1。他励Ia=IN；并励Ia=I−If；串励Ia=I=If。'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第9章',chName:'交流绕组',type:'formula',num:'P9-1',name:'相电动势',formula:'f=pn/60；EΦ=4.44·f·N·kw1·Φ；Y接EL=√3·EΦ；△接EL=EΦ',freq:'mid'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第10章',chName:'高电压与接地',type:'memory',text:'雷电流波头2.6μs；断路器并联电容→断口电压均匀分布；触头并联R=½√(L/C)→周期性恢复转非周期性。绝缘水平由避雷器残压决定。'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第10章',chName:'高电压与接地',type:'memory',text:'中性点接地：110kV及以上直接接地；60kV及以下不接地或经消弧线圈(过补偿)；380/220V直接接地。发电机额定电压比电网高5%。'},
+{sub:'power',subName:'电气工程基础',color:'#34d399',ch:'第10章',chName:'高电压与接地',type:'memory',text:'主接线可靠性：4/3接线>3/2接线>双母线>单母线分段。内桥适合线路长变压器操作少；外桥相反。旁路母线→不停电检修断路器。'},
 ];
 
 /* ====== 渲染 ====== */
