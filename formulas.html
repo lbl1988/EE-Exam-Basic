@@ -29,23 +29,25 @@
 .subject-header h2{font-size:18px;font-weight:700}
 .subject-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
 .subject-meta{font-size:12px;color:var(--muted);margin-left:auto}
-.chapters{overflow:hidden;transition:max-height .3s ease}
+.chapters{overflow:hidden;transition:max-height .3s ease;display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:860px){.chapters{grid-template-columns:1fr 1fr}}
 .chapters.collapsed{max-height:0 !important}
 
 /* 章节卡 */
-.chapter-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;margin-bottom:14px;overflow:hidden}
+.chapter-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .chapter-title{padding:10px 16px;font-weight:700;font-size:15px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
-.chapter-title .ch-num{background:var(--bg-tag);color:var(--primary);padding:2px 8px;border-radius:4px;font-size:12px}
+.chapter-title .ch-num{background:var(--bg-tag);color:var(--primary);padding:2px 8px;border-radius:4px;font-size:12px;flex-shrink:0}
 
 /* 公式条目 */
 .f-item{padding:10px 16px;border-bottom:1px solid rgba(42,60,102,.4)}
 .f-item:last-child{border-bottom:none}
-.f-row{display:flex;align-items:flex-start;gap:8px}
-.f-num{color:var(--muted);font-size:12px;flex-shrink:0;margin-top:2px}
+.f-row{display:flex;align-items:flex-start;gap:10px}
+.f-num{color:var(--muted);font-size:12px;flex-shrink:0;margin-top:2px;min-width:42px;font-family:"Cascadia Code",Consolas,monospace}
+.f-name-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .f-name{font-weight:600;font-size:14px}
-.f-formula{font-family:"Cascadia Code",Consolas,"Courier New",monospace;color:#f0a868;font-size:14px;margin:4px 0;line-height:1.5;word-break:break-all}
-.f-note{font-size:12px;color:var(--muted)}
-.f-tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:4px;margin-left:6px}
+.f-formula{font-family:"Cascadia Code",Consolas,"Courier New",monospace;color:#f0a868;font-size:14px;margin:4px 0 0;line-height:1.5;word-break:break-all;padding-left:52px}
+.f-note{font-size:12px;color:var(--muted);padding-left:52px;margin-top:2px}
+.f-tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:4px}
 .f-tag.high{background:rgba(239,68,68,.15);color:#f87171}
 .f-tag.mid{background:rgba(250,204,21,.15);color:#facc15}
 
@@ -60,7 +62,9 @@
 @media(max-width:640px){
   .fp-hero h1{font-size:22px}
   .filter-btn{padding:5px 10px;font-size:12px}
-  .f-formula{font-size:13px}
+  .f-formula{font-size:13px;padding-left:0}
+  .f-note{padding-left:0}
+  .f-num{min-width:36px;font-size:11px}
   .chapter-title{font-size:14px}
   .subject-header h2{font-size:16px}
 }
@@ -472,55 +476,68 @@ function render(){
   if(filtered.length===0){container.innerHTML='';noResult.style.display='block';return;}
   noResult.style.display='none';
   
-  // 按学科分组
+  // 按学科分组，章号+章名作为复合键（同章不同主题分开成独立卡片）
   var subjects={};
   filtered.forEach(function(d){
     if(!subjects[d.sub]) subjects[d.sub]={name:d.subName,color:d.color,chapters:{}};
-    if(!subjects[d.sub].chapters[d.ch]) subjects[d.sub].chapters[d.ch]={name:d.chName,items:[]};
-    subjects[d.sub].chapters[d.ch].items.push(d);
+    var key=d.ch+'||'+d.chName;
+    if(!subjects[d.sub].chapters[key]) subjects[d.sub].chapters[key]={ch:d.ch,name:d.chName,items:[]};
+    subjects[d.sub].chapters[key].items.push(d);
   });
-  
+
   var html='';
   Object.keys(subjects).forEach(function(sk){
     var s=subjects[sk];
+    // 章节按章号数字升序排序
+    var sortedKeys=Object.keys(s.chapters).sort(function(a,b){
+      var na=parseInt(a.replace(/[^0-9]/g,''))||0;
+      var nb=parseInt(b.replace(/[^0-9]/g,''))||0;
+      if(na!==nb) return na-nb;
+      return s.chapters[a].name.localeCompare(s.chapters[b].name,'zh');
+    });
     html+='<div class="subject-section">';
     html+='<div class="subject-header" onclick="this.nextElementSibling.classList.toggle(\'collapsed\')">';
     html+='<div class="subject-dot" style="background:'+s.color+'"></div>';
     html+='<h2>'+s.name+'</h2>';
-    html+='<span class="subject-meta">'+Object.keys(s.chapters).length+'章</span>';
+    html+='<span class="subject-meta">'+sortedKeys.length+'节</span>';
     html+='</div>';
     html+='<div class="chapters">';
-    
-    Object.keys(s.chapters).forEach(function(ck){
+
+    sortedKeys.forEach(function(ck){
       var c=s.chapters[ck];
-      var hasFormula=c.items.some(function(i){return i.type==='formula'});
-      var hasMemory=c.items.some(function(i){return i.type==='memory'});
-      
       html+='<div class="chapter-card">';
-      html+='<div class="chapter-title"><span class="ch-num">'+ck+'</span>'+c.name+'</div>';
-      
-      c.items.forEach(function(item){
-        if(item.type==='formula'){
-          html+='<div class="f-item"><div class="f-row">';
-          html+='<span class="f-num">'+item.num+'</span>';
-          html+='<div><div class="f-name">'+item.name;
-          if(item.freq==='high') html+='<span class="f-tag high">高频</span>';
-          else if(item.freq==='mid') html+='<span class="f-tag mid">中频</span>';
-          html+='</div>';
-          html+='<div class="f-formula">'+item.formula+'</div>';
-          if(item.note) html+='<div class="f-note">📌 '+item.note+'</div>';
-          html+='</div></div>';
-        } else {
-          html+='<div class="m-item"><span class="m-bullet">●</span><span class="m-text">'+item.text+'</span></div>';
-        }
+      html+='<div class="chapter-title"><span class="ch-num">'+c.ch+'</span>'+c.name+'</div>';
+
+      // 公式条目在前，记忆点在后
+      var formulas=c.items.filter(function(i){return i.type==='formula'});
+      var memories=c.items.filter(function(i){return i.type==='memory'});
+
+      formulas.forEach(function(item){
+        html+='<div class="f-item"><div class="f-row">';
+        html+='<span class="f-num">'+item.num+'</span>';
+        html+='<div class="f-name-row"><span class="f-name">'+item.name+'</span>';
+        if(item.freq==='high') html+='<span class="f-tag high">高频</span>';
+        else if(item.freq==='mid') html+='<span class="f-tag mid">中频</span>';
+        html+='</div>';
+        html+='<div class="f-formula">'+item.formula+'</div>';
+        if(item.note) html+='<div class="f-note">📌 '+item.note+'</div>';
+        html+='</div>';
       });
-      
+
+      if(memories.length){
+        html+='<div class="m-section"><div class="m-section-title">记忆点 & 易错提示</div>';
+        memories.forEach(function(item){
+          html+='<div class="m-item"><span class="m-bullet">●</span><span class="m-text">'+item.text+'</span></div>';
+        });
+        html+='</div>';
+      }
+
       html+='</div>';
     });
-    
+
     html+='</div></div>';
   });
-  
+
   container.innerHTML=html;
 }
 
