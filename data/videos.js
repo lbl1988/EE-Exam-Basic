@@ -301,32 +301,52 @@
       }]
     },
     calculator: {
-      title: '计算器使用技巧 (科学计算器/卡西欧991ES)',
+      title: '计算器使用技巧 (卡西欧 fx-991CN X)',
       short: '计算器技巧',
       color: 'common',
-      totalHours: '约 1~2 小时',
+      totalHours: '11 段操作视频',
       pdQuestions: '全下午段都要用到，尤其是复数、方程求解、积分',
       ptQuestions: '同左',
       collections: [{
-        bvid: 'BV1VM4y127oJ', label: '科学计算器应试技巧', duration: '≈1h40m', totalPages: 5,
+        bvid: 'CASIO-FX-991CN-X', label: '卡西欧 fx-991CN X 官方操作视频', duration: '11段', totalPages: 11, isMP4: true,
         chapters: [
-          { idx:1, name:'基本运算+存储变量A~F', pages:[1], lectures:'P1', weight:'★★★' },
-          { idx:2, name:'复数模式 CMPLX 相量计算', pages:[2], lectures:'P2', weight:'★★★★★ (电路/潮流必用)' },
-          { idx:3, name:'方程模式 EQN 二元/三元一次/二次/三次方程', pages:[3], lectures:'P3', weight:'★★★★' },
-          { idx:4, name:'矩阵模式 MAT 联立方程 + 向量', pages:[4], lectures:'P4', weight:'★★★' },
-          { idx:5, name:'积分 ∫ / 微分 d/dx / 求和 Σ / 统计 SD 模式', pages:[5], lectures:'P5', weight:'★★★★' }
+          { idx:1, name:'fx-991CN X 综合教程', pages:[1], lectures:'P1', weight:'★★★★' },
+          { idx:2, name:'fx-991CN X 操作演示 02', pages:[2], lectures:'P2', weight:'★★' },
+          { idx:3, name:'fx-991CN X 操作演示 03', pages:[3], lectures:'P3', weight:'★★' },
+          { idx:4, name:'fx-991CN X 操作演示 04', pages:[4], lectures:'P4', weight:'★★' },
+          { idx:5, name:'fx-991CN X 操作演示 05', pages:[5], lectures:'P5', weight:'★★' },
+          { idx:6, name:'fx-991CN X 操作演示 06', pages:[6], lectures:'P6', weight:'★★' },
+          { idx:7, name:'fx-991CN X 操作演示 07', pages:[7], lectures:'P7', weight:'★★' },
+          { idx:8, name:'fx-991CN X 操作演示 08', pages:[8], lectures:'P8', weight:'★★' },
+          { idx:9, name:'fx-991CN X 操作演示 09', pages:[9], lectures:'P9', weight:'★★' },
+          { idx:10, name:'fx-991CN X 操作演示 10', pages:[10], lectures:'P10', weight:'★★' },
+          { idx:11, name:'fx-991CN X 操作演示 11', pages:[11], lectures:'P11', weight:'★★' }
         ],
         episodes: [
-          { page:2, title:'CMPLX 模式：相量加减乘除+极坐标↔直角坐标互化', duration:'18:00' },
-          { page:3, title:'EQN 模式：解三次方程+解联立三元一次(节点电压法)', duration:'22:00' },
-          { page:5, title:'积分模式：快速手算复杂积分题目', duration:'16:00' }
+          { page:1, title:'fx-991CN X 综合教程', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/fcc083105285890791093193039/v.f10.mp4' },
+          { page:2, title:'fx-991CN X 操作演示 02', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/fe9673805285890791093222012/v.f10.mp4' },
+          { page:3, title:'fx-991CN X 操作演示 03', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/d859b7091397757910450058814/THUsfLgHEA0A.mp4' },
+          { page:4, title:'fx-991CN X 操作演示 04', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/febe91375285890791093249575/v.f10.mp4' },
+          { page:5, title:'fx-991CN X 操作演示 05', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/00f859331397757910457625556/NrYnIlDWjyYA.mp4' },
+          { page:6, title:'fx-991CN X 操作演示 06', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/00c6f48b5285890791093301556/v.f10.mp4' },
+          { page:7, title:'fx-991CN X 操作演示 07', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/d85671441397757910450052932/53adYwBxAXgA.mp4' },
+          { page:8, title:'fx-991CN X 操作演示 08', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/55f3c8ce1397757910448113649/s3SwbRAJEf0A.mp4' },
+          { page:9, title:'fx-991CN X 操作演示 09', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/03cb18d61397757910457793652/8MIw8yN5to8A.mp4' },
+          { page:10, title:'fx-991CN X 操作演示 10', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/1e8fade51397757910454805050/mJFb3nc4HzQA.mp4' },
+          { page:11, title:'fx-991CN X 操作演示 11', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/091dbd291397757910447133652/4Ato2cHIVjMA.mp4' }
         ],
         playlist: [
-          {page:1,title:'基础运算与存储变量',duration:'15:00'},
-          {page:2,title:'CMPLX复数相量模式',duration:'18:00'},
-          {page:3,title:'EQN方程模式',duration:'22:00'},
-          {page:4,title:'MAT矩阵向量模式',duration:'14:00'},
-          {page:5,title:'积分微分求和统计模式',duration:'16:00'}
+          {page:1, title:'fx-991CN X 综合教程', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/fcc083105285890791093193039/v.f10.mp4'},
+          {page:2, title:'fx-991CN X 操作演示 02', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/fe9673805285890791093222012/v.f10.mp4'},
+          {page:3, title:'fx-991CN X 操作演示 03', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/d859b7091397757910450058814/THUsfLgHEA0A.mp4'},
+          {page:4, title:'fx-991CN X 操作演示 04', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/febe91375285890791093249575/v.f10.mp4'},
+          {page:5, title:'fx-991CN X 操作演示 05', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/00f859331397757910457625556/NrYnIlDWjyYA.mp4'},
+          {page:6, title:'fx-991CN X 操作演示 06', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/00c6f48b5285890791093301556/v.f10.mp4'},
+          {page:7, title:'fx-991CN X 操作演示 07', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/d85671441397757910450052932/53adYwBxAXgA.mp4'},
+          {page:8, title:'fx-991CN X 操作演示 08', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/55f3c8ce1397757910448113649/s3SwbRAJEf0A.mp4'},
+          {page:9, title:'fx-991CN X 操作演示 09', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/03cb18d61397757910457793652/8MIw8yN5to8A.mp4'},
+          {page:10, title:'fx-991CN X 操作演示 10', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/1e8fade51397757910454805050/mJFb3nc4HzQA.mp4'},
+          {page:11, title:'fx-991CN X 操作演示 11', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/091dbd291397757910447133652/4Ato2cHIVjMA.mp4'}
         ]
       }]
     },
