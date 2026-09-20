@@ -351,15 +351,36 @@
           ]
         },
         {
-          bvid: 'BV1gY411L71c', label: 'B站权威教程（司令官123 fx-991升级版）', duration: '41:33', totalPages: 1,
+                    bvid: 'BV1gY411L71c', label: 'B站权威教程（司令官123 fx-991升级版）', duration: '41:33', totalPages: 8,
           chapters: [
-            { idx:1, name:'B站权威 fx-991 教程升级版（全程41:33）', pages:[1], lectures:'P1', weight:'★★★' }
+            { idx:1, name:'按键介绍', pages:[1], lectures:'P1', weight:'★★★★' },
+            { idx:2, name:'解方程', pages:[2], lectures:'P2', weight:'★★★★★' },
+            { idx:3, name:'复数、幅相计算', pages:[3], lectures:'P3', weight:'★★★★' },
+            { idx:4, name:'矩阵和向量', pages:[4], lectures:'P4', weight:'★★★' },
+            { idx:5, name:'函数极值', pages:[5], lectures:'P5', weight:'★★★' },
+            { idx:6, name:'均值、方差与回归计算', pages:[6], lectures:'P6', weight:'★★★' },
+            { idx:7, name:'科学常数', pages:[7], lectures:'P7', weight:'★★' },
+            { idx:8, name:'进制转换', pages:[8], lectures:'P8', weight:'★★' }
           ],
           episodes: [
-            { page:1, title:'B站权威 fx-991 教程升级版（司令官123）', duration:'41:33' }
+            { page:1, title:'1、按键介绍', duration:'17:05' },
+            { page:2, title:'2、解方程', duration:'06:00' },
+            { page:3, title:'3、复数、幅相计算', duration:'03:10' },
+            { page:4, title:'4、矩阵和向量', duration:'03:50' },
+            { page:5, title:'5、函数极值', duration:'04:45' },
+            { page:6, title:'6、均值、方差与回归计算', duration:'02:41' },
+            { page:7, title:'7、科学常数', duration:'01:38' },
+            { page:8, title:'8、进制转换', duration:'02:24' }
           ],
           playlist: [
-            {page:1, title:'B站权威 fx-991 教程升级版（司令官123 全程41:33）', duration:'41:33'}
+            {page:1, title:'1、按键介绍', duration:'17:05'},
+            {page:2, title:'2、解方程', duration:'06:00'},
+            {page:3, title:'3、复数、幅相计算', duration:'03:10'},
+            {page:4, title:'4、矩阵和向量', duration:'03:50'},
+            {page:5, title:'5、函数极值', duration:'04:45'},
+            {page:6, title:'6、均值、方差与回归计算', duration:'02:41'},
+            {page:7, title:'7、科学常数', duration:'01:38'},
+            {page:8, title:'8、进制转换', duration:'02:24'}
           ]
         }
       ]
