@@ -307,68 +307,62 @@
       totalHours: '官方11段 + B站权威 41:33',
       pdQuestions: '全下午段都要用到，尤其是复数、方程求解、积分',
       ptQuestions: '同左',
-      subjects: {
-        cnx: {
-          title: '卡西欧 fx-991CN X 教程',
-          short: 'fx-991CN X',
-          collections: [
-            {
-              bvid: 'CASIO-FX-991CN-X', label: 'Casio 官方操作视频 (P1-P11)', duration: '11段', totalPages: 11, isMP4: true,
-              chapters: [
-                { idx:1, name:'综合介绍与基本计算 (COMP)', pages:[1], lectures:'P1', weight:'★★★★' },
-                { idx:2, name:'复数运算 (CMPLX)', pages:[2], lectures:'P2', weight:'★★★' },
-                { idx:3, name:'统计计算 (STAT)', pages:[3], lectures:'P3', weight:'★★★' },
-                { idx:4, name:'[链接失效] 进制转换 (BASE-N)', pages:[4], lectures:'P4', weight:'-' },
-                { idx:5, name:'方程求解 (EQN)', pages:[5], lectures:'P5', weight:'★★★' },
-                { idx:6, name:'矩阵运算 (MATRIX)', pages:[6], lectures:'P6', weight:'★★★' },
-                { idx:7, name:'函数表格 (TABLE)', pages:[7], lectures:'P7', weight:'★★' },
-                { idx:8, name:'不等式 (INEQ)', pages:[8], lectures:'P8', weight:'★★' },
-                { idx:9, name:'比例式 (RATIO)', pages:[9], lectures:'P9', weight:'★★' },
-                { idx:10, name:'分布计算 (DIST)', pages:[10], lectures:'P10', weight:'★★' },
-                { idx:11, name:'积分微分与综合应用', pages:[11], lectures:'P11', weight:'★★' }
-              ],
-              episodes: [
-                { page:1, title:'P1 综合介绍与基本计算 (COMP)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/fcc083105285890791093193039/v.f10.mp4' },
-                { page:2, title:'P2 复数运算 (CMPLX)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/fe9673805285890791093222012/v.f10.mp4' },
-                { page:3, title:'P3 统计计算 (STAT)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/d859b7091397757910450058814/THUsfLgHEA0A.mp4' },
-                { page:4, title:'P4 [链接失效] Casio官网404 - 进制转换 (BASE-N)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/febe91375285890791093249575/v.f10.mp4' },
-                { page:5, title:'P5 方程求解 (EQN)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/00f859331397757910457625556/NrYnIlDWjyYA.mp4' },
-                { page:6, title:'P6 矩阵运算 (MATRIX)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/00c6f48b5285890791093301556/v.f10.mp4' },
-                { page:7, title:'P7 函数表格 (TABLE)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/d85671441397757910450052932/53adYwBxAXgA.mp4' },
-                { page:8, title:'P8 不等式 (INEQ)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/55f3c8ce1397757910448113649/s3SwbRAJEf0A.mp4' },
-                { page:9, title:'P9 比例式 (RATIO)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/03cb18d61397757910457793652/8MIw8yN5to0A.mp4' },
-                { page:10, title:'P10 分布计算 (DIST)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/1e8fade51397757910454805050/mJFb3nc4HzQA.mp4' },
-                { page:11, title:'P11 积分微分与综合应用', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/091dbd291397757910447133652/4Ato2cHIVjMA.mp4' }
-              ],
-              playlist: [
-                {page:1, title:'P1 综合介绍与基本计算 (COMP)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/fcc083105285890791093193039/v.f10.mp4'},
-                {page:2, title:'P2 复数运算 (CMPLX)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/fe9673805285890791093222012/v.f10.mp4'},
-                {page:3, title:'P3 统计计算 (STAT)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/d859b7091397757910450058814/THUsfLgHEA0A.mp4'},
-                {page:4, title:'P4 [链接失效] Casio官网404 - 进制转换 (BASE-N)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/febe91375285890791093249575/v.f10.mp4'},
-                {page:5, title:'P5 方程求解 (EQN)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/00f859331397757910457625556/NrYnIlDWjyYA.mp4'},
-                {page:6, title:'P6 矩阵运算 (MATRIX)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/00c6f48b5285890791093301556/v.f10.mp4'},
-                {page:7, title:'P7 函数表格 (TABLE)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/d85671441397757910450052932/53adYwBxAXgA.mp4'},
-                {page:8, title:'P8 不等式 (INEQ)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/55f3c8ce1397757910448113649/s3SwbRAJEf0A.mp4'},
-                {page:9, title:'P9 比例式 (RATIO)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/03cb18d61397757910457793652/8MIw8yN5to0A.mp4'},
-                {page:10, title:'P10 分布计算 (DIST)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/1e8fade51397757910454805050/mJFb3nc4HzQA.mp4'},
-                {page:11, title:'P11 积分微分与综合应用', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/091dbd291397757910447133652/4Ato2cHIVjMA.mp4'}
-              ]
-            },
-            {
-              bvid: 'BV1gY411L71c', label: 'B站权威教程（司令官123 fx-991升级版）', duration: '41:33', totalPages: 1,
-              chapters: [
-                { idx:1, name:'B站权威 fx-991 教程升级版（全程41:33）', pages:[1], lectures:'P1', weight:'★★★' }
-              ],
-              episodes: [
-                { page:1, title:'B站权威 fx-991 教程升级版（司令官123）', duration:'41:33' }
-              ],
-              playlist: [
-                {page:1, title:'B站权威 fx-991 教程升级版（司令官123 全程41:33）', duration:'41:33'}
-              ]
-            }
+      collections: [
+        {
+          bvid: 'CASIO-FX-991CN-X', label: 'Casio 官方操作视频 (P1-P11)', duration: '11段', totalPages: 11, isMP4: true,
+          chapters: [
+            { idx:1, name:'综合介绍与基本计算 (COMP)', pages:[1], lectures:'P1', weight:'★★★★' },
+            { idx:2, name:'复数运算 (CMPLX)', pages:[2], lectures:'P2', weight:'★★★' },
+            { idx:3, name:'统计计算 (STAT)', pages:[3], lectures:'P3', weight:'★★★' },
+            { idx:4, name:'[链接失效] 进制转换 (BASE-N)', pages:[4], lectures:'P4', weight:'-' },
+            { idx:5, name:'方程求解 (EQN)', pages:[5], lectures:'P5', weight:'★★★' },
+            { idx:6, name:'矩阵运算 (MATRIX)', pages:[6], lectures:'P6', weight:'★★★' },
+            { idx:7, name:'函数表格 (TABLE)', pages:[7], lectures:'P7', weight:'★★' },
+            { idx:8, name:'不等式 (INEQ)', pages:[8], lectures:'P8', weight:'★★' },
+            { idx:9, name:'比例式 (RATIO)', pages:[9], lectures:'P9', weight:'★★' },
+            { idx:10, name:'分布计算 (DIST)', pages:[10], lectures:'P10', weight:'★★' },
+            { idx:11, name:'积分微分与综合应用', pages:[11], lectures:'P11', weight:'★★' }
+          ],
+          episodes: [
+            { page:1, title:'P1 综合介绍与基本计算 (COMP)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/fcc083105285890791093193039/v.f10.mp4' },
+            { page:2, title:'P2 复数运算 (CMPLX)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/fe9673805285890791093222012/v.f10.mp4' },
+            { page:3, title:'P3 统计计算 (STAT)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/d859b7091397757910450058814/THUsfLgHEA0A.mp4' },
+            { page:4, title:'P4 [链接失效] Casio官网404 - 进制转换 (BASE-N)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/febe91375285890791093249575/v.f10.mp4' },
+            { page:5, title:'P5 方程求解 (EQN)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/00f859331397757910457625556/NrYnIlDWjyYA.mp4' },
+            { page:6, title:'P6 矩阵运算 (MATRIX)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/00c6f48b5285890791093301556/v.f10.mp4' },
+            { page:7, title:'P7 函数表格 (TABLE)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/d85671441397757910450052932/53adYwBxAXgA.mp4' },
+            { page:8, title:'P8 不等式 (INEQ)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/55f3c8ce1397757910448113649/s3SwbRAJEf0A.mp4' },
+            { page:9, title:'P9 比例式 (RATIO)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/03cb18d61397757910457793652/8MIw8yN5to0A.mp4' },
+            { page:10, title:'P10 分布计算 (DIST)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/1e8fade51397757910454805050/mJFb3nc4HzQA.mp4' },
+            { page:11, title:'P11 积分微分与综合应用', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/091dbd291397757910447133652/4Ato2cHIVjMA.mp4' }
+          ],
+          playlist: [
+            {page:1, title:'P1 综合介绍与基本计算 (COMP)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/fcc083105285890791093193039/v.f10.mp4'},
+            {page:2, title:'P2 复数运算 (CMPLX)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/fe9673805285890791093222012/v.f10.mp4'},
+            {page:3, title:'P3 统计计算 (STAT)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/d859b7091397757910450058814/THUsfLgHEA0A.mp4'},
+            {page:4, title:'P4 [链接失效] Casio官网404 - 进制转换 (BASE-N)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/febe91375285890791093249575/v.f10.mp4'},
+            {page:5, title:'P5 方程求解 (EQN)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/00f859331397757910457625556/NrYnIlDWjyYA.mp4'},
+            {page:6, title:'P6 矩阵运算 (MATRIX)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/25fa7eedvodtransgzp1254069362/00c6f48b5285890791093301556/v.f10.mp4'},
+            {page:7, title:'P7 函数表格 (TABLE)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/d85671441397757910450052932/53adYwBxAXgA.mp4'},
+            {page:8, title:'P8 不等式 (INEQ)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/55f3c8ce1397757910448113649/s3SwbRAJEf0A.mp4'},
+            {page:9, title:'P9 比例式 (RATIO)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/03cb18d61397757910457793652/8MIw8yN5to0A.mp4'},
+            {page:10, title:'P10 分布计算 (DIST)', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/e0c5c928vodcq1254069362/1e8fade51397757910454805050/mJFb3nc4HzQA.mp4'},
+            {page:11, title:'P11 积分微分与综合应用', duration:'', mp4:'https://1254069362.vod2.myqcloud.com/71d2dc45vodgzp1254069362/091dbd291397757910447133652/4Ato2cHIVjMA.mp4'}
+          ]
+        },
+        {
+          bvid: 'BV1gY411L71c', label: 'B站权威教程（司令官123 fx-991升级版）', duration: '41:33', totalPages: 1,
+          chapters: [
+            { idx:1, name:'B站权威 fx-991 教程升级版（全程41:33）', pages:[1], lectures:'P1', weight:'★★★' }
+          ],
+          episodes: [
+            { page:1, title:'B站权威 fx-991 教程升级版（司令官123）', duration:'41:33' }
+          ],
+          playlist: [
+            {page:1, title:'B站权威 fx-991 教程升级版（司令官123 全程41:33）', duration:'41:33'}
           ]
         }
-      }
+      ]
     },
     newCircuit2026: {
       title: '2026 新版电路精讲（你提供的BV）',
