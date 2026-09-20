@@ -237,7 +237,7 @@
         if(isDone){row.classList.add('done');allDone++}
         row.innerHTML='<span class="pl-idx">P'+ep.page+'</span>'
           +'<div class="pl-title">'+ep.title+'</div>'
-          +'<span class="pl-dur">'+ep.duration+'</span>';
+          +'<span class="pl-dur">'+(ep.duration||'')+'</span>';
         row.onclick=function(){
           S.$$('.pl-item').forEach(function(x){x.classList.remove('active')});
           row.classList.add('active');
