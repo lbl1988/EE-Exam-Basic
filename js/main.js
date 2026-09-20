@@ -142,6 +142,7 @@
     var collTabsEl=document.getElementById('video-collection-tabs');
     var infoEl=document.getElementById('active-series-intro');
     var iframe=document.getElementById('bili-player');
+    var video=document.getElementById('mp4-player');
     var playlistEl=document.getElementById('playlist');
 
     function seriesIsSubject(s){return s==='zhanggong' || s==='jiangxiaobai'}
@@ -169,7 +170,13 @@
       if(infoEl)infoEl.innerHTML=info;
       /* 播放器：默认第一个精选episodes[0]，或者playlist[0] */
       var ep0=(colObj.episodes&&colObj.episodes[0])||colObj.playlist[0];
-      if(iframe)iframe.src=S.biliUrl(colObj.bvid,ep0.page);
+      if(colObj.isMP4){
+        if(iframe)iframe.style.display='none';
+        if(video){video.style.display='';video.src=ep0.mp4||'';}
+      }else{
+        if(video)video.style.display='none';
+        if(iframe)iframe.src=S.biliUrl(colObj.bvid,ep0.page);
+      }
       S.renderPlaylist(colObj);
     }
     function activateSubject(seriesKey,subjectKey){
@@ -234,7 +241,13 @@
         row.onclick=function(){
           S.$$('.pl-item').forEach(function(x){x.classList.remove('active')});
           row.classList.add('active');
-          if(iframe)iframe.src=S.biliUrl(col.bvid,ep.page);
+          if(col.isMP4){
+            if(iframe)iframe.style.display='none';
+            if(video){video.style.display='';video.src=ep.mp4||'';}
+          }else{
+            if(video)video.style.display='none';
+            if(iframe)iframe.src=S.biliUrl(col.bvid,ep.page);
+          }
           var mark=document.getElementById('mark-done-btn');
           if(mark){mark.dataset.series=S.seriesTab;mark.dataset.bvid=col.bvid;mark.dataset.page=ep.page;
             mark.classList.toggle('done',EEProgress.isVideoDone(S.seriesTab,col.bvid,ep.page));
