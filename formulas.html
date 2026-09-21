@@ -44,6 +44,11 @@
 .m-row td{font-size:13px;color:var(--text);line-height:1.6}
 .m-row td:before{content:'● ';color:var(--primary)}
 
+/* 公式图片行 */
+.f-img-row td{padding:10px 12px;background:var(--bg-soft)}
+.f-img{max-width:100%;border-radius:8px;border:1px solid var(--line);display:block;margin:4px auto}
+.f-img-caption{font-size:11px;color:var(--muted);text-align:center;margin-top:4px}
+
 @media(max-width:640px){
   .fp-hero h1{font-size:22px}
   .nav-link{padding:4px 9px;font-size:11px}
@@ -181,7 +186,22 @@ var DATA=[
 {sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-1',name:'比值审敛',formula:'ρ=lim|aₙ₊₁/aₙ|；ρ<1收敛',freq:'high'},
 {sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-3',name:'幂级数收敛半径',formula:'R=lim|aₙ/aₙ₊₁|',freq:'high',note:'2022·题31'},
 {sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-6',name:'一阶线性ODE',formula:"y'+P(x)y=Q → y=e^(−∫Pdx)·[∫Q·e^(∫Pdx)dx+C]",freq:'high'},
-{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-7',name:'二阶常系数齐次',formula:"y''+py'+qy=0；r²+pr+q=0",freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-7',name:'二阶常系数齐次',formula:"y''+py'+qy=0；r²+pr+q=0；Δ=p²−4q",freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'image',src:'images/formulas/ode-2nd-order.jpg',caption:'二阶常系数齐次线性微分方程求解（三种情形·张工教育）'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-7a',name:'二阶齐次·Δ>0',formula:'r₁,₂=(−p±√Δ)/2；y=C₁e^(r₁x)+C₂e^(r₂x)',freq:'high',note:'两不等实根'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-7b',name:'二阶齐次·Δ=0',formula:'r=−p/2；y=e^(rx)(C₁+C₂x)',freq:'high',note:'两相等实根'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-7c',name:'二阶齐次·Δ<0',formula:'r=α±βi；y=e^(αx)(C₁cosβx+C₂sinβx)',freq:'high',note:'共轭复根'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'memory',text:'判别式Δ=p²−4q：先求特征根，再据三种情形写出通解（验根方法）。'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'image',src:'images/formulas/ode-structure.jpg',caption:'线性微分方程解的结构（张工教育）'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-7d',name:'非齐次通解结构',formula:'非齐次通解=齐次通解+非齐次特解',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-7e',name:'齐次通解结构',formula:'齐次通解=(阶数个)线性无关齐次解的线性组合',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'memory',text:'解的结构性质：齐次解+非齐次解=非齐次解；非齐次解−非齐次解=齐次解；齐次解+齐次解=齐次解；齐次解的k倍仍为齐次解。'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-7f',name:'一阶/二阶方程分类',formula:"一阶:y'+p(x)y=0(齐次)/=q(x)(非齐次)；二阶:y''+py'+qy=0(齐次)/=f(x)(非齐次)",freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'image',src:'images/formulas/power-series.jpg',caption:'函数展开为幂级数（张工教育）'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-12a',name:'几何级数展开',formula:'1/(1−x)=1+x+x²+…+xⁿ+…（收敛域|x|<1）',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-12b',name:'指数函数展开',formula:'eˣ=1+x+x²/2!+x³/3!+…+xⁿ/n!+…（收敛域x∈ℝ）',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-12c',name:'麦克劳林展开(通式)',formula:'f(x)=f(0)+f′(0)x+f″(0)x²/2!+…+f⁽ⁿ⁾(0)xⁿ/n!+…',freq:'mid'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'memory',text:'幂级数展开技巧：重点掌握1/(1−x)和eˣ两个常用展开，灵活利用变量代换展开其他函数。'},
 {sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-8',name:'加法公式',formula:'P(A∪B)=P(A)+P(B)−P(AB)',freq:'high'},
 {sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-11',name:'期望/方差',formula:'E(X)=Σx·p；D(X)=E(X²)−[E(X)]²',freq:'high'},
 {sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'memory',text:'计算器：SD模式求样本均值、标准差、方差、线性回归。'},
@@ -457,7 +477,11 @@ function render(){
   var filtered=DATA.filter(function(d){
     if(searchTerm){
       var s=searchTerm.toLowerCase();
-      if(d.formula && d.formula.toLowerCase().indexOf(s)<0 && d.name && d.name.toLowerCase().indexOf(s)<0 && d.text && d.text.toLowerCase().indexOf(s)<0) return false;
+      var mF=d.formula&&d.formula.toLowerCase().indexOf(s)>=0;
+      var mN=d.name&&d.name.toLowerCase().indexOf(s)>=0;
+      var mT=d.text&&d.text.toLowerCase().indexOf(s)>=0;
+      var mC=d.caption&&d.caption.toLowerCase().indexOf(s)>=0;
+      if(!mF&&!mN&&!mT&&!mC) return false;
     }
     return true;
   });
@@ -504,6 +528,8 @@ function render(){
           else if(item.freq==='mid') freqTag=' <span class="f-tag mid">中频</span>';
           var note=item.note||'';
           html+='<tr><td class="f-name-cell">'+item.name+freqTag+'</td><td class="f-formula-cell">'+item.formula+'</td><td class="f-note-cell">'+note+'</td></tr>';
+        } else if(item.type==='image'){
+          html+='<tr class="f-img-row"><td colspan="3"><img class="f-img" src="'+item.src+'" alt="'+(item.caption||'')+'" loading="lazy"><div class="f-img-caption">'+(item.caption||'')+'</div></td></tr>';
         } else {
           html+='<tr class="m-row"><td colspan="3">'+item.text+'</td></tr>';
         }
