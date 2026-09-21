@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>fx-991CN X 速查表 · 注册电气工程师基础考试</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* === 页面专属样式 === */
+.cc-hero{background:linear-gradient(180deg,#101a33 0%,#0e1729 100%);padding:36px 0 24px}
+.cc-hero h1{font-size:28px;line-height:1.3;margin-bottom:8px}
+.cc-hero .lead{color:var(--muted);max-width:720px;margin-bottom:14px;font-size:14px}
+.cc-meta{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}
+.cc-meta span{background:var(--bg-card);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+.cc-meta b{color:var(--primary)}
+
+/* 快速导航 */
+.cc-quick-nav{background:var(--bg-card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-top:14px}
+.cc-quick-nav__title{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
+.cc-quick-nav__list{list-style:none;display:flex;flex-wrap:wrap;gap:6px 14px}
+.cc-quick-nav__list a{color:var(--primary);font-size:13px;font-weight:500}
+.cc-quick-nav__list a:hover{text-decoration:underline}
+
+/* 段落 */
+.cc-section{padding:28px 0;border-top:1px solid var(--line)}
+.cc-section:first-of-type{border-top:none}
+.cc-section h2{font-size:20px;font-weight:700;color:#fff;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--bg-tag);display:flex;align-items:center;gap:8px}
+.cc-section h2::before{content:"";width:4px;height:1.1em;background:var(--primary);border-radius:2px;flex-shrink:0}
+.cc-section h3{font-size:15px;font-weight:600;color:var(--primary);margin:18px 0 10px}
+.cc-section p{color:#cbd5f0;margin-bottom:10px;font-size:14px}
+
+/* === 按键样式（保留计算器真实按键配色） === */
+.key{display:inline-block;min-width:2em;padding:2px 8px;background:linear-gradient(180deg,#FFFFFF 0%,#F0F0F0 100%);border:1px solid #BBB;border-bottom-width:2px;border-radius:5px;font-family:"Cascadia Code",Consolas,monospace;font-size:.85em;font-weight:600;color:#333;text-align:center;vertical-align:middle;box-shadow:0 1px 2px rgba(0,0,0,.25);margin:0 2px;line-height:1.4;white-space:nowrap}
+.key--shift{background:linear-gradient(180deg,#FFF3BF 0%,#FFE066 100%);border-color:#F5C842;color:#7A5D00}
+.key--alpha{background:linear-gradient(180deg,#FFE3E3 0%,#FF8787 100%);border-color:#FA5252;color:#8B0000}
+.key--accent{background:linear-gradient(180deg,#E6FCF5 0%,#63E6BE 100%);border-color:#38D9A9;color:#087F5B}
+.key--purple{background:linear-gradient(180deg,#F3F0FF 0%,#B197FC 100%);border-color:#9775FA;color:#5F3DC4}
+.key--blue{background:linear-gradient(180deg,#E7F5FF 0%,#74C0FC 100%);border-color:#4DABF7;color:#1864AB}
+.key-seq{display:inline-flex;align-items:center;gap:2px;flex-wrap:wrap}
+.key-seq .key+.key{margin-left:2px}
+.key-seq .key-arrow{font-size:.75em;color:var(--muted);margin:0 2px}
+
+/* === 表格 === */
+.cc-table-wrap{width:100%;overflow-x:auto;border-radius:8px;border:1px solid var(--line);background:var(--bg-card);margin:10px 0}
+.cc-table{width:100%;border-collapse:collapse;font-size:13px}
+.cc-table thead th{background:var(--bg-tag);color:var(--primary);font-weight:700;text-align:left;padding:9px 12px;border-bottom:2px solid var(--line);white-space:nowrap;position:sticky;top:0}
+.cc-table tbody td{padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:middle;color:#cbd5f0}
+.cc-table tbody tr:last-child td{border-bottom:none}
+.cc-table tbody tr:hover td{background:rgba(79,140,255,.05)}
+.cc-col-key{width:130px;white-space:nowrap}
+
+/* === 卡片网格 === */
+.cc-card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:10px}
+.cc-card{background:var(--bg-card);border:1px solid var(--line);border-radius:10px;padding:14px;transition:border-color .2s,transform .2s}
+.cc-card:hover{border-color:var(--primary);transform:translateY(-2px)}
+.cc-card__header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.cc-card__icon{width:34px;height:34px;border-radius:8px;background:var(--bg-tag);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
+.cc-card__title{font-size:15px;font-weight:600;color:#fff}
+.cc-card__body{font-size:13px;color:#cbd5f0;line-height:1.6}
+.cc-card__body ul{list-style:none;padding:0}
+.cc-card__body li{padding:3px 0;display:flex;align-items:flex-start;gap:6px}
+.cc-card__body li::before{content:"▸";color:var(--primary);flex-shrink:0;font-size:.7rem;margin-top:4px}
+
+/* 双列 */
+.cc-two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:820px){.cc-two-col{grid-template-columns:1fr}}
+
+/* 提示框 */
+.cc-callout{padding:12px 14px;border-radius:8px;border-left:4px solid var(--primary);background:rgba(79,140,255,.08);margin:14px 0;font-size:13px}
+.cc-callout--info{border-left-color:#4dabf7;background:rgba(77,171,247,.08)}
+.cc-callout--warning{border-left-color:var(--star);background:rgba(250,204,21,.08)}
+.cc-callout__title{font-weight:600;color:#fff;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.cc-callout p{margin:0;color:#cbd5f0}
+
+/* 模式序号徽章 */
+.mode-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:6px;background:linear-gradient(135deg,var(--primary),#a78bfa);color:#fff;font-weight:700;font-size:.85rem;flex-shrink:0}
+
+/* 快捷键列表 */
+.cc-shortcut-list{list-style:none;padding:0}
+.cc-shortcut-list li{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--line);gap:12px}
+.cc-shortcut-list li:last-child{border-bottom:none}
+.cc-shortcut-list__desc{color:#cbd5f0;font-size:13px}
+.cc-shortcut-list__keys{flex-shrink:0;text-align:right}
+
+/* 颜色图例 */
+.cc-legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:10px}
+.cc-legend__item{display:flex;align-items:center;gap:8px;font-size:13px;color:#cbd5f0}
+.cc-legend__dot{width:14px;height:14px;border-radius:3px;flex-shrink:0;border:1px solid rgba(0,0,0,.3);box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+
+/* 打印 */
+@media print{
+  .nav,.footer,.cc-quick-nav{display:none}
+  body{background:#fff;color:#000}
+  .cc-section{break-inside:avoid;border-top:1px solid #ccc}
+  .cc-card,.cc-table-wrap{break-inside:avoid}
+  .cc-table thead th{background:#eee;color:#000}
+  .cc-table tbody td{color:#000}
+}
+
+/* 响应式 */
+@media(max-width:680px){
+  .cc-hero h1{font-size:22px}
+  .cc-card-grid{grid-template-columns:1fr}
+  .cc-col-key{width:100px}
+  .cc-shortcut-list li{flex-direction:column;align-items:flex-start}
+  .cc-shortcut-list__keys{text-align:left}
+}
+</style>
+</head>
+<body data-page="calc">
+
+<!-- 导航 -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">EE-Exam · 电气基础考试 2026</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="basic.html">基础知识</a>
+      <a href="hot-points.html">高频考点</a>
+      <a href="videos.html">视频课程</a>
+      <a href="guide.html">报考指南</a>
+      <a href="plan.html">备考规划</a>
+      <a href="my-notes.html">学习笔记</a>
+      <a href="share.html">学友分享</a>
+      <a href="calc-cheatsheet.html" class="active">计算器速查</a>
+    </div>
+    <div class="user-area" id="user-area"></div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="cc-hero">
+  <div class="wrap">
+    <span class="eyebrow">CALCULATOR QUICK REFERENCE · 考场速查</span>
+    <h1>🧮 卡西欧 fx-991CN X 常用操作速查表</h1>
+    <p class="lead">CLASSWIZ 系列中文函数计算器 · 涵盖按键功能、十大计算模式、常用快捷键、存储器操作、设置项、计算技巧与故障处理。考前一天过一遍，考场上多拿 10 分钟。配合 <a href="videos.html#zhanggong|calculator">张工计算器精讲视频</a> 与 <a href="guide.html#subject-breakdown">报考指南</a> 使用更佳。</p>
+    <div class="cc-meta">
+      <span>型号：<b>fx-991CN X</b></span>
+      <span>语言：<b>中文</b></span>
+      <span>函数数：<b>552</b></span>
+      <span>变量数：<b>9 + M</b></span>
+      <span>考场允许：<b>✓</b></span>
+    </div>
+
+    <nav class="cc-quick-nav">
+      <div class="cc-quick-nav__title">快速导航</div>
+      <ul class="cc-quick-nav__list">
+        <li><a href="#key-marking">按键标记规则</a></li>
+        <li><a href="#key-zones">按键分区</a></li>
+        <li><a href="#modes">十大模式</a></li>
+        <li><a href="#shortcuts">常用快捷键</a></li>
+        <li><a href="#memory">存储器操作</a></li>
+        <li><a href="#settings">设置菜单</a></li>
+        <li><a href="#calc-tips">计算技巧</a></li>
+        <li><a href="#reset">复位与故障</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+
+    <!-- Section 1: 按键标记规则 -->
+    <div class="cc-section" id="key-marking">
+      <h2>按键标记规则</h2>
+      <p>按键上不同颜色的文字代表不同的调用方式，请先掌握以下规则：</p>
+
+      <div class="cc-legend">
+        <div class="cc-legend__item"><span class="cc-legend__dot" style="background:#F0F0F0"></span><span>白色/黑色 — 按键主功能，直接按下</span></div>
+        <div class="cc-legend__item"><span class="cc-legend__dot" style="background:#FFE066"></span><span><b style="color:#fde68a">黄色</b> — SHIFT 第二功能，先按 SHIFT</span></div>
+        <div class="cc-legend__item"><span class="cc-legend__dot" style="background:#FF8787"></span><span><b style="color:#fca5a5">红色</b> — ALPHA 字母/变量，先按 ALPHA</span></div>
+        <div class="cc-legend__item"><span class="cc-legend__dot" style="background:#9775FA"></span><span><b style="color:#c4b5fd">紫色</b> — 复数模式专用功能</span></div>
+        <div class="cc-legend__item"><span class="cc-legend__dot" style="background:#74C0FC"></span><span><b style="color:#93c5fd">蓝色</b> — 基数模式专用功能</span></div>
+      </div>
+
+      <div class="cc-callout" style="margin-top:14px">
+        <div class="cc-callout__title">💡 屏幕指示符</div>
+        <p>屏幕顶部显示 <b>S</b> 表示已按下 SHIFT（等待第二功能）；显示 <b>A</b> 表示已按下 ALPHA（等待输入字母/变量）。按任意数字键或功能键后自动退出。</p>
+      </div>
+    </div>
+
+    <!-- Section 2: 按键分区 -->
+    <div class="cc-section" id="key-zones">
+      <h2>按键分区详解</h2>
+
+      <div class="cc-two-col">
+        <div>
+          <h3>顶部功能键区</h3>
+          <div class="cc-table-wrap">
+            <table class="cc-table">
+              <thead><tr><th class="cc-col-key">按键</th><th>主功能 / SHIFT / ALPHA</th></tr></thead>
+              <tbody>
+                <tr><td><span class="key key--accent">开机</span></td><td>开机 / 确认选择</td></tr>
+                <tr><td><span class="key key--shift">SHIFT</span></td><td>激活黄色第二功能</td></tr>
+                <tr><td><span class="key key--alpha">ALPHA</span></td><td>激活红色字母/变量输入</td></tr>
+                <tr><td><span class="key">菜单</span></td><td>模式菜单 / <span class="key key--shift">SHIFT</span> 设置(SETUP)</td></tr>
+                <tr><td><span class="key">OPTN</span></td><td>选项菜单（当前模式扩展功能）</td></tr>
+                <tr><td><span class="key">x⁻¹</span></td><td>倒数 / <span class="key key--shift">SHIFT</span> 积分∫</td></tr>
+                <tr><td><span class="key">x²</span></td><td>平方 / <span class="key key--shift">SHIFT</span> 微分d/dx</td></tr>
+                <tr><td><span class="key">x³</span></td><td>立方 / <span class="key key--shift">SHIFT</span> 求和Σ</td></tr>
+                <tr><td><span class="key">x^</span></td><td>幂运算 a^b / <span class="key key--shift">SHIFT</span> 开n次方 ⁿ√</td></tr>
+                <tr><td><span class="key">log</span></td><td>常用对数 / <span class="key key--shift">SHIFT</span> 10ˣ</td></tr>
+                <tr><td><span class="key">ln</span></td><td>自然对数 / <span class="key key--shift">SHIFT</span> eˣ</td></tr>
+                <tr><td><span class="key">(-)</span></td><td>负号 / <span class="key key--shift">SHIFT</span> 绝对值 Abs</td></tr>
+                <tr><td><span class="key">sin</span></td><td>正弦 / <span class="key key--shift">SHIFT</span> sin⁻¹ / <span class="key key--alpha">ALPHA</span> sinh</td></tr>
+                <tr><td><span class="key">cos</span></td><td>余弦 / <span class="key key--shift">SHIFT</span> cos⁻¹ / <span class="key key--alpha">ALPHA</span> cosh</td></tr>
+                <tr><td><span class="key">tan</span></td><td>正切 / <span class="key key--shift">SHIFT</span> tan⁻¹ / <span class="key key--alpha">ALPHA</span> tanh</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <h3>数字与变量键区</h3>
+          <div class="cc-table-wrap">
+            <table class="cc-table">
+              <thead><tr><th class="cc-col-key">按键</th><th>数字 / SHIFT / ALPHA变量</th></tr></thead>
+              <tbody>
+                <tr><td><span class="key">7</span></td><td>数字 7 / — / <span class="key key--alpha">ALPHA</span> 变量 <b>A</b></td></tr>
+                <tr><td><span class="key">8</span></td><td>数字 8 / — / <span class="key key--alpha">ALPHA</span> 变量 <b>B</b></td></tr>
+                <tr><td><span class="key">9</span></td><td>数字 9 / — / <span class="key key--alpha">ALPHA</span> 变量 <b>C</b></td></tr>
+                <tr><td><span class="key">4</span></td><td>数字 4 / <span class="key key--shift">SHIFT</span> 质因数分解FACT / <span class="key key--alpha">ALPHA</span> 变量 <b>D</b></td></tr>
+                <tr><td><span class="key">5</span></td><td>数字 5 / <span class="key key--shift">SHIFT</span> 排列 nPr / <span class="key key--alpha">ALPHA</span> 变量 <b>E</b></td></tr>
+                <tr><td><span class="key">6</span></td><td>数字 6 / <span class="key key--shift">SHIFT</span> 组合 nCr / <span class="key key--alpha">ALPHA</span> 变量 <b>F</b></td></tr>
+                <tr><td><span class="key">1</span></td><td>数字 1 / — / <span class="key key--alpha">ALPHA</span> 变量 <b>X</b></td></tr>
+                <tr><td><span class="key">2</span></td><td>数字 2 / — / <span class="key key--alpha">ALPHA</span> 变量 <b>Y</b></td></tr>
+                <tr><td><span class="key">3</span></td><td>数字 3 / — / <span class="key key--alpha">ALPHA</span> 变量 <b>Z</b></td></tr>
+                <tr><td><span class="key">0</span></td><td>数字 0</td></tr>
+                <tr><td><span class="key">.</span></td><td>小数点</td></tr>
+                <tr><td><span class="key">×10ˣ</span></td><td>科学计数法EXP / <span class="key key--shift">SHIFT</span> π / <span class="key key--alpha">ALPHA</span> e</td></tr>
+                <tr><td><span class="key">( )</span></td><td>左括号 / 右括号</td></tr>
+                <tr><td><span class="key">÷</span></td><td>除法 / <span class="key key--shift">SHIFT</span> 余数 ÷R</td></tr>
+                <tr><td><span class="key">=</span></td><td>等于 / <span class="key key--shift">SHIFT</span> 小数/分数转换 ≈</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>编辑控制键</h3>
+          <div class="cc-table-wrap">
+            <table class="cc-table">
+              <thead><tr><th class="cc-col-key">按键</th><th>功能</th></tr></thead>
+              <tbody>
+                <tr><td><span class="key">AC</span></td><td>清除 / <span class="key key--shift">SHIFT</span> 关机 OFF</td></tr>
+                <tr><td><span class="key">DEL</span></td><td>删除光标前字符 / <span class="key key--shift">SHIFT</span> 插入 INS</td></tr>
+                <tr><td><span class="key">◀ ▶ ▲ ▼</span></td><td>方向键，移动光标 / 导航菜单</td></tr>
+                <tr><td><span class="key key--accent">CALC</span></td><td>公式赋值计算 / <span class="key key--shift">SHIFT</span> SOLVE解方程</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 十大模式 -->
+    <div class="cc-section" id="modes">
+      <h2>十大计算模式</h2>
+      <p>按 <span class="key">菜单</span> 键进入模式选择界面，按对应数字键快速进入。</p>
+
+      <div class="cc-card-grid">
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="mode-num">1</span><div class="cc-card__title">计算模式</div></div>
+          <div class="cc-card__body"><ul>
+            <li>基本四则运算与函数计算</li>
+            <li>积分、微分、求和运算</li>
+            <li>SOLVE 牛顿法解方程</li>
+            <li>质因数分解、排列组合</li>
+            <li>坐标转换（极↔直角）</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="mode-num">2</span><div class="cc-card__title">复数模式</div></div>
+          <div class="cc-card__body"><ul>
+            <li>复数四则运算</li>
+            <li>直角坐标 a+bi / 极坐标 r∠θ</li>
+            <li>共轭复数、绝对值、辐角</li>
+            <li>可与方程模式联动求解</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="mode-num">3</span><div class="cc-card__title">基数模式</div></div>
+          <div class="cc-card__body"><ul>
+            <li>二进制(Bin) / 八进制(Oct)</li>
+            <li>十进制(Dec) / 十六进制(Hex)</li>
+            <li>各进制间快速换算</li>
+            <li>逻辑运算(AND/OR/NOT/XOR)</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="mode-num">4</span><div class="cc-card__title">矩阵模式</div></div>
+          <div class="cc-card__body"><ul>
+            <li>最多定义 4 个矩阵 (MatA~MatD)</li>
+            <li>最大 4×4 四阶方阵</li>
+            <li>矩阵加减乘、标量乘法</li>
+            <li>行列式、逆矩阵、转置</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="mode-num">5</span><div class="cc-card__title">向量模式</div></div>
+          <div class="cc-card__body"><ul>
+            <li>最多定义 4 个向量 (VctA~VctD)</li>
+            <li>最多 4 维向量</li>
+            <li>向量加减、标量乘法</li>
+            <li>点积、叉积、模长</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="mode-num">6</span><div class="cc-card__title">统计模式</div></div>
+          <div class="cc-card__body"><ul>
+            <li>单变量统计（平均值、标准差等）</li>
+            <li>双变量回归（线性、二次、对数等）</li>
+            <li>支持频率(Freq)列</li>
+            <li>估计值计算（xˆ、yˆ）</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="mode-num">7</span><div class="cc-card__title">表格模式</div></div>
+          <div class="cc-card__body"><ul>
+            <li>生成 f(x) 函数数表</li>
+            <li>可同时生成 f(x) 和 g(x)</li>
+            <li>自定义起始值、终止值、步长</li>
+            <li>适合观察函数变化趋势</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="mode-num">8</span><div class="cc-card__title">方程/函数</div></div>
+          <div class="cc-card__body"><ul>
+            <li>联立线性方程（2~4元）</li>
+            <li>高次方程（2~4次）</li>
+            <li>支持复数解（需开启设置）</li>
+            <li>多项式方程求根</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="mode-num">9</span><div class="cc-card__title">不等式</div></div>
+          <div class="cc-card__body"><ul>
+            <li>解二次不等式</li>
+            <li>解三次不等式</li>
+            <li>解四次不等式</li>
+            <li>直接给出解集区间</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="mode-num">0</span><div class="cc-card__title">比例</div></div>
+          <div class="cc-card__body"><ul>
+            <li>比例式计算 a:b = c:x</li>
+            <li>已知三项求未知项</li>
+            <li>快速解决比例应用题</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: 快捷键 -->
+    <div class="cc-section" id="shortcuts">
+      <h2>常用快捷键速查</h2>
+
+      <div class="cc-two-col">
+        <div>
+          <h3>基础操作</h3>
+          <ul class="cc-shortcut-list">
+            <li><span class="cc-shortcut-list__desc">关机</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">AC</span></span></li>
+            <li><span class="cc-shortcut-list__desc">打开模式菜单</span><span class="cc-shortcut-list__keys"><span class="key">菜单</span></span></li>
+            <li><span class="cc-shortcut-list__desc">打开设置菜单</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">菜单</span></span></li>
+            <li><span class="cc-shortcut-list__desc">小数↔分数转换</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">=</span></span></li>
+            <li><span class="cc-shortcut-list__desc">插入模式切换</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">DEL</span></span></li>
+            <li><span class="cc-shortcut-list__desc">查看上一步结果(Ans)</span><span class="cc-shortcut-list__keys"><span class="key key--alpha">ALPHA</span><span class="key">=</span></span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>高级功能</h3>
+          <ul class="cc-shortcut-list">
+            <li><span class="cc-shortcut-list__desc">SOLVE 解方程</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">CALC</span></span></li>
+            <li><span class="cc-shortcut-list__desc">CALC 公式计算</span><span class="cc-shortcut-list__keys"><span class="key">CALC</span></span></li>
+            <li><span class="cc-shortcut-list__desc">积分计算</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">x⁻¹</span></span></li>
+            <li><span class="cc-shortcut-list__desc">微分计算</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">x²</span></span></li>
+            <li><span class="cc-shortcut-list__desc">求和Σ计算</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">x³</span></span></li>
+            <li><span class="cc-shortcut-list__desc">质因数分解</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">4</span></span></li>
+            <li><span class="cc-shortcut-list__desc">排列 nPr</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">5</span></span></li>
+            <li><span class="cc-shortcut-list__desc">组合 nCr</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">6</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cc-two-col" style="margin-top:18px">
+        <div>
+          <h3>常数与换算</h3>
+          <ul class="cc-shortcut-list">
+            <li><span class="cc-shortcut-list__desc">圆周率 π</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">×10ˣ</span></span></li>
+            <li><span class="cc-shortcut-list__desc">自然常数 e</span><span class="cc-shortcut-list__keys"><span class="key key--alpha">ALPHA</span><span class="key">×10ˣ</span></span></li>
+            <li><span class="cc-shortcut-list__desc">科学常数（47个）</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">7</span></span></li>
+            <li><span class="cc-shortcut-list__desc">单位换算（40种）</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">8</span></span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>存储器操作</h3>
+          <ul class="cc-shortcut-list">
+            <li><span class="cc-shortcut-list__desc">存储到变量 (STO)</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">STO</span> + 变量键</span></li>
+            <li><span class="cc-shortcut-list__desc">调出变量 (RCL)</span><span class="cc-shortcut-list__keys"><span class="key key--alpha">ALPHA</span> + 变量键</span></li>
+            <li><span class="cc-shortcut-list__desc">结果加入独立M</span><span class="cc-shortcut-list__keys"><span class="key key--accent">M+</span></span></li>
+            <li><span class="cc-shortcut-list__desc">结果减去M</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">M-</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: 存储器 -->
+    <div class="cc-section" id="memory">
+      <h2>存储器操作指南</h2>
+
+      <div class="cc-callout cc-callout--info">
+        <div class="cc-callout__title">📦 存储结构</div>
+        <p><b>9 个变量</b>（A、B、C、D、E、F、X、Y、Z）+ <b>1 个独立存储器 M</b> + <b>答案存储器 Ans</b></p>
+      </div>
+
+      <h3>变量存储与调用</h3>
+      <div class="cc-table-wrap">
+        <table class="cc-table">
+          <thead><tr><th>操作</th><th>按键步骤</th><th>示例</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>将结果存入变量 A</td>
+              <td><span class="key-seq"><span class="key key--shift">SHIFT</span><span class="key">STO</span><span class="key">7</span></span></td>
+              <td>10 → SHIFT+STO → A  （A=10）</td>
+            </tr>
+            <tr>
+              <td>调出变量 A</td>
+              <td><span class="key-seq"><span class="key key--alpha">ALPHA</span><span class="key">7</span></span></td>
+              <td>ALPHA+A → 显示变量A的值</td>
+            </tr>
+            <tr>
+              <td>查看所有变量</td>
+              <td><span class="key-seq"><span class="key key--shift">SHIFT</span><span class="key">9</span><span class="key-arrow">→</span><span>存储器</span></span></td>
+              <td>可查看/编辑所有变量当前值</td>
+            </tr>
+            <tr>
+              <td>答案存储器 Ans</td>
+              <td><span class="key-seq"><span class="key key--alpha">ALPHA</span><span class="key">=</span></span></td>
+              <td>保存上一次计算结果，按运算键自动调用</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>独立存储器 M</h3>
+      <div class="cc-table-wrap">
+        <table class="cc-table">
+          <thead><tr><th>操作</th><th>按键</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>结果累加到 M</td><td><span class="key key--accent">M+</span></td><td>M = M + 当前结果</td></tr>
+            <tr><td>从 M 中减去结果</td><td><span class="key key--shift">SHIFT</span><span class="key">M-</span></td><td>M = M - 当前结果</td></tr>
+            <tr><td>查看 M 的值</td><td><span class="key key--alpha">ALPHA</span><span class="key">M+</span></td><td>显示独立存储器当前值</td></tr>
+            <tr><td>清零 M</td><td>0 <span class="key key--shift">SHIFT</span><span class="key">STO</span> <span class="key key--accent">M+</span></td><td>将 0 存入 M</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section 6: 设置菜单 -->
+    <div class="cc-section" id="settings">
+      <h2>设置菜单（SHIFT + 菜单）</h2>
+      <p>按 <span class="key key--shift">SHIFT</span><span class="key">菜单</span> 进入设置，用 ▲▼ 翻页，按数字键选择。</p>
+
+      <div class="cc-card-grid">
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="cc-card__icon">1</span><div class="cc-card__title">输入/输出</div></div>
+          <div class="cc-card__body"><ul>
+            <li><b>数学输入/数学输出</b>（默认）— 自然书写显示</li>
+            <li>数学输入/小数输出</li>
+            <li>线性输入/线性输出</li>
+            <li>线性输入/小数输出</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="cc-card__icon">2</span><div class="cc-card__title">角度单位</div></div>
+          <div class="cc-card__body"><ul>
+            <li><b>度 (D)</b> — 角度制（默认）</li>
+            <li>弧度 (R) — 弧度制</li>
+            <li>百分度 (G) — 梯度制</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="cc-card__icon">3</span><div class="cc-card__title">显示格式</div></div>
+          <div class="cc-card__body"><ul>
+            <li>位数 Fix — 固定小数位数 (0~9)</li>
+            <li>科学 Sci — 科学计数法有效位 (0~9)</li>
+            <li><b>常规 Norm</b> — 自动格式（默认）</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="cc-card__icon">4</span><div class="cc-card__title">工程符号</div></div>
+          <div class="cc-card__body"><ul>
+            <li>开 — 显示 k、M、G、m、μ 等词头</li>
+            <li><b>关</b>（默认）</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="cc-card__icon">5</span><div class="cc-card__title">分数结果</div></div>
+          <div class="cc-card__body"><ul>
+            <li>带分数</li>
+            <li><b>假分数</b>（默认）</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="cc-card__icon">6</span><div class="cc-card__title">复数</div></div>
+          <div class="cc-card__body"><ul>
+            <li><b>a+bi</b> — 直角坐标（默认）</li>
+            <li>r∠θ — 极坐标</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="cc-card__icon">7</span><div class="cc-card__title">统计</div></div>
+          <div class="cc-card__body"><ul>
+            <li>开 — 显示频率(Freq)列</li>
+            <li><b>关</b>（默认）</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="cc-card__icon">8</span><div class="cc-card__title">方程/函数</div></div>
+          <div class="cc-card__body"><ul>
+            <li>开 — 允许复数解</li>
+            <li><b>关</b>（默认，仅实数解）</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="cc-card__icon">9</span><div class="cc-card__title">表格</div></div>
+          <div class="cc-card__body"><ul>
+            <li>f(x) — 单函数表格</li>
+            <li>f(x),g(x) — 双函数表格</li>
+          </ul></div>
+        </div>
+
+        <div class="cc-card">
+          <div class="cc-card__header"><span class="cc-card__icon">…</span><div class="cc-card__title">其他设置</div></div>
+          <div class="cc-card__body"><ul>
+            <li>小数点显示（句点/逗号）</li>
+            <li>数字分隔符（开/关）</li>
+            <li>多行行字体（普通/小字体）</li>
+            <li><b>语言（中文/English）</b></li>
+            <li>对比度调整</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 7: 计算技巧 -->
+    <div class="cc-section" id="calc-tips">
+      <h2>常用计算技巧</h2>
+
+      <div class="cc-two-col">
+        <div>
+          <h3>🔢 基本计算</h3>
+          <ul class="cc-shortcut-list">
+            <li><span class="cc-shortcut-list__desc">省略乘号</span><span style="flex:1;color:var(--muted);font-size:13px;text-align:left">2π、3(1+2)、A×B 等乘号可省略</span></li>
+            <li><span class="cc-shortcut-list__desc">重用上次结果</span><span style="flex:1;color:var(--muted);font-size:13px;text-align:left">直接按运算键(+−×÷)自动用Ans</span></li>
+            <li><span class="cc-shortcut-list__desc">历史记录回放</span><span style="flex:1;color:var(--muted);font-size:13px;text-align:left">按 ▲ 键查看之前的计算式</span></li>
+            <li><span class="cc-shortcut-list__desc">百分号 %</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">(</span></span></li>
+            <li><span class="cc-shortcut-list__desc">阶乘 !</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">×</span></span></li>
+            <li><span class="cc-shortcut-list__desc">绝对值</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">(-)</span></span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>📐 高级计算</h3>
+          <ul class="cc-shortcut-list">
+            <li><span class="cc-shortcut-list__desc">极坐标→直角坐标</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">+</span> (Pol)</span></li>
+            <li><span class="cc-shortcut-list__desc">直角坐标→极坐标</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">-</span> (Rec)</span></li>
+            <li><span class="cc-shortcut-list__desc">度分秒输入</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">° ,,,</span></span></li>
+            <li><span class="cc-shortcut-list__desc">随机数 0~1</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">.</span></span></li>
+            <li><span class="cc-shortcut-list__desc">随机整数</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">÷</span> (RanInt)</span></li>
+            <li><span class="cc-shortcut-list__desc">余数计算</span><span class="cc-shortcut-list__keys"><span class="key key--shift">SHIFT</span><span class="key">÷</span> ÷R</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cc-callout cc-callout--warning" style="margin-top:18px">
+        <div class="cc-callout__title">⚠️ 注意事项</div>
+        <p><b>三角函数单位</b>：计算前务必确认角度单位设置（度/弧度/梯度），屏幕顶部会显示 <b>D</b>、<b>R</b> 或 <b>G</b> 指示符。设置错误会导致三角函数计算结果不正确。</p>
+      </div>
+    </div>
+
+    <!-- Section 8: 复位 -->
+    <div class="cc-section" id="reset">
+      <h2>复位与常见故障</h2>
+
+      <h3>复位操作</h3>
+      <div class="cc-table-wrap">
+        <table class="cc-table">
+          <thead><tr><th>复位类型</th><th>操作步骤</th><th>影响范围</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b>设置初始化</b></td>
+              <td><span class="key-seq"><span class="key key--shift">SHIFT</span><span class="key">9</span><span class="key-arrow">→</span><span class="key">1</span><span class="key-arrow">→</span><span class="key">=</span></span></td>
+              <td>仅重置设置项（保留存储器数据）</td>
+            </tr>
+            <tr>
+              <td><b>存储器清除</b></td>
+              <td><span class="key-seq"><span class="key key--shift">SHIFT</span><span class="key">9</span><span class="key-arrow">→</span><span class="key">2</span><span class="key-arrow">→</span><span class="key">=</span></span></td>
+              <td>清除所有变量和存储器数据</td>
+            </tr>
+            <tr>
+              <td><b>全部初始化</b></td>
+              <td><span class="key-seq"><span class="key key--shift">SHIFT</span><span class="key">9</span><span class="key-arrow">→</span><span class="key">3</span><span class="key-arrow">→</span><span class="key">=</span></span></td>
+              <td>恢复出厂设置（清除所有数据）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>常见错误代码</h3>
+      <div class="cc-table-wrap">
+        <table class="cc-table">
+          <thead><tr><th style="width:100px">错误</th><th>含义</th><th>常见原因</th></tr></thead>
+          <tbody>
+            <tr><td><b>Math ERROR</b></td><td>数学错误</td><td>除零、负数开平方、超出函数定义域等</td></tr>
+            <tr><td><b>Syntax ERROR</b></td><td>语法错误</td><td>括号不匹配、缺少运算符、函数参数错误</td></tr>
+            <tr><td><b>Stack ERROR</b></td><td>堆栈溢出</td><td>嵌套层数过多（如括号层数超过限制）</td></tr>
+            <tr><td><b>Can't Solve</b></td><td>无法求解</td><td>SOLVE 迭代未收敛、初值不合适</td></tr>
+            <tr><td><b>Dim ERROR</b></td><td>维度错误</td><td>矩阵/向量运算维度不匹配</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cc-callout" style="margin-top:14px">
+        <div class="cc-callout__title">💡 出错后处理</div>
+        <p>出现错误时，按 <span class="key">◀</span> 或 <span class="key">▶</span> 键可直接跳到出错位置进行修改；按 <span class="key">AC</span> 清除并返回计算界面。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>
+      <div style="font-weight:800;color:#fff;margin-bottom:8px">本速查表说明</div>
+      <p>基于卡西欧 fx-991CN X 官方用户说明书整理 · CLASSWIZ 系列中文函数计算器 · 552 种计算功能 · 9 变量 + 独立 M + Ans。考场允许使用本型号（无编程无存储功能）。</p>
+      <p style="margin-top:6px"><a href="https://www.casio.com.cn/support/calculators/manual/?model=FX-991CNX" target="_blank" rel="noopener">查看卡西欧官方说明书 →</a></p>
+    </div>
+    <div>
+      <p><b>相关页面</b></p>
+      <p><a href="guide.html#subject-breakdown">报考指南（含计算器视频）→</a><br><a href="videos.html#zhanggong|calculator">张工计算器精讲视频 →</a><br><a href="formulas.html">公式速查 →</a><br><a href="plan.html">备考规划 →</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="data/basic-knowledge.js"></script>
+<script src="data/videos.js?v=2"></script>
+<script src="data/hot-points.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/main.js?v=2"></script>
+<script src="js/nav-formulas.js"></script>
+</body>
+</html>
