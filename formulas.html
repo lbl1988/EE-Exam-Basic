@@ -44,10 +44,15 @@
 .m-row td{font-size:13px;color:var(--text);line-height:1.6}
 .m-row td:before{content:'● ';color:var(--primary)}
 
-/* 公式图片行 */
+/* 公式图片行（默认隐藏，开关控制） */
+.f-img-row{display:none}
 .f-img-row td{padding:10px 12px;background:var(--bg-soft)}
+.show-imgs .f-img-row{display:table-row}
 .f-img{max-width:100%;border-radius:8px;border:1px solid var(--line);display:block;margin:4px auto}
 .f-img-caption{font-size:11px;color:var(--muted);text-align:center;margin-top:4px}
+.img-toggle{background:var(--bg-card);border:1px solid var(--primary);color:var(--primary);padding:5px 12px;border-radius:999px;cursor:pointer;font-size:12px;font-weight:600;white-space:nowrap;transition:background .2s,color .2s}
+.img-toggle:hover{background:rgba(79,140,255,.12)}
+.img-toggle.active{background:var(--primary);color:#fff}
 
 @media(max-width:640px){
   .fp-hero h1{font-size:22px}
@@ -120,6 +125,7 @@
     <a class="nav-link" href="#sec-machine">13.电气工程</a>
     <a class="nav-link" href="#sec-power">14.电气工程基础</a>
     <a class="nav-link" href="#sec-const">附录·常数</a>
+    <button class="img-toggle" id="imgToggle" type="button">📷 显示图片</button>
     <input type="text" class="search-box" id="searchBox" placeholder="搜索公式…">
   </div>
 </div>
@@ -547,6 +553,13 @@ function render(){
 document.getElementById('searchBox').addEventListener('input',function(){
   searchTerm=this.value.trim();
   render();
+});
+
+/* 图片显示/隐藏开关 */
+document.getElementById('imgToggle').addEventListener('click',function(){
+  var on=document.body.classList.toggle('show-imgs');
+  this.classList.toggle('active',on);
+  this.textContent=on?'📷 隐藏图片':'📷 显示图片';
 });
 
 /* 初始渲染 */
