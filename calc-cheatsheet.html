@@ -97,6 +97,24 @@
   .cc-table tbody td{color:#000}
 }
 
+/* 官方说明书 PDF 折叠区 */
+.cc-pdf-wrap{margin:0 0 8px;background:var(--bg-card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.cc-pdf-toggle{width:100%;background:linear-gradient(135deg,rgba(79,140,255,.12),rgba(167,139,250,.12));border:none;border-bottom:1px solid var(--line);color:#fff;padding:14px 16px;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;transition:background .2s}
+.cc-pdf-toggle:hover{background:linear-gradient(135deg,rgba(79,140,255,.2),rgba(167,139,250,.2))}
+.cc-pdf-toggle__label{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+.cc-pdf-toggle__icon{font-size:18px;flex-shrink:0}
+.cc-pdf-toggle__title{font-weight:600}
+.cc-pdf-toggle__meta{font-size:12px;color:var(--muted);font-weight:400;margin-left:6px;white-space:nowrap}
+.cc-pdf-toggle__arrow{font-size:11px;color:var(--muted);transition:transform .25s;flex-shrink:0}
+.cc-pdf-toggle[aria-expanded="true"] .cc-pdf-toggle__arrow{transform:rotate(180deg)}
+.cc-pdf-toggle[aria-expanded="false"] .cc-pdf-toggle__arrow{transform:rotate(0deg)}
+.cc-pdf-content{padding:0;display:none}
+.cc-pdf-content.open{display:block}
+.cc-pdf-actions{display:flex;gap:8px;flex-wrap:wrap;padding:12px 16px 8px;background:var(--bg-soft);border-bottom:1px solid var(--line)}
+.cc-pdf-actions .mini-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;font-size:13px}
+.cc-pdf-frame{width:100%;height:600px;border:0;background:#1a1a2e;display:block}
+@media(max-width:680px){.cc-pdf-frame{height:420px}.cc-pdf-toggle__meta{display:none}}
+
 /* 响应式 */
 @media(max-width:680px){
   .cc-hero h1{font-size:22px}
@@ -160,6 +178,27 @@
 
 <section class="section">
   <div class="wrap">
+
+    <!-- 官方说明书 PDF 折叠区（默认隐藏，按钮展开） -->
+    <div class="cc-pdf-wrap">
+      <button class="cc-pdf-toggle" id="pdf-toggle" aria-expanded="false" aria-controls="pdf-content" type="button">
+        <span class="cc-pdf-toggle__label">
+          <span class="cc-pdf-toggle__icon">📕</span>
+          <span>
+            <span class="cc-pdf-toggle__title">卡西欧 fx-991CN X 官方说明书</span>
+            <span class="cc-pdf-toggle__meta">PDF · 1.2MB · 中文版 · 72 页</span>
+          </span>
+        </span>
+        <span class="cc-pdf-toggle__arrow">▼</span>
+      </button>
+      <div class="cc-pdf-content" id="pdf-content" aria-hidden="true">
+        <div class="cc-pdf-actions">
+          <a class="mini-btn" href="docs/fx-991CN-X-manual-CN.pdf" target="_blank" rel="noopener">⬇ 新标签页打开 / 下载</a>
+          <a class="mini-btn" href="https://www.casio.com.cn/support/calculators/manual/?model=FX-991CNX" target="_blank" rel="noopener">🔗 卡西欧官网说明书页</a>
+        </div>
+        <iframe class="cc-pdf-frame" src="" data-src="docs/fx-991CN-X-manual-CN.pdf" title="fx-991CN X 官方说明书 PDF"></iframe>
+      </div>
+    </div>
 
     <!-- Section 1: 按键标记规则 -->
     <div class="cc-section" id="key-marking">
@@ -670,6 +709,27 @@
 <script src="js/progress.js"></script>
 <script src="js/main.js?v=2"></script>
 <script src="js/nav-formulas.js"></script>
-  <script src="js/nav-calc.js"></script>
+<script src="js/nav-calc.js"></script>
+<script>
+// 官方说明书 PDF 折叠/展开（懒加载 iframe）
+(function(){
+  var btn=document.getElementById('pdf-toggle');
+  var box=document.getElementById('pdf-content');
+  if(!btn||!box) return;
+  var iframe=box.querySelector('iframe');
+  var loaded=false;
+  btn.addEventListener('click',function(){
+    var open=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',String(!open));
+    box.setAttribute('aria-hidden',String(open));
+    if(!open){
+      box.classList.add('open');
+      if(!loaded && iframe){iframe.src=iframe.getAttribute('data-src')||'';loaded=true;}
+    }else{
+      box.classList.remove('open');
+    }
+  });
+})();
+</script>
 </body>
 </html>
