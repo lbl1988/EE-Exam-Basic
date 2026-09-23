@@ -88,6 +88,9 @@
 .repo-desc{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.7}
 .repo-desc a{color:var(--primary);text-decoration:none}
 .repo-desc a:hover{text-decoration:underline}
+.repo-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.dl-btn{display:inline-flex;align-items:center;gap:6px;background:#0f2417;border:1px solid #34d399;color:#34d399;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;transition:background .2s,color .2s}
+.dl-btn:hover{background:#34d399;color:#0f2a17}
 </style>
 </head>
 <body data-page="formulas">
@@ -150,7 +153,10 @@
 <div class="repo-panel" id="repoPanel">
   <div class="repo-card">
     <h3>📦 GitHub 源码仓库</h3>
-    <a class="repo-btn" href="https://github.com/lbl1988/EE-Exam-Basic" target="_blank" rel="noopener noreferrer">github.com/lbl1988/EE-Exam-Basic ↗</a>
+    <div class="repo-actions">
+      <a class="repo-btn" href="https://github.com/lbl1988/EE-Exam-Basic" target="_blank" rel="noopener noreferrer">github.com/lbl1988/EE-Exam-Basic ↗</a>
+      <a class="dl-btn" href="docs/%E6%B3%A8%E5%86%8C%E7%94%B5%E6%B0%94%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%9F%BA%E7%A1%80%E8%80%83%E8%AF%95_%E5%85%AC%E5%BC%8F%E4%B8%8E%E8%AE%B0%E5%BF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E7%BC%96.docx" download>📄 下载 Word 公式汇编</a>
+    </div>
     <p class="repo-desc">本页全部公式与知识点的源代码仓库，纯静态单页应用，Render / Vercel 双平台同步部署。在线站点：<a href="https://ee-exam-basic.onrender.com" target="_blank" rel="noopener noreferrer">ee-exam-basic.onrender.com</a> ｜ 姊妹仓库：<a href="https://github.com/lbl1988/ee-pro-exam-site-2026" target="_blank" rel="noopener noreferrer">ee-pro-exam-site-2026</a></p>
   </div>
 </div>
