@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -73,6 +73,21 @@
 .const-table th{background:var(--bg-tag);color:var(--primary);font-weight:700;font-size:12px}
 .const-table td:nth-child(2),.const-table td:nth-child(3){font-family:"Cascadia Code",Consolas,monospace;color:#f0a868}
 .const-table tr:hover td{background:rgba(79,140,255,.06)}
+
+/* 源码仓库折叠面板（默认隐藏，按钮控制） */
+.repo-toggle{background:var(--bg-card);border:1px solid var(--line);color:var(--muted);padding:5px 12px;border-radius:999px;cursor:pointer;font-size:12px;font-weight:600;white-space:nowrap;transition:color .2s,border-color .2s,background .2s}
+.repo-toggle:hover{color:var(--primary);border-color:var(--primary)}
+.repo-toggle.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.repo-panel{display:none;max-width:1160px;margin:0 auto;padding:0 20px}
+.show-repo .repo-panel{display:block;animation:repoFade .2s ease}
+@keyframes repoFade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.repo-card{background:var(--bg-card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-top:8px}
+.repo-card h3{font-size:15px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.repo-btn{display:inline-flex;align-items:center;gap:6px;background:#1b2638;border:1px solid var(--primary);color:#4f8cff;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;font-family:"Cascadia Code",Consolas,monospace;transition:background .2s,color .2s}
+.repo-btn:hover{background:#4f8cff;color:#fff}
+.repo-desc{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.7}
+.repo-desc a{color:var(--primary);text-decoration:none}
+.repo-desc a:hover{text-decoration:underline}
 </style>
 </head>
 <body data-page="formulas">
@@ -126,7 +141,17 @@
     <a class="nav-link" href="#sec-power">14.电气工程基础</a>
     <a class="nav-link" href="#sec-const">附录·常数</a>
     <button class="img-toggle" id="imgToggle" type="button">📷 显示图片</button>
+    <button class="repo-toggle" id="repoToggle" type="button">🔗 源码仓库</button>
     <input type="text" class="search-box" id="searchBox" placeholder="搜索公式…">
+  </div>
+</div>
+
+<!-- 源码仓库折叠面板（默认隐藏） -->
+<div class="repo-panel" id="repoPanel">
+  <div class="repo-card">
+    <h3>📦 GitHub 源码仓库</h3>
+    <a class="repo-btn" href="https://github.com/lbl1988/EE-Exam-Basic" target="_blank" rel="noopener noreferrer">github.com/lbl1988/EE-Exam-Basic ↗</a>
+    <p class="repo-desc">本页全部公式与知识点的源代码仓库，纯静态单页应用，Render / Vercel 双平台同步部署。在线站点：<a href="https://ee-exam-basic.onrender.com" target="_blank" rel="noopener noreferrer">ee-exam-basic.onrender.com</a> ｜ 姊妹仓库：<a href="https://github.com/lbl1988/ee-pro-exam-site-2026" target="_blank" rel="noopener noreferrer">ee-pro-exam-site-2026</a></p>
   </div>
 </div>
 
@@ -560,6 +585,13 @@ document.getElementById('imgToggle').addEventListener('click',function(){
   var on=document.body.classList.toggle('show-imgs');
   this.classList.toggle('active',on);
   this.textContent=on?'📷 隐藏图片':'📷 显示图片';
+});
+
+/* 源码仓库折叠开关（默认隐藏，点击按钮显示/隐藏） */
+document.getElementById('repoToggle').addEventListener('click',function(){
+  var on=document.body.classList.toggle('show-repo');
+  this.classList.toggle('active',on);
+  this.textContent=on?'🔗 收起仓库':'🔗 源码仓库';
 });
 
 /* 初始渲染 */
