@@ -173,7 +173,7 @@
 <!-- Word 文档在线预览模态框 -->
 <div class="preview-modal" id="docxPreview">
   <div class="preview-bar">
-    <span>📄 注册电气工程师基础考试 · 公式与记忆知识点汇编 — 在线预览</span>
+    <span>📄 注册电气工程师基础考试 · 公式与记忆知识点汇编（PDF）— 在线预览</span>
     <button class="preview-close" onclick="closeDocxPreview()">✕ 关闭</button>
   </div>
   <iframe id="docxFrame" src="" allowfullscreen></iframe>
@@ -618,12 +618,11 @@ document.getElementById('repoToggle').addEventListener('click',function(){
   this.textContent=on?'🔗 收起仓库':'🔗 源码仓库';
 });
 
-/* Word 文档在线预览（Office Online viewer 内嵌 iframe，不跳转外部） */
+/* Word 文档在线预览（PDF 浏览器原生渲染，秒开） */
 function openDocxPreview(){
-  var docxName='注册电气工程师基础考试_公式与记忆知识点汇编.docx';
-  var docxUrl=location.origin+'/docs/'+encodeURIComponent(docxName);
-  var src=encodeURIComponent(docxUrl);
-  document.getElementById('docxFrame').src='https://view.officeapps.live.com/op/embed.aspx?src='+src;
+  var pdfName='注册电气工程师基础考试_公式与记忆知识点汇编.pdf';
+  var pdfUrl='docs/'+encodeURIComponent(pdfName);
+  document.getElementById('docxFrame').src=pdfUrl;
   document.getElementById('docxPreview').classList.add('show');
 }
 function closeDocxPreview(){
