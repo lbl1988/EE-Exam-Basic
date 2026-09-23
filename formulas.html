@@ -432,7 +432,13 @@ var DATA=[
 {sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-24',name:'统计三大分布',formula:'χ²(n):E=n,D=2n；t(n):E=0(n>1)；F(m,n):E=n/(n−2)(n>2)',freq:'mid',note:'数理统计用'},
 {sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-25',name:'期望定义',formula:'离散:E(X)=Σxᵢpᵢ；连续:E(X)=∫xf(x)dx',freq:'high'},
 {sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-26',name:'期望线性性质',formula:'E(aX+bY+c)=aE(X)+bE(Y)+c（不要求X,Y独立）',freq:'high',note:'最常用'},
-{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'memory',text:'期望记忆技巧：二项→n次试验平均成功np次；泊松→λ本身就是平均发生次数；几何→平均等1/p次才成功；指数→平均等待1/λ；均匀→取中点(a+b)/2；正态→对称中心μ。标准正态查表：Z=(X-μ)/σ，利用对称性Φ(-z)=1-Φ(z)简化查表。方差速记：0-1→p(1-p)；二项→npq；泊松→λ；均匀→(b-a)²/12；指数→1/λ²；正态→σ²；卡方→2n。期望线性性质E(aX+bY+c)=aE(X)+bE(Y)+c不要求独立，是期望最好用的性质。'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-27',name:'方差定义/标准差',formula:'D(X)=E[X−E(X)]²=E(X²)−[E(X)]²；标准差σ(X)=√D(X)',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-28',name:'方差性质',formula:'D(C)=0；D(X+C)=D(X)；D(kX)=k²D(X)；D(X±Y)=D(X)+D(Y)±2Cov(X,Y)',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-29',name:'协方差/相关系数',formula:'Cov(X,Y)=E(XY)−E(X)E(Y)；ρ=Cov(X,Y)/(σ_X·σ_Y)，|ρ|≤1',freq:'high',note:'ρ=0不相关'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-30',name:'切比雪夫不等式',formula:'P(|X−E(X)|≥ε)≤D(X)/ε²（任意分布）',freq:'mid',note:'估计概率上界'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-31',name:'独立与不相关',formula:'独立⇒Cov=0(不相关)；不相关⇏独立；二维正态:独立⇔不相关',freq:'high',note:'正态特殊'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-32',name:'矩',formula:'k阶原点矩:E(Xᵏ)；k阶中心矩:E[X−E(X)]ᵏ；方差=二阶中心矩',freq:'mid'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'memory',text:'期望记忆技巧：二项→n次试验平均成功np次；泊松→λ本身就是平均发生次数；几何→平均等1/p次才成功；指数→平均等待1/λ；均匀→取中点(a+b)/2；正态→对称中心μ。方差速记：0-1→p(1-p)；二项→npq；泊松→λ；均匀→(b-a)²/12；指数→1/λ²；正态→σ²；卡方→2n。独立→不相关(ρ=0)，但反过来不一定！只有二维正态分布独立与不相关等价。切比雪夫不等式可用于任意分布的概率上界估计。'},
 
 // ---- 普通物理补充 ----
 {sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第1章',chName:'热学/热力学',type:'formula',num:'P1-7',name:'运动学基本',formula:'v=v0+at；s=v0t+½at²；v²=v0²+2as',freq:'mid'},
