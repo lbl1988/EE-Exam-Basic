@@ -91,6 +91,14 @@
 .repo-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .dl-btn{display:inline-flex;align-items:center;gap:6px;background:#0f2417;border:1px solid #34d399;color:#34d399;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;transition:background .2s,color .2s}
 .dl-btn:hover{background:#34d399;color:#0f2a17}
+.preview-btn{background:#0d1b2a;border-color:#4cc9f0;color:#4cc9f0}
+.preview-btn:hover{background:#4cc9f0;color:#0d1b2a}
+.preview-modal{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);display:none;flex-direction:column;animation:fadeIn .2s}
+.preview-modal.show{display:flex}
+.preview-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 20px;background:#1a1a2e;color:#e0e0e0;font-size:14px;font-weight:600}
+.preview-close{background:#2a2a3e;color:#fff;border:1px solid #555;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500}
+.preview-close:hover{background:#e74c3c;border-color:#e74c3c}
+#docxFrame{flex:1;width:100%;border:none;background:#fff}
 </style>
 </head>
 <body data-page="formulas">
@@ -156,9 +164,19 @@
     <div class="repo-actions">
       <a class="repo-btn" href="https://github.com/lbl1988/EE-Exam-Basic" target="_blank" rel="noopener noreferrer">github.com/lbl1988/EE-Exam-Basic ↗</a>
       <a class="dl-btn" href="docs/%E6%B3%A8%E5%86%8C%E7%94%B5%E6%B0%94%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%9F%BA%E7%A1%80%E8%80%83%E8%AF%95_%E5%85%AC%E5%BC%8F%E4%B8%8E%E8%AE%B0%E5%BF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E7%BC%96.docx" download>📄 下载 Word 公式汇编</a>
+      <a class="dl-btn preview-btn" href="javascript:void(0)" onclick="openDocxPreview()">👁️ 在线预览</a>
     </div>
     <p class="repo-desc">本页全部公式与知识点的源代码仓库，纯静态单页应用，Render / Vercel 双平台同步部署。在线站点：<a href="https://ee-exam-basic.onrender.com" target="_blank" rel="noopener noreferrer">ee-exam-basic.onrender.com</a> ｜ 姊妹仓库：<a href="https://github.com/lbl1988/ee-pro-exam-site-2026" target="_blank" rel="noopener noreferrer">ee-pro-exam-site-2026</a></p>
   </div>
+</div>
+
+<!-- Word 文档在线预览模态框 -->
+<div class="preview-modal" id="docxPreview">
+  <div class="preview-bar">
+    <span>📄 注册电气工程师基础考试 · 公式与记忆知识点汇编 — 在线预览</span>
+    <button class="preview-close" onclick="closeDocxPreview()">✕ 关闭</button>
+  </div>
+  <iframe id="docxFrame" src="" allowfullscreen></iframe>
 </div>
 
 <!-- 内容区 -->
@@ -598,6 +616,25 @@ document.getElementById('repoToggle').addEventListener('click',function(){
   var on=document.body.classList.toggle('show-repo');
   this.classList.toggle('active',on);
   this.textContent=on?'🔗 收起仓库':'🔗 源码仓库';
+});
+
+/* Word 文档在线预览（Office Online viewer 内嵌 iframe，不跳转外部） */
+function openDocxPreview(){
+  var docxName='注册电气工程师基础考试_公式与记忆知识点汇编.docx';
+  var docxUrl=location.origin+'/docs/'+encodeURIComponent(docxName);
+  var src=encodeURIComponent(docxUrl);
+  document.getElementById('docxFrame').src='https://view.officeapps.live.com/op/embed.aspx?src='+src;
+  document.getElementById('docxPreview').classList.add('show');
+}
+function closeDocxPreview(){
+  document.getElementById('docxPreview').classList.remove('show');
+  document.getElementById('docxFrame').src='';
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')closeDocxPreview();
+});
+document.getElementById('docxPreview').addEventListener('click',function(e){
+  if(e.target===this)closeDocxPreview();
 });
 
 /* 初始渲染 */
