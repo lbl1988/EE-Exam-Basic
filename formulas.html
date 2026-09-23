@@ -427,7 +427,12 @@ var DATA=[
 {sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-19',name:'标准正态/3σ准则',formula:'Z=(X−μ)/σ~N(0,1)；Φ(−z)=1−Φ(z)；P(|X−μ|<σ)≈0.683,2σ≈0.955,3σ≈0.997',freq:'high',note:'3σ准则'},
 {sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-20',name:'期望方差性质',formula:'E(kX+b)=kE(X)+b；D(kX+b)=k²D(X)；独立时D(X±Y)=D(X)+D(Y)',freq:'high'},
 {sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-21',name:'0-1分布',formula:'P(X=1)=p,P(X=0)=1−p；E=p；D=p(1−p)',freq:'mid'},
-{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'memory',text:'六大分布期望方差速记：0-1→E=p,D=p(1-p)；二项→E=np,D=npq；泊松→E=D=λ；均匀→E=(a+b)/2,D=(b-a)²/12；指数→E=1/λ,D=1/λ²；正态→E=μ,D=σ²。标准正态查表：Z=(X-μ)/σ，利用对称性Φ(-z)=1-Φ(z)简化查表。'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-22',name:'几何/超几何/负二项',formula:'Ge(p):E=1/p；H(N,M,n):E=nM/N；NB(r,p):E=r/p',freq:'mid'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-23',name:'伽马/贝塔/对数正态',formula:'Γ(α,β):E=α/β；Beta(α,β):E=α/(α+β)；LN(μ,σ²):E=e^(μ+σ²/2)',freq:'mid'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-24',name:'统计三大分布',formula:'χ²(n):E=n,D=2n；t(n):E=0(n>1)；F(m,n):E=n/(n−2)(n>2)',freq:'mid',note:'数理统计用'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-25',name:'期望定义',formula:'离散:E(X)=Σxᵢpᵢ；连续:E(X)=∫xf(x)dx',freq:'high'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'formula',num:'M3-26',name:'期望线性性质',formula:'E(aX+bY+c)=aE(X)+bE(Y)+c（不要求X,Y独立）',freq:'high',note:'最常用'},
+{sub:'math',subName:'高等数学',color:'#4f8cff',ch:'第3章',chName:'级数/ODE/概率',type:'memory',text:'期望记忆技巧：二项→n次试验平均成功np次；泊松→λ本身就是平均发生次数；几何→平均等1/p次才成功；指数→平均等待1/λ；均匀→取中点(a+b)/2；正态→对称中心μ。标准正态查表：Z=(X-μ)/σ，利用对称性Φ(-z)=1-Φ(z)简化查表。方差速记：0-1→p(1-p)；二项→npq；泊松→λ；均匀→(b-a)²/12；指数→1/λ²；正态→σ²；卡方→2n。期望线性性质E(aX+bY+c)=aE(X)+bE(Y)+c不要求独立，是期望最好用的性质。'},
 
 // ---- 普通物理补充 ----
 {sub:'physics',subName:'普通物理',color:'#f472b6',ch:'第1章',chName:'热学/热力学',type:'formula',num:'P1-7',name:'运动学基本',formula:'v=v0+at；s=v0t+½at²；v²=v0²+2as',freq:'mid'},
