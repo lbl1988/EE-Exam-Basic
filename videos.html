@@ -33,7 +33,7 @@
       <button data-dir="powerTransmission">⚡ 发输变电方向</button>
     </div>
     <span class="eyebrow">VIDEO CENTER · Bilibili 站内 iframe 直放 · 不跳转 B 站</span>
-    <h1 id="active-series-name" style="font-size:24px">视频课程中心</h1>
+    <h1 id="active-series-name" class="fs-24">视频课程中心</h1>
     <p class="lead">点击左侧分P立即切换播放；每讲看完点击"标记本讲掌握"后，自动累计到首页仪表盘。移动端使用 html5mobileplayer 保证兼容性。</p>
   </div>
 </section>
@@ -43,10 +43,10 @@
 
     <div id="video-series-tabs" class="tabs"></div>
 
-    <div id="video-subject-tabs" class="sub-tabs" style="margin-bottom:6px"></div>
+    <div id="video-subject-tabs" class="sub-tabs mb-6"></div>
     <div id="video-collection-tabs" class="sub-tabs"></div>
 
-    <div class="card" id="active-series-intro" style="margin-bottom:14px">
+    <div class="card mb-14" id="active-series-intro">
       <p class="text-muted">正在加载系列介绍…</p>
     </div>
 
@@ -59,7 +59,7 @@
         <div class="action-bar">
           <button id="mark-done-btn" class="btn btn-primary mini-btn" data-series="" data-bvid="" data-page="1" data-ee-progress>标记本讲掌握</button>
           <span id="total-ep-count" class="text-muted sm"></span>
-          <div class="bar" id="series-progress-bar" style="flex:1;min-width:120px;height:12px;margin-top:4px"><div class="bar-fill" style="width:0"></div></div>
+          <div class="bar progress-track" id="series-progress-bar"><div class="bar-fill"></div></div>
           <a class="mini-btn" href="my-notes.html#new" target="_blank">📝 记笔记</a>
         </div>
       </div>
