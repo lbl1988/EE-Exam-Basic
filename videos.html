@@ -47,7 +47,7 @@
     <div id="video-collection-tabs" class="sub-tabs"></div>
 
     <div class="card" id="active-series-intro" style="margin-bottom:14px">
-      <p style="color:#8ea0c6">正在加载系列介绍…</p>
+      <p class="text-muted">正在加载系列介绍…</p>
     </div>
 
     <div class="video-layout">
@@ -56,15 +56,15 @@
           <iframe id="bili-player" src="" allowfullscreen allow="autoplay; fullscreen; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation"></iframe>
           <video id="mp4-player" controls playsinline style="display:none;width:100%;aspect-ratio:16/9;background:#000"></video>
         </div>
-        <div style="margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <div class="action-bar">
           <button id="mark-done-btn" class="btn btn-primary mini-btn" data-series="" data-bvid="" data-page="1" data-ee-progress>标记本讲掌握</button>
-          <span id="total-ep-count" style="color:#8ea0c6;font-size:13px"></span>
+          <span id="total-ep-count" class="text-muted sm"></span>
           <div class="bar" id="series-progress-bar" style="flex:1;min-width:120px;height:12px;margin-top:4px"><div class="bar-fill" style="width:0"></div></div>
           <a class="mini-btn" href="my-notes.html#new" target="_blank">📝 记笔记</a>
         </div>
       </div>
       <div>
-        <h4 style="margin-bottom:8px;color:#fff">📋 分 P 列表（playlist）点击任意一集立即切换</h4>
+        <h4 class="mb-2 text-white">📋 分 P 列表（playlist）点击任意一集立即切换</h4>
         <div class="playlist" id="playlist"></div>
       </div>
     </div>
@@ -74,8 +74,8 @@
 <footer class="footer">
   <div class="wrap">
     <div>
-      <div style="font-weight:800;color:#fff;margin-bottom:8px">视频播放说明</div>
-      <p style="color:#8ea0c6">视频通过 Bilibili 官方 html5mobileplayer iframe 嵌入，不会跳转到 B 站，直接在本站观看。若遇加载失败，请刷新页面或检查网络环境；若视频被 B 站下架，请留言提醒更新 BV 号。</p>
+      <div class="footer-title">视频播放说明</div>
+      <p class="text-muted">视频通过 Bilibili 官方 html5mobileplayer iframe 嵌入，不会跳转到 B 站，直接在本站观看。若遇加载失败，请刷新页面或检查网络环境；若视频被 B 站下架，请留言提醒更新 BV 号。</p>
     </div>
     <div>
       <p><b>快速导航</b></p>
