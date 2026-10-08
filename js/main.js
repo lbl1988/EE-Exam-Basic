@@ -144,16 +144,19 @@
     var iframe=document.getElementById('bili-player');
     var video=document.getElementById('mp4-player');
     var playlistEl=document.getElementById('playlist');
-    /* MP4 播放器事件：加载失败提示 + 播完提醒标记掌握 */
+    /* MP4 播放器事件：用 onerror/onended 赋值（而非 addEventListener）
+       避免 initVideos 在方向切换时重新调用导致监听器堆叠 */
     if(video){
-      video.addEventListener('error',function(){
+      video.onerror=function(){
+        /* 忽略 src 为空时的误报（切换到 iframe 模式时可能触发） */
+        if(!video.src||video.src==='')return;
         var info=document.getElementById('active-series-intro');
-        if(info)info.innerHTML='<p style="color:#ef4444">⚠️ 视频加载失败，请检查网络连接或稍后重试。</p>';
-      });
-      video.addEventListener('ended',function(){
+        if(info)info.innerHTML='<p class="text-danger">⚠️ 视频加载失败，请检查网络连接或稍后重试。</p>';
+      };
+      video.onended=function(){
         var mark=document.getElementById('mark-done-btn');
         if(mark&&!mark.classList.contains('done')){mark.textContent='✓ 已看完？点此标记掌握 →';}
-      });
+      };
     }
 
     function seriesIsSubject(s){return s==='zhanggong' || s==='jiangxiaobai'}
@@ -183,7 +186,11 @@
       var ep0=(colObj.episodes&&colObj.episodes[0])||colObj.playlist[0];
       if(colObj.isMP4){
         if(iframe){iframe.style.display='none';iframe.src='';}
-        if(video){video.style.display='';video.src=ep0.mp4||'';video.load();}
+        if(video){
+          video.style.display='';
+          if(ep0.mp4){video.src=ep0.mp4;video.load();}
+          else{video.src='';}
+        }
       }else{
         if(video){try{video.pause()}catch(e){}video.style.display='none';}
         if(iframe){iframe.style.display='';iframe.src=S.biliUrl(colObj.bvid,ep0.page)};
@@ -255,7 +262,11 @@
           row.classList.add('active');
           if(col.isMP4){
             if(iframe){iframe.style.display='none';iframe.src='';}
-            if(video){video.style.display='';video.src=ep.mp4||'';video.load();}
+            if(video){
+              video.style.display='';
+              if(ep.mp4){video.src=ep.mp4;video.load();}
+              else{video.src='';}
+            }
           }else{
             if(video){try{video.pause()}catch(e){}video.style.display='none';}
             if(iframe){iframe.style.display='';iframe.src=S.biliUrl(col.bvid,ep.page)};
@@ -456,12 +467,12 @@
     });
     var todone=EEProgress.todayDoneCount?EEProgress.todayDoneCount():0;
     box.querySelector('.progress-stats').innerHTML='<div><b>今日完成</b>：'+todone+' 个掌握节点</div>'
-      +'<div><b>张工专业基础总章节</b>：已掌握 '+doneCh+'/'+totalCh+' 章 ('+Math.round(doneCh/totalCh*100)+'%)</div>'
-      +'<div><b>张工专业基础总讲次</b>：已掌握 '+doneEp+'/'+totalEp+' 讲 ('+Math.round(doneEp/totalEp*100)+'%)</div>';
+      +'<div><b>张工专业基础总章节</b>：已掌握 '+doneCh+'/'+totalCh+' 章 ('+(totalCh?Math.round(doneCh/totalCh*100):0)+'%)</div>'
+      +'<div><b>张工专业基础总讲次</b>：已掌握 '+doneEp+'/'+totalEp+' 讲 ('+(totalEp?Math.round(doneEp/totalEp*100):0)+'%)</div>';
     grid.innerHTML='';
     base.forEach(function(sub){
       var chT=sub.chapters.length; var chD=sub.chapters.filter(function(c,i){return EEProgress.isChapterDone(sub.key,i+1)}).length;
-      var pct=Math.round(chD/chT*100);
+      var pct=chT?Math.round(chD/chT*100):0;
       grid.insertAdjacentHTML('beforeend','<div class="progress-item"><div class="name"><span class="subject-dot dot-'+sub.color+'"></span> '+sub.title+'</div>'
         +'<div class="pct">'+pct+'%</div><div class="bar"><div class="bar-fill" style="width:'+pct+'%"></div></div>'
         +'<div style="font-size:12px;color:#8ea0c6;margin-top:4px">章节 '+chD+'/'+chT+' · <a href="subjects/'+sub.key+'.html" style="color:#93c5fd">去学习 →</a></div>'
@@ -479,4 +490,5 @@
   });
   window.MainEE = S;
 })();
+
 
