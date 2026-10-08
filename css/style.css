@@ -192,7 +192,7 @@ h2{font-size:22px;margin-bottom:var(--space-2)}
 .progress-item .name{font-size:12px;color:var(--muted)}
 .progress-item .pct{font-size:20px;font-weight:800;margin:2px 0}
 .bar{height:6px;background:var(--bg-tag);border-radius:3px;overflow:hidden;margin-top:4px}
-.bar-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--power));border-radius:3px;transition:width .3s}
+.bar-fill{width:0;height:100%;background:linear-gradient(90deg,var(--primary),var(--power));border-radius:3px;transition:width .3s}
 
 /* ===================== 通用按钮 ===================== */
 .mini-btn{background:var(--bg-tag);border:1px solid var(--line);color:var(--text);padding:4px 10px;border-radius:var(--radius-sm);font-size:12px;cursor:pointer;margin:2px;transition:var(--t)}
@@ -225,6 +225,13 @@ h2{font-size:22px;margin-bottom:var(--space-2)}
 .grid-auto-200{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 /* 提示文字 */
 .hint{color:var(--muted);font-size:13px}
+
+/* 补充：一次性尺寸工具类 */
+.mt-10{margin-top:10px}
+.mb-6{margin-bottom:6px}
+.mb-14{margin-bottom:14px}
+.fs-24{font-size:24px}
+.progress-track{flex:1;min-width:120px;height:12px;margin-top:4px}
 /* ===================== 响应式 ===================== */
 @media(max-width:768px){
   .hero h1{font-size:22px}
