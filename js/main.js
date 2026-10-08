@@ -184,6 +184,7 @@
       if(infoEl)infoEl.innerHTML=info;
       /* 播放器：默认第一个精选episodes[0]，或者playlist[0] */
       var ep0=(colObj.episodes&&colObj.episodes[0])||colObj.playlist[0];
+      if(!ep0){S.renderPlaylist(colObj);return}
       if(colObj.isMP4){
         if(iframe){iframe.style.display='none';iframe.src='';}
         if(video){
@@ -239,7 +240,7 @@
           if(col){
             var ep0=(col.episodes&&col.episodes[0])||col.playlist[0];
             if(video){try{video.pause()}catch(e){}video.style.display='none';}
-            if(iframe){iframe.style.display='';iframe.src=S.biliUrl(col.bvid,ep0.page)};
+            if(iframe&&ep0){iframe.style.display='';iframe.src=S.biliUrl(col.bvid,ep0.page)};
             S.renderPlaylist(col);
           }
         }
@@ -248,7 +249,7 @@
     S.renderPlaylist=function(col){
       if(!playlistEl)return;
       playlistEl.innerHTML='';
-      var items=col.playlist;
+      var items=col.playlist||[];
       var allDone=0;
       items.forEach(function(ep){
         var row=document.createElement('div');row.className='pl-item';row.dataset.bvid=col.bvid;row.dataset.page=ep.page;
@@ -383,7 +384,7 @@
     });
     /* 学科掌握进度 */
     var tot=base.chapters.length;var done=base.chapters.filter(function(c,i){return EEProgress.isChapterDone(subjectKey,i+1)}).length;
-    var pct=Math.round(done/tot*100);
+    var pct=tot?Math.round(done/tot*100):0;
     var p=document.getElementById('subject-progress');
     if(p) p.innerHTML='<b>学科完成度</b>：已掌握 '+done+'/'+tot+' 章（'+pct+'%） · 每章看完视频后点"标记本章掌握"即可累计<progress value="'+pct+'" max="100" style="width:100%"></progress>';
     /* 标记章节掌握按钮 */
@@ -396,7 +397,7 @@
         btn.classList.toggle('done',!now);btn.textContent=(!now)?'✓ 本章已掌握':'标记本章掌握';
         /* 重算学科进度条 */
         var d=base.chapters.filter(function(c,i){return EEProgress.isChapterDone(subjectKey,i+1)}).length;
-        var pc=Math.round(d/tot*100);
+        var pc=tot?Math.round(d/tot*100):0;
         if(p) p.innerHTML='<b>学科完成度</b>：已掌握 '+d+'/'+tot+' 章（'+pc+'%） · 每章看完视频后点"标记本章掌握"即可累计<progress value="'+pc+'" max="100" style="width:100%"></progress>';
       };
     });
@@ -490,5 +491,6 @@
   });
   window.MainEE = S;
 })();
+
 
 
