@@ -1,4 +1,4 @@
-﻿/* ee-pro-exam v2 main.js
+/* ee-pro-exam v2 main.js
    依赖：data/basic-knowledge.js / data/videos.js / data/hot-points.js
          js/auth.js / js/progress.js
    功能：
@@ -144,6 +144,17 @@
     var iframe=document.getElementById('bili-player');
     var video=document.getElementById('mp4-player');
     var playlistEl=document.getElementById('playlist');
+    /* MP4 播放器事件：加载失败提示 + 播完提醒标记掌握 */
+    if(video){
+      video.addEventListener('error',function(){
+        var info=document.getElementById('active-series-intro');
+        if(info)info.innerHTML='<p style="color:#ef4444">⚠️ 视频加载失败，请检查网络连接或稍后重试。</p>';
+      });
+      video.addEventListener('ended',function(){
+        var mark=document.getElementById('mark-done-btn');
+        if(mark&&!mark.classList.contains('done')){mark.textContent='✓ 已看完？点此标记掌握 →';}
+      });
+    }
 
     function seriesIsSubject(s){return s==='zhanggong' || s==='jiangxiaobai'}
     function activateCollection(seriesKey,subjectKey,collIdx){
@@ -171,10 +182,10 @@
       /* 播放器：默认第一个精选episodes[0]，或者playlist[0] */
       var ep0=(colObj.episodes&&colObj.episodes[0])||colObj.playlist[0];
       if(colObj.isMP4){
-        if(iframe)iframe.style.display='none';
-        if(video){video.style.display='';video.src=ep0.mp4||'';}
+        if(iframe){iframe.style.display='none';iframe.src='';}
+        if(video){video.style.display='';video.src=ep0.mp4||'';video.load();}
       }else{
-        if(video)video.style.display='none';
+        if(video){try{video.pause()}catch(e){}video.style.display='none';}
         if(iframe){iframe.style.display='';iframe.src=S.biliUrl(colObj.bvid,ep0.page)};
       }
       S.renderPlaylist(colObj);
@@ -220,6 +231,7 @@
           if(infoEl)infoEl.innerHTML=info;
           if(col){
             var ep0=(col.episodes&&col.episodes[0])||col.playlist[0];
+            if(video){try{video.pause()}catch(e){}video.style.display='none';}
             if(iframe){iframe.style.display='';iframe.src=S.biliUrl(col.bvid,ep0.page)};
             S.renderPlaylist(col);
           }
@@ -242,10 +254,10 @@
           S.$$('.pl-item').forEach(function(x){x.classList.remove('active')});
           row.classList.add('active');
           if(col.isMP4){
-            if(iframe)iframe.style.display='none';
-            if(video){video.style.display='';video.src=ep.mp4||'';}
+            if(iframe){iframe.style.display='none';iframe.src='';}
+            if(video){video.style.display='';video.src=ep.mp4||'';video.load();}
           }else{
-            if(video)video.style.display='none';
+            if(video){try{video.pause()}catch(e){}video.style.display='none';}
             if(iframe){iframe.style.display='';iframe.src=S.biliUrl(col.bvid,ep.page)};
           }
           var mark=document.getElementById('mark-done-btn');
@@ -261,7 +273,7 @@
       var totalEpEl=document.getElementById('total-ep-count');
       if(totalEpEl) totalEpEl.textContent='playlist共 '+items.length+' 讲 · 已掌握 '+allDone+' · 完成度 '+pct+'%';
       var pb=document.getElementById('series-progress-bar');
-      if(pb){pb.querySelector('.bar-fill').style.width=pct+'%';pb.querySelector('.bar-fill').textContent=pct+'%'}
+      if(pb){var bf=pb.querySelector('.bar-fill');if(bf)bf.style.width=pct+'%'}
       if(items[0]){
         var mark=document.getElementById('mark-done-btn');
         if(mark){mark.dataset.series=S.seriesTab;mark.dataset.bvid=col.bvid;mark.dataset.page=items[0].page;
@@ -467,3 +479,4 @@
   });
   window.MainEE = S;
 })();
+
