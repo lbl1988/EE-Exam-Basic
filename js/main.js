@@ -216,7 +216,8 @@
     S.activateSeries=function(k){
       S.seriesTab=k;
       S.$$('#video-series-tabs .tab').forEach(function(b){b.classList.toggle('active',b.dataset.series===k)});
-      var s=series[k]; if(seriesNameEl)seriesNameEl.textContent=s.title;
+      var s=series[k]; if(!s){if(seriesNameEl)seriesNameEl.textContent='视频系列不存在';return}
+      if(seriesNameEl)seriesNameEl.textContent=s.title;
       if(subjectTabsEl){
         subjectTabsEl.innerHTML='';
         if(s.subjects){/* zhanggong / jiangxiaobai 有学科分Tab */
@@ -248,6 +249,9 @@
     };
     S.renderPlaylist=function(col){
       if(!playlistEl)return;
+      /* 记录当前激活项 page，刷新后恢复（标记掌握刷新时保持选中，不跳回第1项） */
+      var prevActive=S.$('.pl-item.active');
+      var prevPage=prevActive?prevActive.dataset.page:null;
       playlistEl.innerHTML='';
       var items=col.playlist||[];
       var allDone=0;
@@ -286,11 +290,14 @@
       if(totalEpEl) totalEpEl.textContent='playlist共 '+items.length+' 讲 · 已掌握 '+allDone+' · 完成度 '+pct+'%';
       var pb=document.getElementById('series-progress-bar');
       if(pb){var bf=pb.querySelector('.bar-fill');if(bf)bf.style.width=pct+'%'}
-      if(items[0]){
+      /* 恢复或初始化当前选中项：刷新时保持原选中，首次加载默认选第1项 */
+      var targetRow=prevPage?S.$('.pl-item[data-page="'+prevPage+'"]',playlistEl):null;
+      if(!targetRow&&items[0]&&playlistEl.firstChild)targetRow=playlistEl.firstChild;
+      if(targetRow){
+        targetRow.classList.add('active');
         var mark=document.getElementById('mark-done-btn');
-        if(mark){mark.dataset.series=S.seriesTab;mark.dataset.bvid=col.bvid;mark.dataset.page=items[0].page;
-          if(playlistEl.firstChild)playlistEl.firstChild.classList.add('active');
-          mark.classList.toggle('done',EEProgress.isVideoDone(S.seriesTab,col.bvid,items[0].page));
+        if(mark){mark.dataset.series=S.seriesTab;mark.dataset.bvid=col.bvid;mark.dataset.page=targetRow.dataset.page;
+          mark.classList.toggle('done',EEProgress.isVideoDone(S.seriesTab,col.bvid,+targetRow.dataset.page));
           mark.textContent=mark.classList.contains('done')?'✓ 已掌握（点取消）':'标记本讲掌握';
         }
       }
@@ -491,6 +498,3 @@
   });
   window.MainEE = S;
 })();
-
-
-
