@@ -21,9 +21,9 @@
     var k=KEY_PREFIX+'progress-video-'+P._dir()+':'+seriesKey+':'+bvid+':'+(page||1);
     return localStorage.getItem(k)==='1';
   };
-  P.countSeriesDone=function(seriesKey,episodes){
+  P.countSeriesDone=function(seriesKey,bvid,episodes){
     if(!Array.isArray(episodes))return 0;
-    var s=0;episodes.forEach(function(ep){if(P.isVideoDone(seriesKey,ep.bvid,ep.page))s++});
+    var s=0;episodes.forEach(function(ep){if(P.isVideoDone(seriesKey,bvid,ep.page))s++});
     return s;
   };
   /* 章节掌握标记 */
@@ -106,3 +106,4 @@
   window.EEProgress=P;
   document.addEventListener('DOMContentLoaded',function(){P.refresh()});
 })();
+
