@@ -205,6 +205,26 @@ h2{font-size:22px;margin-bottom:var(--space-2)}
 .footer .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:var(--space-5)}
 @media(max-width:680px){.footer .wrap{grid-template-columns:1fr}}
 
+
+/* ===================== 工具类（替代内联样式） ===================== */
+/* 链接重置：取消下划线 + 继承颜色（卡片链接） */
+.link-reset{text-decoration:none;color:inherit}
+/* 间距工具 */
+.mt-2{margin-top:var(--space-2)}          /* 8px */
+.mt-14{margin-top:14px}
+.mb-2{margin-bottom:var(--space-2)}      /* 8px */
+/* 文本颜色/尺寸 */
+.text-muted{color:var(--muted)}
+.text-muted.sm{font-size:13px}
+.text-muted.xs{font-size:12px}
+/* 操作栏（视频页标记掌握行） */
+.action-bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+/* 页脚标题 */
+.footer-title{font-weight:800;color:#fff;margin-bottom:var(--space-2)}
+/* 自适应网格（八大板块） */
+.grid-auto-200{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+/* 提示文字 */
+.hint{color:var(--muted);font-size:13px}
 /* ===================== 响应式 ===================== */
 @media(max-width:768px){
   .hero h1{font-size:22px}
