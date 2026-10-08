@@ -217,6 +217,7 @@ h2{font-size:22px;margin-bottom:var(--space-2)}
 .text-muted{color:var(--muted)}
 .text-muted.sm{font-size:13px}
 .text-muted.xs{font-size:12px}`n.text-white{color:#fff}
+.text-danger{color:var(--danger)}
 /* 操作栏（视频页标记掌握行） */
 .action-bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
 /* 页脚标题 */
