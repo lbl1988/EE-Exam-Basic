@@ -100,10 +100,11 @@
     });
     document.querySelectorAll('.pct-fill').forEach(function(el){
       var cur=parseInt(el.dataset.cur||'0',10),tot=parseInt(el.dataset.tot||'1',10);
-      var pct=Math.min(100,Math.round(cur/tot*100));el.style.width=pct+'%';el.textContent=pct+'%';
+      var pct=tot?Math.min(100,Math.round(cur/tot*100)):0;el.style.width=pct+'%';
     });
   };
   window.EEProgress=P;
   document.addEventListener('DOMContentLoaded',function(){P.refresh()});
 })();
+
 
