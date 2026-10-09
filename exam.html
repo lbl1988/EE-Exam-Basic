@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>在线题库 · 圣才题库站内直刷（EE-Exam）</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="exam">
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">EE-Exam · 电气基础考试 2026</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="basic.html">基础知识</a>
+      <a href="hot-points.html">高频考点</a>
+      <a href="videos.html">视频课程</a>
+      <a href="exam.html">题库</a>
+      <a href="guide.html">报考指南</a>
+      <a href="plan.html">备考规划</a>
+      <a href="my-notes.html">学习笔记</a>
+      <a href="share.html">学友分享</a>
+    </div>
+    <div class="user-area" id="user-area"></div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="dir-switch">
+      <span>报考方向：</span>
+      <button data-dir="powerDistribution" class="active">💡 供配电方向</button>
+      <button data-dir="powerTransmission">⚡ 发输变电方向</button>
+    </div>
+    <span class="eyebrow">EXAM CENTER · 圣才题库站内 iframe 直刷 · 不跳转外站</span>
+    <h1 class="fs-24">在线题库</h1>
+    <p class="lead">登录圣才题库后，复制浏览器地址栏完整链接粘到下方框内即可在站内直刷；链接仅存本机浏览器，不进代码、不泄露。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="card mb-14" id="stk-setup">
+      <h4 class="mb-2">🔗 绑定你的圣才题库链接</h4>
+      <p class="text-muted sm mb-2">打开圣才题库页面后，复制浏览器地址栏完整 URL（含 questionPlanID 和 token）粘到这里。链接只存在你的浏览器本地，不进网站代码、不上传。</p>
+      <input id="stk-url-input" type="text" style="width:100%;padding:10px 12px;background:#1a2845;color:#fff;border:1px solid #2a3c66;border-radius:6px;font-size:14px;box-sizing:border-box;margin-bottom:10px" placeholder="https://reading.sc.zzstep.com/tkReader/tk/TkReader.aspx?questionPlanID=...&token=...">
+      <div class="action-bar">
+        <button id="stk-save-btn" class="btn btn-primary mini-btn">保存并开始刷题</button>
+        <a href="https://reading.sc.zzstep.com/" target="_blank" class="mini-btn">先去圣才登录 →</a>
+      </div>
+    </div>
+
+    <div class="video-frame" id="stk-frame-wrap" style="display:none;min-height:600px">
+      <iframe id="stk-frame" src="" style="width:100%;height:75vh;min-height:560px;border:0;background:#fff" allowfullscreen allow="autoplay; fullscreen; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation allow-downloads"></iframe>
+    </div>
+    <div class="action-bar" id="stk-actions" style="display:none">
+      <button id="stk-reset-btn" class="btn btn-ghost mini-btn">更换链接 / 退出</button>
+      <span class="text-muted sm">token 过期或换题库时点此重新绑定</span>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>
+      <div class="footer-title">题库说明</div>
+      <p class="text-muted">题库内容来自圣才学习网，本站仅提供站内 iframe 嵌入入口，不复制、不存储任何题目内容。链接仅存于你本地浏览器，不与他人共享。若题库无法加载，多为 token 过期，请重新登录圣才并复制新链接。</p>
+    </div>
+    <div>
+      <p><b>快速导航</b></p>
+      <p><a href="index.html">首页</a> · <a href="basic.html">基础知识</a> · <a href="videos.html">视频课程</a> · <a href="plan.html">备考规划</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="data/basic-knowledge.js" charset="utf-8"></script>
+<script src="data/videos.js?v=7" charset="utf-8"></script>
+<script src="data/hot-points.js" charset="utf-8"></script>
+<script src="js/auth.js" charset="utf-8"></script>
+<script src="js/progress.js" charset="utf-8"></script>
+<script src="js/main.js?v=7" charset="utf-8"></script>
+<script src="js/nav-formulas.js" charset="utf-8"></script>
+<script src="js/nav-calc.js"></script>
+<script>
+(function(){
+  var KEY='ee-stk-url';
+  var input=document.getElementById('stk-url-input');
+  var setup=document.getElementById('stk-setup');
+  var frameWrap=document.getElementById('stk-frame-wrap');
+  var frame=document.getElementById('stk-frame');
+  var actions=document.getElementById('stk-actions');
+  function apply(url){
+    if(url && /questionPlanID=/.test(url)){
+      frame.src=url; frameWrap.style.display=''; actions.style.display=''; setup.style.display='none';
+    }else{
+      frame.src=''; frameWrap.style.display='none'; actions.style.display='none'; setup.style.display=''; input.value=url||'';
+    }
+  }
+  apply(localStorage.getItem(KEY)||'');
+  document.getElementById('stk-save-btn').onclick=function(){
+    var v=(input.value||'').trim();
+    if(!v){alert('请粘贴圣才题库完整链接');return}
+    if(!/questionPlanID=/.test(v)){alert('链接需含 questionPlanID 参数，请确认复制的是圣才题库页面地址');return}
+    localStorage.setItem(KEY,v); apply(v);
+  };
+  document.getElementById('stk-reset-btn').onclick=function(){
+    if(confirm('清空已保存的题库链接并重新绑定？')){localStorage.removeItem(KEY);apply('')}
+  };
+})();
+</script>
+</body>
+</html>
