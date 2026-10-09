@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>在线题库 · 圣才题库站内直刷（EE-Exam）</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+/* 题库 iframe 移动端适配：去掉固定最小高度，用 dvh 动态视口 */
+#stk-frame-wrap{min-height:auto;}
+#stk-frame{display:block;width:100%;height:70vh;min-height:420px;border:0;background:#fff;}
+#stk-fs-btn{margin-left:8px;}
+/* 伪全屏：fixed 铺满视口，规避部分移动端浏览器强制横屏 */
+.pseudo-fullscreen{position:fixed!important;top:0!important;left:0!important;
+  width:100vw!important;height:100dvh!important;min-height:0!important;z-index:99999!important;
+  background:#000;}
+.pseudo-fullscreen #stk-frame{height:100dvh!important;min-height:0!important;}
+:fullscreen #stk-frame{width:100vw!important;height:100vh!important;background:#000;}
+@media(max-width:640px){
+  #stk-frame{height:calc(100dvh - 240px);min-height:380px;}
+  #stk-setup .action-bar, #stk-actions .action-bar{flex-wrap:wrap;gap:8px;}
+}
+</style>
 </head>
 <body data-page="exam">
 <nav class="nav">
@@ -51,12 +67,13 @@
       </div>
     </div>
 
-    <div class="video-frame" id="stk-frame-wrap" style="display:none;min-height:600px">
-      <iframe id="stk-frame" src="" style="width:100%;height:75vh;min-height:560px;border:0;background:#fff" allowfullscreen allow="autoplay; fullscreen; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation allow-downloads"></iframe>
+    <div class="video-frame" id="stk-frame-wrap" style="display:none">
+      <iframe id="stk-frame" src="" allowfullscreen allow="autoplay; fullscreen; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation allow-downloads"></iframe>
     </div>
     <div class="action-bar" id="stk-actions" style="display:none">
+      <button id="stk-fs-btn" class="btn btn-ghost mini-btn">⛶ 全屏</button>
       <button id="stk-reset-btn" class="btn btn-ghost mini-btn">更换链接 / 退出</button>
-      <span class="text-muted sm">token 过期或换题库时点此重新绑定</span>
+      <span class="text-muted sm">token 过期或换题库时点"更换链接"重新绑定</span>
     </div>
 
   </div>
@@ -91,6 +108,7 @@
   var frameWrap=document.getElementById('stk-frame-wrap');
   var frame=document.getElementById('stk-frame');
   var actions=document.getElementById('stk-actions');
+  var fsBtn=document.getElementById('stk-fs-btn');
   function apply(url){
     if(url && /questionPlanID=/.test(url)){
       frame.src=url; frameWrap.style.display=''; actions.style.display=''; setup.style.display='none';
@@ -108,6 +126,37 @@
   document.getElementById('stk-reset-btn').onclick=function(){
     if(confirm('清空已保存的题库链接并重新绑定？')){localStorage.removeItem(KEY);apply('')}
   };
+  /* 全屏：原生 Fullscreen API 优先，失败回退伪全屏（规避移动端强制横屏） */
+  var isPseudo=false;
+  function setFsUI(on){fsBtn.textContent=on?'✕ 退出全屏':'⛶ 全屏'}
+  function syncFsUI(){
+    var on=document.fullscreenElement||document.webkitFullscreenElement||isPseudo;
+    setFsUI(!!on);
+  }
+  function enterFs(){
+    var el=frameWrap;
+    var req=el.requestFullscreen||el.webkitRequestFullscreen||el.webkitRequestFullScreen;
+    if(req){
+      try{
+        req.call(el);
+        /* 尝试锁定竖屏（可用则锁，不可用不报错） */
+        try{if(screen.orientation&&screen.orientation.lock)screen.orientation.lock('portrait').catch(function(){});}catch(e){}
+      }catch(e){enterPseudoFs();}
+    }else{enterPseudoFs();}
+  }
+  function enterPseudoFs(){
+    frameWrap.classList.add('pseudo-fullscreen');isPseudo=true;syncFsUI();
+  }
+  function exitFs(){
+    if(document.fullscreenElement){(document.exitFullscreen||document.webkitExitFullscreen||function(){}).call(document);}
+    else if(isPseudo){frameWrap.classList.remove('pseudo-fullscreen');isPseudo=false;syncFsUI();}
+  }
+  fsBtn.onclick=function(){
+    if(document.fullscreenElement||document.webkitFullscreenElement||isPseudo){exitFs()}else{enterFs();}
+  };
+  document.addEventListener('fullscreenchange',syncFsUI);
+  document.addEventListener('webkitfullscreenchange',syncFsUI);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(isPseudo){frameWrap.classList.remove('pseudo-fullscreen');isPseudo=false;syncFsUI();}}});
 })();
 </script>
 </body>
