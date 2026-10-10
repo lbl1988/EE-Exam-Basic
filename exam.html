@@ -13,8 +13,9 @@
 /* 伪全屏：fixed 铺满视口，规避部分移动端浏览器强制横屏 */
 .pseudo-fullscreen{position:fixed!important;top:0!important;left:0!important;
   width:100vw!important;height:100dvh!important;min-height:0!important;z-index:99999!important;
-  background:#000;}
-.pseudo-fullscreen #stk-frame{height:100dvh!important;min-height:0!important;}
+  background:#000;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;}
+.pseudo-fullscreen #stk-frame{height:100dvh!important;min-height:0!important;width:100%!important;}
+:fullscreen #stk-frame-wrap{padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:#000;}
 :fullscreen #stk-frame{width:100vw!important;height:100vh!important;background:#000;}
 @media(max-width:640px){
   #stk-frame{height:calc(100dvh - 240px);min-height:380px;}
